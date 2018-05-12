@@ -14,4 +14,35 @@
 	\huge{\textbf{MATH20212 Cheat Sheet}}\\
 \end{center}
 
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{1 Rings}}
+	\end{center}
+	A \textbf{ring} is a set $R$ and two binary operations, written $+ \, \text{and} \, \times$, on R which satisfies the following conditions:\\
+	(R1) $\langle R, + \rangle$ is an abelian group with identity 0\\
+	(R2) $\times$ is associative\\
+	(R3) $\times$ is distributive over $+$\\
+	(R4) there exists an element $1 \in R$, different from 0, that is an identity for $\times$\\
+	
+	\noindent
+	Let $R$ be a ring and $S \subseteq R$. Then $S$ is a \textbf{subring} of R if it is a ring in its own right with respect to the same addition and multiplication as in $R$ and $S$ contains $1_R$.\\
+	
+	\noindent
+	\textbf{Subring Test}: Let $R$ be a ring and $S \subseteq R$, then $S$ is a subring of $R$, iff:\\
+	$(i) \, 1 \in S$\\
+	$(ii) \, r + s, r \times s \in S$, for all $r, s \in S$\\
+	$(iii) \, -r \in S$ for all $r \in S$\\
+	
+	\noindent
+	Let R be a ring. The \textbf{ring of polynomials} $R[X]$ in the indeterminate $X$ is defined as follows:\\
+	\textbf{Elements}: formal linear combinations of the form $\sum_{i \geq 0}a_iX^i$ with $a_i \in R$ for $i = 0, 1, \dots$\\
+	\textbf{Equality}: $\sum_{i \geq 0}a_iX^i = \sum_{i \geq 0}b_iX^i \iff a_i = b_i$ for all $i \geq 0$\\
+	\textbf{Addition}: $\sum_{i \geq 0}a_iX^i + \sum_{i \geq 0}b_iX^i = \sum_{i \geq 0}(a_i + b_i)X^i$\\
+	\textbf{Multiplication}: $(\sum_{i \geq 0}a_iX^i)(\sum_{i \geq 0}b_iX^i) = \sum_{k \geq 0}(\sum_{i + j = k}a_ib_j)X^k$\\
+	\textbf{Zero element} is $\sum_{i \geq 0}0X^i = 0$ and the \textbf{one} is $1X^0 + \sum_{i \geq 1}0X^i = 1$\\
+	
+	\noindent
+	For a polynomial $f = \sum_{i \geq 0}a_iX^i$, we define the \textbf{degree} of $f$, denoted $deg(f)$, to be the largest $i$ such that $a_i \neq 0$ and we let $deg(f) = -\infty$ if $f = 0$.
+\end{framed}
+
 \end{document}

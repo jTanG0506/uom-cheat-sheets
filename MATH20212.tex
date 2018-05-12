@@ -133,5 +133,30 @@
 	A proper ideal $I$ of a commutative ring $R$ is \textbf{prime} if whenever $r, s \in R$ and $rs \in I$ then either $r \in I$ or $s \in I$.
 \end{framed}
 
+\newpage
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{5 Polynomial Rings and Factorisation}}
+	\end{center}
+	\textbf{Division Theorem for Polynomials} Let $K$ be a field and take $f, g \in K[X]$ with $g \neq 0$, then there are (unique) $q, r \in K[X]$ with $f = qg + r$ and $deg(r) < deg(g)$ or $r = 0$. We say $q$ is the \textbf{quotient} and $r$ is the \textbf{remainder} when $f$ is divided by $g$.\\
+	
+	\noindent
+	An element $a \in K$ is a \textbf{root} (or \textbf{zero}) of $f \in K[X]$ if $f(a) = 0$.\\
+	
+	\noindent
+	The \textbf{greatest common divisor} (or \textbf{highest common factor}) of polynomials $f, g$ is a polynomial $d$ such that $d$ divides $f$ and $g$ and, if $h$ is any polynomial dividing both $f$ and $g$, then $h$ divides $d$. Write $d = gcd(f, g)$. This polynomial is defined only up to a non-zero scalar multiple so, if we want a unique gcd then we can insist that $d$ has to be \textbf{monic} (ie. coefficient of highest power of $X$ is equal to 1).\\
+	
+	\noindent
+	An element $r \in R$ is \textbf{irreducible} if $r$ is not invertible and if, whenever $r = st$ either $s$ or $t$ is invertible.\\
+	
+	\noindent
+	Elements $r, s \in R$ are \textbf{associated} if $s = ur$ for some invertible element $u \in R$.\\
+	
+	\noindent
+	A commutative domain $R$ is said to be a \textbf{Unique Factorisation Domain (UFD)}, if every non-zero, non-invertible element of $R$ has a unique factorisation as a product of irreducible elements. \textit{Uniqueness} here means up to rearrangement of factors and associated factors.\\
+	
+	\noindent
+	A \textbf{Principal Ideal Domain (PID)} is a commutative domain in which every ideal is principal.
+\end{framed}
 
 \end{document}

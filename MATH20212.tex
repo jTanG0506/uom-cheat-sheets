@@ -159,4 +159,15 @@
 	A \textbf{Principal Ideal Domain (PID)} is a commutative domain in which every ideal is principal.
 \end{framed}
 
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{6 Constructing Roots for Polynomials}}
+	\end{center}
+	\textbf{Kronecker's Theorem} Let $K$ be a field and let $f \in K[X]$ be irreducible of degree $n$. Define $L = K[X] / \langle f \rangle$, then:
+	$(i)$ $L$ is a field and the canonical homomorphism $\pi : K[X] \rightarrow K[X] / \langle f \rangle$ induces an embedding $\theta: K \rightarrow L$\\
+	$(ii)$ $\alpha = \pi(X) \in L$ is a root of $f$\\
+	$(iii)$ the dimension of $L$ as a vector space over $K$ is $n$, with $\{1, \alpha, \alpha^2, \dots, \alpha^{n-1}\}$ being a basis of $L$ over $K$, so every element of $L$ has a unique representation of the form $a_{n-1}\alpha^{n-1} + \cdots + a_1\alpha + a_0$ with $a_{n-1}, \dots, a_1, a_0 \in K$\\
+	(note that we have identified $K$ with its image $\theta(K)$ in $L$.)
+\end{framed}
+
 \end{document}

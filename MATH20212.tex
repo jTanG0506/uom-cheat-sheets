@@ -45,4 +45,23 @@
 	For a polynomial $f = \sum_{i \geq 0}a_iX^i$, we define the \textbf{degree} of $f$, denoted $deg(f)$, to be the largest $i$ such that $a_i \neq 0$ and we let $deg(f) = -\infty$ if $f = 0$.
 \end{framed}
 
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{2 Integral Domains and Fields}}
+	\end{center}
+	The \textbf{characteristic}, $char(R)$, of a ring $R$ is the least positive integer $n$ such that $n \cdot 1 = 0$. If there is no such $n$, then the characteristic of $R$ is defined to be 0.\\
+	
+	\noindent
+	A non-zero element $r \in R$ is a \textbf{zero-divisor} if there is a non-zero element $s \in R$ with $rs = 0$ or $sr = 0$.\\
+	
+	\noindent
+	The ring $R$ is a \textbf{domain} if, for all $r, s \in R$, $rs = 0 \implies r = 0$ or $s = 0$, so a domain is a ring with \textbf{no} zero-divisors. A commutative domain is called an \textbf{integral domain}.\\
+	
+	\noindent
+	A \textbf{division ring} is a ring in which every non-zero element has a right inverse and a left inverse. In this case, these inverses are the same. We write $r^{-1}$ for this \textbf{inverse} of $r$ and say that $r$ is \textbf{invertible} or that $r$ is a \textbf{unit}. A \textbf{field} is a commutative division ring.\\
+	
+	\noindent
+	An element $r$ of a ring $R$ is \textbf{nilpotent} if there is some integer $n \geq 1$ with $r^n = 0$ and the least such $n$ is the \textbf{index of nilpotence} of r. An element $r \in R$ is \textbf{idempotent} if $r^2 = r$ - and 0 and 1 are idempotent in any ring.
+\end{framed}
+
 \end{document}

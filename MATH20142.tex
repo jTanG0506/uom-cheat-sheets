@@ -11,6 +11,7 @@
 \newcommand*\abs[1]{\vert #1 \vert}
 \newcommand*\setremove[2]{#1 \, \backslash \, #2}
 \newcommand*\linesep[0]{\noindent\rule{\textwidth}{0.5pt}\\}
+\newcommand*\partialfrac[2]{\frac{\partial #1}{\partial #2}}
 
 \begin{document}
 
@@ -79,10 +80,10 @@
 	\linesep
 	
 	\noindent
-	\textbf{proposition 2.1} a set $S \subset \mathbb{C}$ is closed $\iff$ its complement $\setremove{\mathbb{C}}{S}$ is open\\
+	\textbf{proposition} a set $S \subset \mathbb{C}$ is closed $\iff$ its complement $\setremove{\mathbb{C}}{S}$ is open\\
 	
 	\noindent
-	\textbf{proposition 2.2} if $\lim_{z \rightarrow z_0} f(z) = l$ and $\lim_{z \rightarrow z_0} g(z) = k$, then
+	\textbf{proposition} if $\lim_{z \rightarrow z_0} f(z) = l$ and $\lim_{z \rightarrow z_0} g(z) = k$, then
 	\begin{enumerate}
 		\item $\lim_{z \rightarrow z_0} (f(z) \pm g(z)) = l \pm k$
 		\item $\lim_{z \rightarrow z_0} (f(z)g(z)) = lk$
@@ -90,7 +91,40 @@
 	\end{enumerate}
 	
 	\noindent
-	\textbf{proposition 2.3} $\lim_{z \rightarrow z_0} f(z) = l = \alpha + i\beta \, (\alpha, \beta \in \mathbb{R}) \iff u(x, y) \rightarrow \alpha, v(x, y) \rightarrow \beta$, as $(x, y) \rightarrow (\text{Re}z, \text{Im}z)$
+	\textbf{proposition} $\lim_{z \rightarrow z_0} f(z) = l = \alpha + i\beta \, (\alpha, \beta \in \mathbb{R}) \iff u(x, y) \rightarrow \alpha, v(x, y) \rightarrow \beta$, as $(x, y) \rightarrow (\text{Re}z, \text{Im}z)$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{3 Differentiation and Cauchy-Riemann Equations}}
+	\end{center}
+	\textbf{differentiable at a point}: let $S \subset \mathbb{C}$ be a open set. we say that $f: S \rightarrow \mathbb{C}$ is differentiable at a point $z_0 \in S$ with derivative $f'(z_0)$ if
+	$$\lim_{z \rightarrow z_0}\frac{f(z) - f(z_0)}{z - z_0} = f'(z_0)$$
+
+	\noindent
+	\textbf{differentiable function}: if $f$ is differentiable at every point of $S$, we say $f$ is a differentiable function in S
+	
+	\noindent
+	\textbf{partial derivatives}: for $z = x + iy$, write $f(z) = u(x, y) + iv(x, y)$, where $u, v$ are real-valued
+	
+	\begin{align*}
+  		u_x = \partialfrac{u}{x} &= \lim_{h \rightarrow 0}\frac{u(x + h, y) - u(x, y)}{h} & v_x = \partialfrac{v}{x} &= \lim_{h \rightarrow 0}\frac{v(x + h, y) - v(x, y)}{h}\\
+     	u_ y = \partialfrac{u}{y} &= \lim_{k \rightarrow 0}\frac{u(x, y + k) - u(x, y)}{k} & v_y = \partialfrac{v}{y} &= \lim_{k \rightarrow 0}\frac{v(x, y + k) - v(x, y)}{k}
+	\end{align*}
+	
+	\linesep
+	
+	\noindent
+	\textbf{proposition} if $f$ is differentiable at $z_0$ then $f$ is continuous at $z_0$\\
+	
+	\noindent
+	\textbf{proposition} if $f$ is differentiable at $z = x + iy$ then $u_x, u_y, v_x, v_y$ all exist and $u_x = v_y, v_x = -u_y$ (CRE)\\
+	
+	\noindent
+	\textbf{theorem} if $f(z) = u(x, y) + iv(x, y)$ is a complex function on an open set $S$ and at $z_0 = x_0 + iy_0 \in S$, the partial derivatives $u_x, v_x, u_y, v_y$ all exist, are continuous and satisfy the CRE then $f$ is differentiable at $z_0$\\
+	
+	\noindent
+	\textbf{theorem} if $f$ is differentiable in a domain $D$ and $f'(z) = 0$ for all $z \in D$, then $f$ is constant in $D$
 \end{framed}
 
 

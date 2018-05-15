@@ -1,0 +1,47 @@
+\documentclass[a4paper]{article}
+
+\usepackage[a4paper, margin=0.55in]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{centernot}
+\usepackage{framed}
+\usepackage{multicol}
+
+\newcommand*\conj[1]{\overline{#1}}
+\newcommand*\abs[1]{\vert #1 \vert}
+
+\begin{document}
+
+\pagenumbering{gobble}
+
+\begin{center}
+	\huge{\textbf{MATH20142 Cheat Sheet}}\\
+\end{center}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{1 Construction and Basic Properties of Complex Numbers}}
+	\end{center}
+	
+	\noindent
+	An expression $a + ib (a, b \in \mathbb{R})$ is called a \textbf{complex number}. We denote the set of complex numbers by $\mathbb{C}$. For $z = x + iy$, we use $x = \text{Re}z$ and $y = \text{Im}z$ and say that $z$ is real if $\text{Im}z = 0$ and that $z$ is imaginary if $\text{Re}z = 0$.
+	
+	\begin{multicols}{3}
+		\begin{itemize}
+			\item $\text{Re}(z \pm w) = \text{Re}z \pm \text{Re}w$
+			\item $\text{Im}(z \pm w) = \text{Im}z \pm \text{Re}w$
+			\item $\conj{(z \pm w)} = \conj{z} \pm \conj{w}$
+			\item $\conj{zw} = \conj{z} \, \conj{w}$
+			\item $\conj{(z/w)} = \conj{z}/\conj{w}$ if $w \neq 0$
+			\item $z + \conj{z} = 2\text{Re}z$
+			\item $z - \conj{z} = 2\text{Im}z$
+			\item $ \abs{z} = 0 \iff z = 0$
+			\item $ \abs{zw} = \abs{z} \abs{w}$
+			\item $ \abs{z / w} = \abs{z} / \abs{w}$ if $w \neq 0$
+			\item $\abs{z + w} \leq \abs{z} + \abs{w}$
+			\item $\abs{z - w} \geq \abs{\abs{z} - \abs{w}}$
+		\end{itemize}
+	\end{multicols}
+\end{framed}
+
+\end{document}

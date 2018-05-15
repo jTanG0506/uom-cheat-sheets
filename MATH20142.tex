@@ -127,5 +127,65 @@
 	\textbf{theorem} if $f$ is differentiable in a domain $D$ and $f'(z) = 0$ for all $z \in D$, then $f$ is constant in $D$
 \end{framed}
 
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{4 Power Series}}
+	\end{center}
+	\textbf{convergence}: we say a sequence $s_n \in \mathbb{C}$ converges to $s \in \mathbb{C}$ if, $\forall \varepsilon > 0, \exists N \in \mathbb{N}$ such that $\abs{s_n - s} < \varepsilon, \forall n \geq N$. the series $\sum_{k=0}^\infty z_k$ converges if the sequence of partial sums $s_n = \sum_{k=0}^n z_k$ converges and the limit of the sequence is called the sum of the series\\
+	
+	\noindent
+	\textbf{divergent series}: a series which does not converge is said to be divergent\\
+	
+	\noindent
+	\textbf{absolute convergence}: we say that $\sum_{k=0}^\infty z_k$ is absolutely convergent if the real series $\sum_{k=0}^\infty \abs{z_k}$ is convergent\\
+	
+	\noindent
+	\textbf{ratio test}: consider $\sum_{k=0}^\infty z_k$ and suppose that $\lim_{n \rightarrow \infty}\abs{z_{n+1}} / \abs{z_n} = l$. if $l < 1$ then $\sum_{k=0}^\infty z_k$ is absolutely convergent and if $l > 1$ then $\sum_{k=0}^\infty z_k$ diverges\\
+	
+	\noindent
+	\textbf{root test}: consider $\sum_{k=0}^\infty z_k$ and suppose that $\lim_{n \rightarrow \infty}\abs{z}^{1/n} = l$. if $l < 1$ then $\sum_{k=0}^\infty z_k$ is absolutely convergent and if $l > 1$ then $\sum_{k=0}^\infty z_k$ diverges\\
+	
+	\noindent
+	\textbf{general principle of convergence}: if a series $\sum_{n=1}^\infty s_n$ with $s_n \in \mathbb{C}$ converges, then $s_n \rightarrow 0$ as $n \rightarrow \infty$\\
+	
+	\noindent
+	\textbf{power series about} $z_0$: $\sum_{n=0}^\infty a_nz^n$\\
+	
+	\noindent
+	\textbf{radius of convergence}: $R = \text{sup}\{r : \exists z \; \text{such that} \; \abs{z} = r \; \text{and} \; \sum_{n=0}^\infty a_nz^n \; \text{converges} \; \}$\\
+	
+	\noindent
+	\textbf{disc of convergence}: $\{ z \in \mathbb{C} : \abs{z} < R\}$, where $R$ is the radius of convergence\\
+	
+	\noindent
+	\textbf{computation of radius of convergence}: $R = \lim_{n \rightarrow \infty} \abs{a_{n-1} / a_n}$, provided the limit exists\\
+	
+	
+	
+	\linesep
+	
+	\noindent
+	\textbf{lemma} if a power series $\sum_{n=0}^\infty a_nz^n$ converges for $z = z_1 \neq 0$, then it converges absolutely for all $z$ with $\abs{z} < \abs{z_1}$\\
+	
+	\noindent
+	\textbf{lemma} if $\sum_{n=0}^\infty a_nz^n$ diverges for $z = z_2$, then is diverges for all $z$ with $\abs{z} > \abs{z_2}$\\
+	
+	\noindent
+	\textbf{theorem} the radius of convergence $R$ of $\sum_{n=0}^\infty a_nz^n$ is given by $1/R = \lim_{n \rightarrow \infty} \abs{a_n}^{1/n}$\\
+	
+	\noindent
+	\textbf{lemma} if $f(z) = \sum_{n=0}^\infty a_nz^n$ converges absolutely for $\abs{z} < R$ then $g(z) = \sum_{n=0}^\infty na_nz^{n-1}$ converges for $\abs{z} < R$\\
+	
+	\noindent
+	\textbf{theorem} a power series $f(z) = \sum_{n=0}^\infty a_nz^n$ may be differentiated term by term within its disc of convergence so that $f'(z) = \sum_{n=0}^\infty na_nz^{n-1}$\\
+	
+	\noindent
+	\textbf{corollary} all higher derivatives $f', f'', f''', \dots, f^{(n)}, \dots$ of a power series $f(z) = \sum_{n=0}^\infty a_nz^n$ exist for $z$ within the disc of convergence and $f^{(k)}(z) = \sum_{n=k}^\infty n(n - 1)\cdots(n - k + 1)a_nz^{n - k} = \sum_{n=k}^\infty n!/(n - k)! \cdot a_nz^{n - k}$\\
+	
+	\noindent
+	\textbf{corollary} if $f(z) = \sum_{n=k}^\infty a_n(z - z_0)^n$ has disc of convergence $\abs{z - z_0} < R$ then $a_k = f^{(k)}(z_0)/k!$ and we can express $f$ as a \textbf{Taylor series} $f(z) = \sum_{n=k}^\infty f^{(n)}(z_0)/n! \cdot (z - z_0)^n$, valid for $\abs{z - z_0} < R$
+\end{framed}
+
+
 
 \end{document}

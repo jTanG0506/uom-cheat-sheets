@@ -9,6 +9,8 @@
 
 \newcommand*\conj[1]{\overline{#1}}
 \newcommand*\abs[1]{\vert #1 \vert}
+\newcommand*\setremove[2]{#1 \, \backslash \, #2}
+\newcommand*\linesep[0]{\noindent\rule{\textwidth}{0.5pt}\\}
 
 \begin{document}
 
@@ -43,5 +45,53 @@
 		\end{itemize}
 	\end{multicols}
 \end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{2 Topology in $\mathbb{C}$}}
+	\end{center}
+	$\varepsilon$\textbf{-neighbourhood of} $z_0$: $N_\varepsilon(z_0) = \{z \in \mathbb{C} : \abs{z - z_0} < \varepsilon \}$ (disc centred at $z_0$ containing points with distance $< \varepsilon$)\\
+	
+	\noindent
+	\textbf{limit point}: $z_0 \in \mathbb{C}$ is a limit point of a set $S \subset \mathbb{C}$ if, for every $\varepsilon > 0, N_\varepsilon(z_0)$ contains a point in $\setremove{S}{\{z_0\}}$\\
+	
+	\noindent
+	\textbf{interior point}: let $S \subset C, z_0$ a limit point of $S$, then $z_0$ is an interior point of S if $\exists \, \varepsilon > 0, N_\varepsilon (z_0) \subset S$\\
+	
+	\noindent
+	\textbf{boundary point}: let $S \subset C, z_0$ a limit point of $S$, then $z_0$ is an boundary point of S if it is not a interior point\\
+	
+	\noindent
+	\textbf{open}: a set $S \subset \mathbb{C}$ is called open if it consists only of interior points\\
+	
+	\noindent
+	\textbf{domain}: let $S \subset \mathbb{C}, S \neq \emptyset$, then S is called a domain if S is open and every pair of points can be connected by a polygonal arc lying entirely in S\\
+	
+	\noindent
+	\textbf{function}: let $S \subset C, S \neq \emptyset$, a function $f: \subset \rightarrow \mathbb{C}$ is a rule which assigns to each $z \in S$, an image $f(z) \in \mathbb{C}$\\
+	
+	\noindent
+	\textbf{$\lim_{z \rightarrow z_0} f(z)$}: let $f: S \rightarrow \mathbb{C}$ be a function. if $z_0$ is a limit point of $S$ then we say $\lim_{z \rightarrow z_0} f(z) = l$ if, $\forall \varepsilon > 0, \exists \delta > 0, s \in S$ and $0 < \abs{z - z_0} < \delta \implies \abs{f(z) - l} < \varepsilon$\\
+	
+	\noindent
+	\textbf{continuity}: $f(z)$ is continuous at $z_0$ if $\lim_{z \rightarrow z_0} f(z) = f(z_0)$\\
+	
+	\linesep
+	
+	\noindent
+	\textbf{proposition 2.1} a set $S \subset \mathbb{C}$ is closed $\iff$ its complement $\setremove{\mathbb{C}}{S}$ is open\\
+	
+	\noindent
+	\textbf{proposition 2.2} if $\lim_{z \rightarrow z_0} f(z) = l$ and $\lim_{z \rightarrow z_0} g(z) = k$, then
+	\begin{enumerate}
+		\item $\lim_{z \rightarrow z_0} (f(z) \pm g(z)) = l \pm k$
+		\item $\lim_{z \rightarrow z_0} (f(z)g(z)) = lk$
+		\item $\lim_{z \rightarrow z_0} (f(z)/g(z)) = l/k$ (for $k \neq 0$)
+	\end{enumerate}
+	
+	\noindent
+	\textbf{proposition 2.3} $\lim_{z \rightarrow z_0} f(z) = l = \alpha + i\beta \, (\alpha, \beta \in \mathbb{R}) \iff u(x, y) \rightarrow \alpha, v(x, y) \rightarrow \beta$, as $(x, y) \rightarrow (\text{Re}z, \text{Im}z)$
+\end{framed}
+
 
 \end{document}

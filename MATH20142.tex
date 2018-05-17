@@ -12,6 +12,7 @@
 \newcommand*\setremove[2]{#1 \, \backslash \, #2}
 \newcommand*\linesep[0]{\noindent\rule{\textwidth}{0.5pt}\\}
 \newcommand*\partialfrac[2]{\frac{\partial #1}{\partial #2}}
+\newcommand*\e[1]{\text{exp} \, #1}
 
 \begin{document}
 
@@ -183,9 +184,59 @@
 	\textbf{corollary} all higher derivatives $f', f'', f''', \dots, f^{(n)}, \dots$ of a power series $f(z) = \sum_{n=0}^\infty a_nz^n$ exist for $z$ within the disc of convergence and $f^{(k)}(z) = \sum_{n=k}^\infty n(n - 1)\cdots(n - k + 1)a_nz^{n - k} = \sum_{n=k}^\infty n!/(n - k)! \cdot a_nz^{n - k}$\\
 	
 	\noindent
-	\textbf{corollary} if $f(z) = \sum_{n=k}^\infty a_n(z - z_0)^n$ has disc of convergence $\abs{z - z_0} < R$ then $a_k = f^{(k)}(z_0)/k!$ and we can express $f$ as a \textbf{Taylor series} $f(z) = \sum_{n=k}^\infty f^{(n)}(z_0)/n! \cdot (z - z_0)^n$, valid for $\abs{z - z_0} < R$
+	\textbf{corollary} if $f(z) = \sum_{n=0}^\infty a_n(z - z_0)^n$ has disc of convergence $\abs{z - z_0} < R$ then $a_k = f^{(k)}(z_0)/k!$ and we can express $f$ as a \textbf{Taylor series} $f(z) = \sum_{n=0}^\infty f^{(n)}(z_0)/n! \cdot (z - z_0)^n$, valid for $\abs{z - z_0} < R$
 \end{framed}
 
-
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{5 The Exponential Function and Its Friends}}
+	\end{center}
+	\textbf{the exponential function}: define $\e{z} = \sum_{n=0}^\infty z^n / n!$, which converges absolutely for all $z \in \mathbb{C}$. we can check that $\e{(z_1 + z_2)} = \e{z_1}\e{z_2}$ and by induction, $\e{nz} = (\e{z})^n$, for all $n \in \mathbb{Z}^+$\\
+	
+	\noindent
+	\textbf{the number $e$}: define $e = \e{1} = 2.7182818 \dots$ and we can also use the notation $\e{z} = e^z$, for all $z \in \mathbb{C}$\\
+	
+	\noindent
+	\textbf{trigonometric functions}: define $\cos z = \sum_{n=0}^\infty (-1)^n z^{2n} / (2n)!$ and $\sin z = \sum_{n=0}^\infty (-1)^n z^{2n + 1} / (2n + 1)!$\\
+	
+	\noindent
+	\textbf{hyperbolic functions}: define $\cosh z = \frac{1}{2}(e^z + e^{-z})$ and $\sinh z = \frac{1}{2}(e^z - e^{-z})$ so $\sin iz = i\sinh z$ and $\cos iz = \cosh z$\\
+	
+	\noindent
+	\textbf{period}: for a function $f: \mathbb{C} \rightarrow \mathbb{C}$, a nonzero number $k \in \mathbb{C}$ is called a period if $f(z + k) = f(z)$, for all $z \in \mathbb{C}$\\
+	
+	\noindent
+	\textbf{logarithmic function}: $\log z = u + iv = log \abs{z} + i \arg z$ and $\text{Log} z = \log z + i \arg z$ ($-\pi < \arg z \leq \pi$)\\
+	
+	\noindent
+	\textbf{cut plane}: the complex plane with the negative real axis, including zero, removed is called the cut plane and denoted $\mathbb{C}_\pi$
+	
+	\linesep
+	
+	\noindent
+	\textbf{eulers theorem}: $e^{iz} = \cos z + i \sin z$\\
+	
+	\noindent
+	\textbf{corollary}
+		\begin{multicols}{3}
+		\begin{itemize}
+			\item $\cos z = \frac{1}{2}(e^{iz} + e^{-iz})$
+			\item $\sin z = \frac{1}{2i}(e^{iz} - e^{-iz})$
+			\item $\cos^2 z + \sin^2 z = 1$
+		\end{itemize}
+	\end{multicols}
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $\sin(z + w) = \sin z \cos w + \cos z \sin w$
+			\item $\cos(z + w) = \cos z \cos w - \sin z \sin w$
+		\end{itemize}
+	\end{multicols}
+	
+	\noindent
+	\textbf{lemma}: the functions $arg(z)$ and $Log(z)$ are continuous on the cut plane\\
+	
+	\noindent
+	\textbf{theorem}: let $z \neq 0$ be a complex and let $n$ be a positive integer, then $$z^{\frac{1}{n}} = \{ \abs{z}^{\frac{1}{n}} e^{i (\frac{Argz + 2k\pi}{n})} \; \vert \; k = 0, 1, \dots, n - 1 \}$$
+\end{framed}
 
 \end{document}

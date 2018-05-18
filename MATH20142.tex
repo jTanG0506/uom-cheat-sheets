@@ -159,9 +159,7 @@
 	\textbf{disc of convergence}: $\{ z \in \mathbb{C} : \abs{z} < R\}$, where $R$ is the radius of convergence\\
 	
 	\noindent
-	\textbf{computation of radius of convergence}: $R = \lim_{n \rightarrow \infty} \abs{a_{n-1} / a_n}$, provided the limit exists\\
-	
-	
+	\textbf{computation of radius of convergence}: $R = \lim_{n \rightarrow \infty} \abs{a_{n-1} / a_n}$, provided the limit exists\\	
 	
 	\linesep
 	
@@ -237,6 +235,95 @@
 	
 	\noindent
 	\textbf{theorem}: let $z \neq 0$ be a complex and let $n$ be a positive integer, then $$z^{\frac{1}{n}} = \{ \abs{z}^{\frac{1}{n}} e^{i (\frac{Argz + 2k\pi}{n})} \; \vert \; k = 0, 1, \dots, n - 1 \}$$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{6 Integration}}
+	\end{center}
+	\textbf{path}: a path is a function $\gamma: [a, b] \rightarrow \mathbb{C}$, where $[a, b]$ is a real interval\\
+	
+	\noindent
+	\textbf{closed path}: $\gamma$ is a closed path if $\gamma(a) = \gamma(b)$ (it starts and ends at the same point)\\
+	
+	\noindent
+	\textbf{smooth path}: a path $\gamma$ is smooth if $\gamma: [a, b] \rightarrow \mathbb{C}$ is differentiable and $\gamma'$ is continuous (one-sided derivatives at $a$ and $b$)\\
+	
+	\noindent
+	\textbf{length of a path}: $L(\gamma) = \int_a^b \abs{\gamma'(t)} \; dt$\\
+	
+	\noindent
+	\textbf{contour}: a contour is a collection of smooth paths $\gamma_1, \dots, \gamma_n$ where the end point of $\gamma_r$ coincides with the start point of $\gamma_{r+1}$ for $r = 1, \dots, n - 1$. if the end point of $\gamma_n$ coincides with the start point of $\gamma_1$, then $\gamma$ is a closed contour.\\
+	
+	\noindent
+	\textbf{length of contour}: $\gamma = \gamma_1 + \dots + \gamma_n$ is $L(\gamma) = L(\gamma_1) + \dots + L(\gamma_n)$\\
+	
+	\noindent
+	\textbf{opposite path}: if $\gamma: [a, b] \rightarrow \mathbb{C}$ is path then $-\gamma: [b, a] \rightarrow \mathbb{C}$ defined by $-\gamma(t) = \gamma(a + b - t)$ is called the opposite path\\
+	
+	\noindent
+	\textbf{the integral of $f$ along $\gamma$}: $\int_\gamma f(z) \; dz = \int_a^b f(\gamma(t))\gamma'(t) \; dt = \int_a^b U(t) \; dt + i \int_a^b V(t) \; dt$ where $U, V: [a, b] \rightarrow \mathbb{R}$\\
+	
+	\noindent
+	\textbf{winding number of $\gamma$ around $z_0$}: $w(\gamma, z_0)$, the number of times $\gamma$ winds around $z_0$, with anticlockwise as $+ve$\\
+	
+	\noindent
+	\textbf{simply connected}: a domain $D$ is simply connected if $w(\gamma, z) = 0$ for every closed contour $\gamma$ in $D$ and $z \notin D$\\
+	
+	\noindent
+	\textbf{analytic}: a function $f: D \rightarrow \mathbb{C}$ is called analytic if it can be expanded into a Taylor series around any point in $D$\\
+	
+	\noindent
+	\textbf{bounded}: we say that a function $f: D \rightarrow \mathbb{C}$ is bounded if there exists $M \geq 0$ such that $\abs{f(z)} \leq M$ for all $z \in \mathbb{C}$
+	
+	\linesep
+	
+	\noindent
+	\textbf{properties of contour integration}
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $\int_{\gamma_1 + \gamma_2} f = \int_{\gamma_1} f + \int_{\gamma_2} f$
+			\item $\int_\gamma (f_1 + f_2) = \int_\gamma f_1 + \int_\gamma f_2$
+			\item $\int_\gamma cf = c \int_\gamma f$
+			\item $\int_{-\gamma} f = - \int_\gamma f$
+		\end{itemize}
+	\end{multicols}
+	
+	\noindent
+	\textbf{fundamental theorem of contour integration}: if $f: D \rightarrow \mathbb{C}$ is continuous, $F: D \rightarrow \mathbb{C}$ satisfies $F' = f$ and $\gamma$ is a contour in $D$ from $z_0$ to $z_1$, then $\int_\gamma f = F(z_1) - F(z_0)$\\
+	
+	\noindent
+	\textbf{cauchys theorem}: let $f$ be differentiable in a domain $D$ and $\gamma$ a closed contour in $D$ which does not wind around any point outside $D$, then $\int_\gamma f = 0$\\
+	
+	\noindent
+	\textbf{generalised cauchys theorem}: suppose that $\gamma_1, \dots, \gamma_n$ are closed contour in a domain such that $w(\gamma_1, z) + \dots + w(\gamma_n, z) = 0, \forall z \notin D$. if $f$ is differentiable in $D$ then $\int_{\gamma_1} f + \cdots + \int_{\gamma_n} f = 0$\\
+	
+	\noindent
+	\textbf{corollary}: let $f$ be differentiable in a simply connected domain $D$ and let $\gamma$ a closed contour in $D$, then $\int_\gamma f = 0$\\
+	
+	\noindent
+	\textbf{cauchys integral formula for a circle}: let $f$ be differentiable in the disc $\{ z \in \mathbb{C} : \abs{z - z_0} < R \}$. for $0 < r < R$, let $C_r$ be the path $C_r(t) = z_0 + re^{it}$, $0 \leq t \leq 2\pi$ then for $\abs{w - z_0} < r$, $f(w) = \frac{1}{2\pi i} \int_{C_r} \frac{f(z)}{z - w} \; dz$\\
+	
+	\noindent
+	\textbf{theorem}: if $f$ is a differentiable in a domain $D$, then all the higher derivatives of $f$ exist in $D$ and, for any disc $\{ z \in \mathbb{C} : \abs{z - z_0} < R \}$, $f$ has a Taylor series expansion $f(z) = \sum_{n=0}^\infty \frac{f^{(n)}(z_0)}{n!}(z - z_0)^n$\\
+	
+	\noindent
+	\textbf{the estimation lemma}: let $D$ be a domain. if $f: D \rightarrow \mathbb{C}$ is continuous, $\gamma$ is a contour in $D$, $\abs{f(z)} \leq M$ for all $z$ on $\gamma$, then $\abs{\int_\gamma f} \leq M \cdot L(\gamma)$\\
+	
+	\noindent
+	\textbf{cauchys estimate}: suppose that $f$ is differentiable in $\{ z \in \mathbb{C} : \abs{z - z_0} < R \}$. if $0 < r < R$ and $\abs{f(z)} \leq M$ for $\abs{z - z_0} = r$, then for all $n \geq 0, \abs{f^{(n)}(z_0)} \leq \frac{Mn!}{r^n}$\\
+	
+	\noindent
+	\textbf{liouvilles theorem}: if $f$ if differentiable and bounded in the whole complex plane then $f$ is constant\\
+	
+	\noindent
+	\textbf{corollary}: suppose $f: \mathbb{C} \rightarrow \mathbb{C}$ is differentiable in of $\mathbb{C}$ and there exists $C > 0$ such that $\abs{f(z)} \leq C \abs{z}$, $\forall z \in \mathbb{C}$, then $f(z) = az$ for some $a \in \mathbb{C}$\\
+	
+	\noindent
+	\textbf{fundamental theorem of algebra}: let $P(z) = z^n + a_1z^{n-1} + \dots + a_{n-1}z + a_n$ be a polynomial with $n \geq 1$ and $a_1, \dots, a_n \in \mathbb{C}$, then there exists $w \in \mathbb{C}$ with $P(w) = 0$\\
+	
+	\noindent
+	\textbf{corollary}: each polynomial of degree $n$ with complex coefficients has exactly $n$ complex roots, taken with their multiplicity
 \end{framed}
 
 \end{document}

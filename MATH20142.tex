@@ -347,5 +347,32 @@
 	furthermore, if $C_R(t) = z_0 + re^{it}$ with $R_1 < r < R_2$, $0 \leq t \leq 2\pi$ then $$a_n = \frac{1}{2\pi i} \int_{C_r} \frac{f(z)}{(z - z_0)^{n + 1}} dz \quad \text{and} \quad b_n = \frac{1}{2\pi i} \int_{C_r} f(z)(z - z_0)^{n - 1} dz$$
 \end{framed}
 
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{8 Residues and Evaluation of Integrals}}
+	\end{center}
+	\textbf{the residue of $f$ at $z_0$}: $res(f, z_0) = b_1$ (i.e. the $(z - z_0)^{-1}$ coefficient in Laurent expansion\\
+	
+	\noindent
+	\textbf{simple loop}: a closed path $\gamma$ is a simple loop if for every point $z$ not on $\gamma$, either $w(\gamma, z) = 0$ or $w(\gamma, z) = 1$. if $w(\gamma, z) = 1$, we say $z$ is inside $\gamma$\\
+	
+	\noindent
+	\textbf{infinite real integral}: we say that $\int_{-\infty}^\infty$ exists if $\lim_{A,B \rightarrow +\infty} f(x) \; dx$ converges, where the limits can be taken in either order
+	
+	\linesep
+	
+	\noindent
+	\textbf{cauchys residue theorem}: let $D$ be a domain containing a simple loop $\gamma$ and the points inside $\gamma$. if $f$ is differentiable in $D$ except for finitely many isolated singularities at $z_1, \dots, z_n$ inside $\gamma$ then $\int_\gamma f(z) \; dz = 2 \pi i \sum_{r=1}^n res(f, z_r)$\\
+	
+	\noindent
+	\textbf{lemma}: if $z_0$ is a simple of $f$ then $res(f, z_0) = \lim_{z \rightarrow z_0} (z-z_0)f(z)$\\
+	
+	\noindent
+	\textbf{lemma}: if $f(z) = p(z) / q(z)$ where $p(z_0) \neq 0, q(z_0) = 0$ and $q'(z_0) \neq 0$, then $res(f, z_0) = p(z_0) / q'(z_0)$\\
+	
+	\noindent
+	\textbf{lemma}: if $f$ has a pole of order $m$ at $z_0$, then $res(f, z_0) = \lim_{z \rightarrow z_0}\Big(\frac{1}{(m-1)!}\frac{d^{m-1}}{dz^{m-1}}\big(z-z_0)^mf(z)\big)\Big)$
+\end{framed}
+
 
 \end{document}

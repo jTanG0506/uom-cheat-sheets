@@ -44,6 +44,8 @@
 			\item $ \abs{z / w} = \abs{z} / \abs{w}$ if $w \neq 0$
 			\item $\abs{z + w} \leq \abs{z} + \abs{w}$
 			\item $\abs{z - w} \geq \abs{\abs{z} - \abs{w}}$
+			\item $\abs{\conj{z}} = \abs{z}$
+			\item $z\conj{z} = \abs{z}^2$
 		\end{itemize}
 	\end{multicols}
 \end{framed}
@@ -229,9 +231,20 @@
 			\item $\cos(z + w) = \cos z \cos w - \sin z \sin w$
 		\end{itemize}
 	\end{multicols}
+	\begin{multicols}{4}
+		\begin{itemize}
+			\item $\sin iz = i\sinh z$
+			\item $\cos iz = \cosh z$
+			\item $\sinh iz = i \sin z$
+			\item $\cosh iz = \cos z$
+		\end{itemize}
+	\end{multicols}
 	
 	\noindent
 	\textbf{lemma}: the functions $arg(z)$ and $Log(z)$ are continuous on the cut plane\\
+	
+	\noindent
+	\textbf{theorem}: in the cut plane, $\frac{d}{dz} Log z = \frac{1}{z}$\\
 	
 	\noindent
 	\textbf{theorem}: let $z \neq 0$ be a complex and let $n$ be a positive integer, then $$z^{\frac{1}{n}} = \{ \abs{z}^{\frac{1}{n}} e^{i (\frac{Argz + 2k\pi}{n})} \; \vert \; k = 0, 1, \dots, n - 1 \}$$
@@ -334,7 +347,7 @@
 	
 	\begin{enumerate}
 		\item $b_n = 0$ for all $n \geq 1$. if we define $f(z_0) = a_0$, we obtain a function which is differentiable in the whole disc $\abs{z - z_0} < R$, with Taylor series $\sum_{n = 0}^\infty a_n (z - z_0)^n$. in this case, we say that $z_0$ is a \textbf{removable singularity}
-		\item only finitely many $b_n$ are non-zero, then we can write $f(z) = \frac{b_m}{(z - z_0)^m} + \cdots + \frac{b_1}{z - z_0} + \sum_{n=0}^\infty a_n (z - z_0)^n$ where $b_m \neq = 0$. in this case, we say that $f$ has a \textbf{pole of order m} at $z_0$. a pole of order one is called a \textbf{simple pole}
+		\item only finitely many $b_n$ are non-zero, then we can write $f(z) = \frac{b_m}{(z - z_0)^m} + \cdots + \frac{b_1}{z - z_0} + \sum_{n=0}^\infty a_n (z - z_0)^n$ where $b_m \neq 0$. in this case, we say that $f$ has a \textbf{pole of order m} at $z_0$. a pole of order one is called a \textbf{simple pole}
 		\item infinitely many $b_n$ are non-zero. then we say that $z_0$ is an \textbf{isolated essential singularity}
 	\end{enumerate}
 	
@@ -365,7 +378,7 @@
 	\textbf{cauchys residue theorem}: let $D$ be a domain containing a simple loop $\gamma$ and the points inside $\gamma$. if $f$ is differentiable in $D$ except for finitely many isolated singularities at $z_1, \dots, z_n$ inside $\gamma$ then $\int_\gamma f(z) \; dz = 2 \pi i \sum_{r=1}^n res(f, z_r)$\\
 	
 	\noindent
-	\textbf{lemma}: if $z_0$ is a simple of $f$ then $res(f, z_0) = \lim_{z \rightarrow z_0} (z-z_0)f(z)$\\
+	\textbf{lemma}: if $z_0$ is a simple pole of $f$ then $res(f, z_0) = \lim_{z \rightarrow z_0} (z-z_0)f(z)$\\
 	
 	\noindent
 	\textbf{lemma}: if $f(z) = p(z) / q(z)$ where $p(z_0) \neq 0, q(z_0) = 0$ and $q'(z_0) \neq 0$, then $res(f, z_0) = p(z_0) / q'(z_0)$\\

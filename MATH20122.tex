@@ -232,4 +232,29 @@
 	\end{multicols}
 \end{framed}
 
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{3 Uniform Convergence}}
+	\end{center}
+	in this section, the functions under consideration are of the form $f: D \rightarrow \mathbb{R}$, where $D \subseteq \mathbb{R}$ denotes a generic \textbf{domain} in the Euclidean line (usually $D$ is a interval)\\
+	
+	\noindent
+	\textbf{pointwise convergence}: a sequence $(f_n : n \geq 1)$ of functions converges pointwise to $f$ on $D$ whenever the sequence of real numbers $(f_n(x))$ converges to $f(x)$ in $\mathbb{R}$ for every $x \in D$\\
+	
+	\noindent
+	\textbf{uniform convergence}: a sequence $(f_n : n \geq 1)$ of functions converges uniformly to $f$ on $D$ whenever $\forall \varepsilon > 0, \exists N(\varepsilon) \in \mathbb{N}$ such that $n \geq N(\varepsilon) \implies \abs{f_n(x) - f(x)} < \varepsilon$ for every $x \in D$\\
+	
+	\noindent
+	\textbf{proposition}: let $f$ and $f_n: D \rightarrow \mathbb{R}$ be functions on the domain $D$, then $f_n \rightarrow f$ uniformly on $D$ iff $sup_{x \in D}\abs{f_n(x) - f(x)}$ exists for sufficiently large $n$, and tends to $0$ and $n \rightarrow \infty$\\
+	
+	\noindent
+	\textbf{theorem}: if $f_n: [a, b] \rightarrow \mathbb{R}$ is continuous for every $n \in N$, and $f_n \rightarrow f$ uniformly on $[a, b]$, then $f$ is continuous on $[a, b]$\\
+	
+	\noindent
+	\textbf{corollary}: suppose that $f_n: [a, b] \rightarrow \mathbb{R}$ is continuous for every $n \in N$ and that the pointwise limit of the sequence $(f_n)$ is discontinuous on $[a, b]$, then the convergence cannot be uniform\\
+	
+	\noindent
+	\textbf{theorem}: if $f_n: [a, b] \rightarrow \mathbb{R}$ is integrable on $[a, b]$ for every $n \in N$ and $(f_n)$ converges uniformly on $[a, b]$ then $$\lim_{n \rightarrow \infty} \int_a^b f_n(t) \; dt = \int_a^b \lim_{n \rightarrow \infty} \int_a^b f_n(t) \; dt$$
+\end{framed}
+
 \end{document}

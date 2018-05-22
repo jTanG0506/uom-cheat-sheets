@@ -22,4 +22,119 @@
 	\huge{\textbf{MATH20122 Cheat Sheet}}\\
 \end{center}
 
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{1 Definitions and Examples}}
+	\end{center}
+	\textbf{metric space}: a \textbf{metric space} $(X, d)$ consists of a non-empty set $X$ and a non-negative real valued \textbf{metric} (\textit{distance function}) $d: X \times X \rightarrow \mathbb{R}^\geq$ which satisfies the following axioms:\\
+	\noindent
+	(i) $d(x, y) = 0 \iff x = y$ for all $x, y \in X$\\
+	(ii) $d(x, y) = d(y, x)$ for all $x, y \in X$\\
+	(iii) $d(x, z) \leq d(x, y) + d(y, z)$ for all $x, y, z \in X$ (the \textit{triangle inequality})\\
+	
+	\noindent
+	\textbf{subspace}: given any subset $W \subseteq X$, the restriction of $d$ to $W$ determines the subspace $(W, d := d\vert_W)$ of $(X, d)$\\
+	
+	\noindent
+ 	\textbf{open ball}: for any metric space $(X, d)$, the open ball of radius $r > 0$ around any $x \in X$ is $B_r(x) := \{y : d(y, x) < r\}$\\
+ 	
+ 	\noindent
+ 	\textbf{closed ball}: for any metric space $(X, d)$, the open ball of radius $r > 0$ around any $x \in X$ is $\bar{B}_r(x) := \{y : d(y, x) \leq r\}$
+ 	
+ 	\linesep
+ 	\noindent
+ 	\textbf{euclidean n-space}: $(\mathbb{R}^n, d_2)$ consists of all real \textit{n}-dimensional vectors $x = (x_1, \dots, x_n)$, equipped with the \textbf{euclidean metric} $d_2(x, y) = ((x_1 - y_1)^2 + \cdots + (x_n - y_n)^2)^{1/2}$ where the positive square root is understood\\
+ 	
+ 	\noindent
+ 	\textbf{taxicab metric}: $d_1$ is given on $\mathbb{R}^n$ is given by $d_1(x, y) = \abs{x_1 - y_1} + \cdots + \abs{x_n - y_n}$\\
+ 	
+ 	\[ \textbf{discrete metric}: d(x, y) = \begin{cases} 
+      0 & \text{if} \; x = y \\
+      1 & \text{otherwise}
+      \end{cases}
+	\]\\
+ 	
+ 	\noindent
+ 	\textbf{isometry}: for any two metric spaces $(X, d_X)$ and $(Y, d_Y)$, a bijection $f: X \rightarrow Y$ is an isometry whenever $d_X(x, y) = d_Y(f(x), f(y))$ for all $x, y \in X$\\
+ 	
+ 	\noindent
+ 	\textbf{standard metric}: $d_\mathbb{C}$ on the complex numbers $\mathbb{C}$ is given by $d_\mathbb{C}(z, z') = \abs{z - z'}$
+ 	
+ 	\linesep
+ 	\noindent
+ 	\textbf{graph}: $\Gamma := (V, E)$ consists of a set $V$ of \textbf{vertices} and a set $E$ of \textbf{edges}\\
+ 	
+ 	\noindent
+ 	\textbf{path}: a \textbf{path} in $\Gamma$ from $u$ to $w$ is a finite sequence of edges $\pi(u, w) = (uv_1, v_1v_2, \dots, v_{n-2}v_{v-1}, v_{n-1}w)$ with length $n$\\
+ 	
+ 	\noindent
+ 	\textbf{path connected}: a graph is path connected whenever there is a path joining \textit{any} pair of vertices\\
+ 	
+ 	\noindent
+ 	\textbf{edge metric}: $e$ on the vertex set $V$ of a path connected graph is defined by $e(u, w) = min_{\pi(u, w)} l(\pi(u, w))$\\
+ 	
+ 	\noindent
+ 	\textbf{alphabet}: a finite set $A$ of \textbf{letters} and a finite sequence of letters is a \textbf{word} in A. the vertex set $W$ of the associated \textbf{word graph} $\Gamma(A)$ consists of all possible words in A. word $w_1$ and $w_2$ are joined by an edge iff they differ by one of (i) inserting or deleting a letter (ii) swapping two adjacent letters (iii) replacing one letter with another\\
+ 	
+ 	\noindent
+ 	\textbf{word metric}: $d_w$ on $W$ is the edge metric on the associated word graph
+ 	
+ 	\linesep
+ 	\noindent
+ 	\textbf{binary sequences}: $X = \{0, 1\}^\infty$ is the set of all infinite binary sequences $x = x_0x_1\dots$ where $x_n = 0$ or $1$ for all $n \geq 0$
+ 	 
+ 	\[ d_{min}(x, y) = \begin{cases} 
+      0 & \text{if} \; x = y \\
+      1/2^n & \text{if} \; n = min\{m : x_m \neq y_m\}
+      \end{cases}
+	\]
+	
+	$$d^*(x, y) = \sum_{j=0}^\infty \frac{\abs{x_j - y_j}}{2^j}$$
+	
+	\linesep
+	\noindent
+	\textbf{bounded}: a real valued function $f$ on a closed interval $[a, b] \subset \mathbb{R}$ is bounded whenever $\exists K, \abs{f(x)} \leq K, \forall x \in [a, b]$\\
+	
+	\noindent
+	let $X$ denote the set of all bounded $f: [a, b] \rightarrow \mathbb{R}$ then
+	
+	$$d_{sup}(f, g) = \text{sup}_{x \in [a, b]} \abs{f(x) - g(x)} \; \text{with} \; (X, d_{sup}) \; \text{denoted by} \; \mathcal{B}[a, b]$$
+	
+	\newpage
+	\noindent
+	let $Y$ denote the set of all continuous $f: [a, b] \rightarrow \mathbb{R}$ then
+	
+	$$d_1(f, g) = \int_a^b \abs{f(t) - g(t)} dt \; \text{with} \; (Y, d_1) \; \text{denoted by} \; \mathcal{L}_1[0, 1]$$
+	
+	\linesep
+	\noindent
+	let $X$ denote the set of all closed intervals $[a, b]$ in the euclidean line\\
+	
+	\noindent
+	\textbf{interval metric}: $d_H$ on $X$ is given by $d_H([a, b], [r, s]) = max\{\abs{r-a}, \abs{s-b}\}$\\
+	
+	\noindent
+	$d_\infty((x_1, x_2), (y_1, y_2)) = max\{\abs{x_1 - y_1}, \abs{x_2 - y_2}\}$
+	
+	\linesep
+	let X be the set of infinite sequences $(a_i : i \geq 0)$ of reals, such that $\sum_i a_i$ is absolutely convergent
+	
+	$$d_1((a_i), (b_i)) = \sum_{i \geq 0} \abs{a_i - b_i}$$
+	
+	\linesep
+	\textbf{cartesian product}: of two metric spaces $(X, d)$ and $(X', d')$ is the set $X \times X'$ with one of the metrics
+	\begin{enumerate}
+		\item $d_a((x, x'), (y, y')) = d(x, y) + d'(x', y')$
+		\item $d_b((x, x'), (y, y')) = (d(x, y)^2 + d'(x', y')^2)^{1/2}$
+		\item $d_c((x, x'), (y, y')) = max\{d(x, y), d'(x', y')\}$
+	\end{enumerate}
+	
+	\linesep
+	\noindent
+	\textbf{lipschitz equivalent}: two metrics $d$ and $e$ on a given set $X$ are lipschitz equivalent whenever there exists positive constants $h, k \in \mathbb{R}$ such that $he(x, y) \leq d(x, y) \leq ke(x, y)$ for every $x, y \in X$\\
+	
+	\noindent
+	\textbf{theorem}: the metrics $d_a, d_b, d_c$ on $X \times X'$ are lipschitz equivalent
+\end{framed}
+
 \end{document}

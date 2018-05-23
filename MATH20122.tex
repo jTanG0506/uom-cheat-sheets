@@ -148,7 +148,7 @@
 	in this section, let $(X, d)$ be a any metric space and $U \subseteq X$\\
 	
 	\noindent
-	\textbf{interior point}: $u \in U$ such that $\exists \varepsilon > 0, B_\varepsilon(u) \subseteq U$, the \textbf{interior} of $U$ is the subset $\interior{U} \subseteq U$ of all interior points and if $\interior{U} = U$, then $U$ is \textbf{open} in X\\
+	\textbf{interior point}: $u \in U$ such that $\exists \varepsilon > 0, B_\varepsilon(u) \subseteq U$, the \textbf{interior} of $U$ is the subset $\interior{U} \subseteq U$ of all interior points and if $\interior{U} = U$, then $U$ is \textbf{open} in $X$\\
 	
 	\noindent
 	\textbf{proposition}: every open ball $B_r(x)$ is open in X\\
@@ -316,13 +316,7 @@
 	\begin{center}
 		\textbf{\textsc{5 Compactness}}
 	\end{center}
-	\textbf{covering}: a covering of $A$ is a collection of sets $\mathcal{U} = \{U_i : i \in I\}$ for which $A \subseteq \bigcup_{i \in I} U_i$\\
-	
-	\noindent
-	\textbf{subcovering}: a subcovering of $\mathcal{U}$ is a subcollection $\{U_i : i \in J\}$ which also covers $A$, for some $J \subseteq I$\\
-	
-	\noindent
-	\textbf{open covering}: if every $U_i$ is open, the $\mathcal{U}$ is an opening covering of $A$\\
+	\textbf{covering}: a covering of $A$ is a collection of sets $\mathcal{U} = \{U_i : i \in I\}$ for which $A \subseteq \bigcup_{i \in I} U_i$. a subcovering of $\mathcal{U}$ is a subcollection $\{U_i : i \in J\}$ which also covers $A$, for some $J \subseteq I$. if every $U_i$ is open, the $\mathcal{U}$ is an opening covering of $A$\\
 	
 	\noindent
 	\textbf{compact}: a subset $A \subseteq X$ is compact if every open covering of $A$ contains a finite subcovering\\
@@ -340,9 +334,9 @@
 	\textbf{theorem}: if $f: X \rightarrow Y$ is continuous, and $A \subseteq X$ is compact, then the image $f(A) \subseteq Y$ is also compact\\
 	
 	\noindent
-	\textbf{theorem}: if $A_1, \dots ,A_r$ are compact subsets of $X$, so is $A := A_1 \cup \dots \cup A_r$\\
+	\textbf{theorem}: if $A_1, \dots ,A_r$ are compact subsets of $X$, so is $A := A_1 \cup \dots \cup A_r$
 	
-	\noindent
+	\linesep
 	\textbf{sequentially compact}: a subspace $S \in X$ is sequentially compact if any infinite sequence $(x_n : n \geq 0)$ in $S$ has a subsequence $(x_{n_r} : r \geq 1)$ that converges to a point in $S$\\
 	
 	\noindent
@@ -355,9 +349,9 @@
 	\textbf{proposition}: if a subspace $A \subseteq X$ is compact, then it is closed\\
 	
 	\noindent
-	\textbf{theorem}: if a subspace $A \subseteq X$ is compact, then it is sequentially compact\\
+	\textbf{theorem}: if a subspace $A \subseteq X$ is compact, then it is sequentially compact
 	
-	\noindent
+	\linesep
 	\textbf{proposition}: any closed subspace $V \subseteq X$ of a compact metric space $(X,d)$ is itself compact\\
 	
 	\noindent
@@ -370,9 +364,9 @@
 	\textbf{corollary}: a subspace $A \subset \mathbb{R}^n$ is compact $\iff$ it is closed and bounded\\
 	
 	\noindent
-	\textbf{proposition}: given any compact metric space $(X,d)$, every continuous function $f: X \rightarrow \mathbb{R}$ attains its bounds\\
+	\textbf{proposition}: given any compact metric space $(X,d)$, every continuous function $f: X \rightarrow \mathbb{R}$ attains its bounds
 	
-	\noindent
+	\linesep
 	\textbf{cantor set}: $K \subset \mathbb{R}$ is defined as $K := K_0 \cap K_1 \cap \dots \cap K_n \cap \dots$, where $K_n = [0, 1/3^n] \cup \dots \cup [(3^n - 1) / 3^n, 1]$, so $K_n$ is the union of $2^n$ closed intervals, each of length $1/3^n$\\
 	
 	\noindent
@@ -389,6 +383,40 @@
 	
 	\noindent
 	\textbf{proposition}: the cantor set has boundary $\delta K = K$ in $\mathbb{R}$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{6 Completeness}}
+	\end{center}
+	\textbf{complete}: a metric space $(X, d)$ is complete if every cauchy sequence tends to a limit in $X$\\
+	
+	\noindent
+	\textbf{proposition}: euclidean n-space $\mathbb{R}^n$ is complete, for every $n \geq 1$\\
+	
+	\noindent
+	\textbf{lemma}: suppose that a cauchy sequence $(x_n : n \geq 1)$ in $X$ has a convergent subsequence $(x_{n_r} : r \geq 1)$ and that $\lim_{r \rightarrow \infty} x_{n_r} = x$,  then $(x_n)$ is also convergent and $\lim_{n \rightarrow \infty} = x$\\
+	
+	\noindent
+	\textbf{proposition}: a closed subspace $Y$ of a complete metric space $X$ is itself complete\\
+	
+	\noindent
+	\textbf{proposition}: any compact metric space $X$ is complete\\
+	
+	\noindent
+	\textbf{proposition}: any complete subspace $Y \subseteq X$ is closed in $X$\\
+	
+	\noindent
+	\textbf{contraction}: given any metric space $(X, d)$, a self-map $f: X \rightarrow X$ is a contraction whenever there exists a constant $0 < K < 1$ such that $d(f(x), f(y)) \leq Kd(x, y), \forall x, y \in X$\\
+	
+	\noindent
+	\textbf{lemma}: any contraction $f: X \rightarrow X$ is continuous\\
+	
+	\noindent
+	\textbf{fixed point}: a fixed point of a self-map $f: X \rightarrow X$ is a point $x \in X$ for which $f(x) = x$\\
+	
+	\noindent
+	\textbf{contraction mapping theorem}: let $X$ be complete, and $f: X \rightarrow X$ a contraction, then $f$ has a unique fixed point
 \end{framed}
 
 \end{document}

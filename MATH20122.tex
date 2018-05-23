@@ -66,6 +66,9 @@
  	\textbf{graph}: $\Gamma := (V, E)$ consists of a set $V$ of \textbf{vertices} and a set $E$ of \textbf{edges}\\
  	
  	\noindent
+ 	\textbf{complete graph}: $K_n$ is a complete graph if it contains $n$ vertices and one edge between every pair\\
+ 	
+ 	\noindent
  	\textbf{path}: a \textbf{path} in $\Gamma$ from $u$ to $w$ is a finite sequence of edges $\pi(u, w) = (uv_1, v_1v_2, \dots, v_{n-2}v_{v-1}, v_{n-1}w)$ with length $n$\\
  	
  	\noindent
@@ -255,6 +258,58 @@
 	
 	\noindent
 	\textbf{theorem}: if $f_n: [a, b] \rightarrow \mathbb{R}$ is integrable on $[a, b]$ for every $n \in N$ and $(f_n)$ converges uniformly on $[a, b]$ then $$\lim_{n \rightarrow \infty} \int_a^b f_n(t) \; dt = \int_a^b \lim_{n \rightarrow \infty} \int_a^b f_n(t) \; dt$$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{4 Continuous Functions}}
+	\end{center}
+	\textbf{continuous at $x_0$ in X}: given metric spaces $(X, d_X)$ and $(Y, d_Y)$, a function $f: X \rightarrow Y$ is continuous at $x_0$ in X whenever $\forall \varepsilon > 0, \exists \delta > 0$ such that $d_X(x, x_0) < \delta \implies d_Y(f(x), f(x_0)) < \varepsilon$\\
+	
+	\noindent
+	\textbf{continuous}: if $f$ is continuous at every $x_0 \in X$, then $f$ is continuous. a continuous function is often called a \textbf{map}\\
+	
+	\noindent
+	\textbf{theorem}: the function $f: X \rightarrow Y$ is continuous at $w$ in $X$ iff $(w_n)$ converges to $w$ in $X \implies f(w_n)$ converges to $f(w)$ in $Y$\\
+	
+	\noindent
+	\textbf{corollary}: the function $f: X \rightarrow Y$ is continuous iff $(w_n)$ converges to $w$ in $X \implies f(w_n)$ converges to $f(w)$ in $Y$ for every $w \in X$\\
+	
+	\noindent
+	\textbf{inverse image}: for any function $f: X \rightarrow Y$ and any subset $U \subseteq Y$, the inverse image $f^{-1}(U)$ is the subset $\{ x : f(x) \in U \}$. this notation does \textit{not} imply that $f$ is invertible, or a bijection - although it sometimes may be!\\
+	
+	\noindent
+	\textbf{theorem}: given metric spaces $(X, d_X)$ and $(Y, d_Y)$, a function $f: X \rightarrow Y$ is continuous iff $U$ open in $Y \implies f^{-1}(U)$ open in $X$\\
+	
+	\noindent
+	\textbf{theorem}: given metric spaces $(X, d_X)$ and $(Y, d_Y)$, a function $f: X \rightarrow Y$ is continuous iff $V$ closed in $Y \implies f^{-1}(V)$ closed in $X$\\
+	
+	\noindent
+	\textbf{theorem}: if $f: X \rightarrow Y$ and $g: Y \rightarrow Z$ are continuous functions defined on the metric spaces $(X, d_X), (Y, d_Y)$, and $(Z, d_Z)$, then the composition $g \cdot f: X \rightarrow Z$ is also continuous\\
+	
+	\noindent
+	\textbf{lipschitz equivalence}: for any two metric spaces $(X, d_X)$ and $(Y, d_Y)$, a bijection $f: X \rightarrow Y$ is a lipschitz equivalence whenever there exists positive constants $h, k \in \mathbb{R}$ such that $hd_Y(f(w), f(x)) \leq d_X(w, x) \leq kd_Y(f(w), f(x))$\\
+	
+	\noindent
+	\textbf{homeomorphism}: a bijection $f: X \rightarrow Y$ is a homeomorphism whenever $f$ and $f^{-1}$ are both continuous\\
+	
+	\noindent
+	\textbf{proposition}: the identity map $1_X$ is an isometry iff $d = e$, it is a lipschitz equivalence iff $d$ and $e$ are lipschitz equivalent (in the sense of section 1 definition)\\
+	
+	\noindent
+	\textbf{topologically equivalent}: two metrics $d$ and $e$ on a set $X$ are topologically equivalent whenever the identity function $1_X$ is a homemorphism\\
+	
+	\noindent
+	\textbf{proposition}: two metrics d and e on X are topologically equivalent iff they give rise to precisely the same open sets\\
+	
+	\noindent
+	\textbf{path connected}: a metric space $X$ is path connected if every two points $x_0, x_1 \in X$ admit a continuous function $\sigma: [0, 1] \rightarrow X$ such that $\sigma(0) = x_0$ and $\sigma(1) = x_1$. then $\sigma$ is a path from $x_0$ to $x_1$ in $X$.\\
+	
+	\noindent
+	\textbf{proposition}: if $f: X \rightarrow Y$ is a homeomorphism, then $X$ is path connected iff $Y$ is path connected\\
+	
+	\noindent
+	\textbf{corollary}: as subspaces of the euclidean plane, the interval $[0, 1]$ and the unit circle $S_1$ are not homoemorphic
 \end{framed}
 
 \end{document}

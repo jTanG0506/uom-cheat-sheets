@@ -1,0 +1,430 @@
+\documentclass[a4paper]{article}
+
+\usepackage[a4paper, margin=0.55in]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{centernot}
+\usepackage{framed}
+\usepackage{multicol}
+
+\newcommand*\closure[1]{\overline{#1}}
+\newcommand*\interior[1]{{#1}^\circ}
+\newcommand*\abs[1]{\vert #1 \vert}
+\newcommand*\setremove[2]{#1 \, \backslash \, #2}
+\newcommand*\linesep[0]{\noindent\rule{\textwidth}{0.5pt}\\}
+\newcommand*\partialfrac[2]{\frac{\partial #1}{\partial #2}}
+\newcommand*\e[1]{\text{exp} \, #1}
+
+\begin{document}
+
+\pagenumbering{gobble}
+
+\begin{center}
+	\huge{\textbf{MATH20122 Cheat Sheet}}\\
+\end{center}
+
+\multicols{2}
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{1 Definitions and Examples}}
+	\end{center}
+	\textbf{metric space}: $(X, d)$ consists of a non-empty set $X$ and a non-negative real valued \textbf{metric} $d: X \times X \rightarrow \mathbb{R}^\geq$ which satisfies the following axioms:\\
+	\noindent
+	(i) $d(x, y) = 0 \iff x = y$ for all $x, y \in X$\\
+	(ii) $d(x, y) = d(y, x)$ for all $x, y \in X$\\
+	(iii) $d(x, z) \leq d(x, y) + d(y, z)$ for all $x, y, z \in X$ (the \textit{triangle inequality})\\
+	
+	\noindent
+	\textbf{subspace}: given any subset $W \subseteq X$, the restriction of $d$ to $W$ determines the subspace $(W, d := d\vert_W)$ of $(X, d)$\\
+	
+	\noindent
+ 	\textbf{open ball}: for any metric space $(X, d)$, the open ball of radius $r > 0$ around any $x \in X$ is $B_r(x) := \{y : d(y, x) < r\}$\\
+ 	
+ 	\noindent
+ 	\textbf{closed ball}: for any metric space $(X, d)$, the open ball of radius $r > 0$ around any $x \in X$ is $\bar{B}_r(x) := \{y : d(y, x) \leq r\}$
+ 	
+ 	\linesep
+ 	\noindent
+ 	\textbf{euclidean n-space}: $(\mathbb{R}^n, d_2)$ consists of all real \textit{n}-dimensional vectors $x = (x_1, \dots, x_n)$, equipped with the \textbf{euclidean metric} $d_2(x, y) = ((x_1 - y_1)^2 + \cdots + (x_n - y_n)^2)^{1/2}$ where the positive square root is understood\\
+ 	
+ 	\noindent
+ 	\textbf{taxicab metric}: $d_1$ is given on $\mathbb{R}^n$ is given by $d_1(x, y) = \abs{x_1 - y_1} + \cdots + \abs{x_n - y_n}$
+ 	
+ 	\[ \textbf{discrete metric}: d(x, y) = \begin{cases} 
+      0 & \text{if} \; x = y \\
+      1 & \text{otherwise}
+      \end{cases}
+	\]
+ 	
+ 	\noindent
+ 	\textbf{isometry}: for any two metric spaces $(X, d_X)$ and $(Y, d_Y)$, a bijection $f: X \rightarrow Y$ is an isometry whenever $d_X(x, y) = d_Y(f(x), f(y))$ for all $x, y \in X$\\
+ 	
+ 	\noindent
+ 	\textbf{standard metric}: $d_\mathbb{C}$ on the complex numbers $\mathbb{C}$ is given by $d_\mathbb{C}(z, z') = \abs{z - z'}$
+ 	
+ 	\linesep
+ 	\noindent
+ 	\textbf{graph}: $\Gamma := (V, E)$ consists of a set $V$ of \textbf{vertices} and a set $E$ of \textbf{edges}\\
+ 	
+ 	\noindent
+ 	\textbf{complete graph}: $K_n$ is a complete graph if it contains $n$ vertices and one edge between every pair\\
+ 	
+ 	\noindent
+ 	\textbf{path}: a \textbf{path} in $\Gamma$ from $u$ to $w$ is a finite sequence of edges $\pi(u, w) = (uv_1, v_1v_2, \dots, v_{n-2}v_{v-1}, v_{n-1}w)$ with length $n$\\
+ 	
+ 	\noindent
+ 	\textbf{path connected}: a graph is path connected whenever there is a path joining \textit{any} pair of vertices\\
+ 	
+ 	\noindent
+ 	\textbf{edge metric}: $e$ on the vertex set $V$ of a path connected graph is defined by $e(u, w) = min_{\pi(u, w)} l(\pi(u, w))$
+ 	\end{framed}
+ 	
+ 	\begin{framed}
+ 	\noindent
+ 	\textbf{alphabet}: a finite set $A$ of \textbf{letters} and a finite sequence of letters is a \textbf{word} in A. the vertex set $W$ of the associated \textbf{word graph} $\Gamma(A)$ consists of all possible words in A. word $w_1$ and $w_2$ are joined by an edge iff they differ by one of (i) inserting or deleting a letter (ii) swapping two adjacent letters (iii) replacing one letter with another\\
+ 	
+ 	\noindent
+ 	\textbf{word metric}: $d_w$ on $W$ is the edge metric on the associated word graph
+ 	
+ 	\linesep
+ 	\noindent
+ 	\textbf{binary sequences}: $X = \{0, 1\}^\infty$ is the set of all infinite binary sequences $x = x_0x_1\dots$ where $x_n = 0$ or $1$ for all $n \geq 0$
+ 	 
+ 	\[ d_{min}(x, y) = \begin{cases} 
+      0 & \text{if} \; x = y \\
+      1/2^n & \text{if} \; n = min\{m : x_m \neq y_m\}
+      \end{cases}
+	\]
+	
+	$$d^*(x, y) = \sum_{j=0}^\infty \frac{\abs{x_j - y_j}}{2^j}$$
+	
+	\linesep
+	\noindent
+	\textbf{bounded}: a real valued function $f$ on a closed interval $[a, b] \subset \mathbb{R}$ is bounded whenever $\exists K, \abs{f(x)} \leq K, \forall x \in [a, b]$\\
+	
+	\noindent
+	\textbf{sup metric}: let $X$ denote the set of all bounded $f: [a, b] \rightarrow \mathbb{R}$. then $d_{sup}(f,g) = \text{sup}_{x \in [a, b]} \abs{f(x) - g(x)}$, with $(X, d_{sup})$ denoted by $\mathcal{B}[a, b]$\\
+	
+	\noindent
+	\textbf{$L_1$ metric}: let $Y$ denote the set of all continuous $f: [a, b] \rightarrow \mathbb{R}$. then $d_1(f, g) = \int_a^b \abs{f(t) - g(t)} dt$, with $(Y,d_1)$ denoted by $\mathcal{L}_1[0, 1]$
+	
+	\linesep
+	\noindent
+	let $X$ denote the set of all closed intervals $[a, b]$ in the euclidean line\\
+	
+	\noindent
+	\textbf{interval metric}: $d_H$ on $X$ is given by $d_H([a, b], [r, s]) = max\{\abs{r-a}, \abs{s-b}\}$\\
+	
+	\noindent
+	$d_\infty((x_1, x_2), (y_1, y_2)) = max\{\abs{x_1 - y_1}, \abs{x_2 - y_2}\}$
+	
+	\linesep
+	let X be the set of infinite sequences $(a_i : i \geq 0)$ of reals, such that $\sum_i a_i$ is absolutely convergent
+	
+	$$d_1((a_i), (b_i)) = \sum_{i \geq 0} \abs{a_i - b_i}$$
+	
+	\linesep
+	\textbf{cartesian product}: of two metric spaces $(X, d)$ and $(X', d')$ is the set $X \times X'$ with one of the metrics
+	\begin{enumerate}
+		\item $d_a((x, x'), (y, y')) = d(x, y) + d'(x', y')$
+		\item $d_b((x, x'), (y, y')) = (d(x, y)^2 + d'(x', y')^2)^{1/2}$
+		\item $d_c((x, x'), (y, y')) = max\{d(x, y), d'(x', y')\}$
+	\end{enumerate}
+	
+	\linesep
+	\noindent
+	\textbf{lipschitz equivalent}: two metrics $d$ and $e$ on a given set $X$ are lipschitz equivalent whenever there exists positive constants $h, k \in \mathbb{R}$ such that $he(x, y) \leq d(x, y) \leq ke(x, y)$ for every $x, y \in X$\\
+	
+	\noindent
+	\textbf{theorem}: the metrics $d_a, d_b, d_c$ on $X \times X'$ are lipschitz equivalent
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{2 Open and Closed Sets}}
+	\end{center}
+	let $(X, d)$ be a any metric space and $U \subseteq X$\\
+	
+	\noindent
+	\textbf{interior point}: $u \in U$ such that $\exists \varepsilon > 0, B_\varepsilon(u) \subseteq U$, the \textbf{interior} of $U$ is the subset $\interior{U} \subseteq U$ of all interior points and if $\interior{U} = U$, then $U$ is \textbf{open} in $X$\\
+	
+	\noindent
+	\textbf{proposition}: every open ball $B_r(x)$ is open in X\\
+	
+	\noindent
+	\textbf{theorem}: given any two subsets $U, V \subseteq X$, the following hold:
+	
+		\begin{itemize}
+			\item $U \subseteq V \implies \interior{U} \subseteq \interior{V}$
+			\item $\interior{(\interior{U})} = \interior{U}$
+			\item $\interior{U}$ is open in $X$
+			\item $\interior{U}$ is the largest subset of $U$, open in $X$
+		\end{itemize}	
+
+	
+	\noindent
+	\textbf{theorem}: the sets $X$ and $\emptyset$ are open in $X$, so are an arbitrary union $U = \bigcup_{i \in I} U_i$ of open sets $U_i$, and a finite intersection $U' = U_1' \cap \cdots \cap U_m'$ of open sets $U_j'$\\
+	
+	\noindent
+	\textbf{closure point}: $x \in X$ is a closure point of $U \subseteq X$ if $B_\varepsilon(x) \cap U$ is non-empty for every $\varepsilon > 0$, the \textbf{closure} of $U$ is the superset $\closure{U} \supseteq U$ of all closure points and if $\closure{U} = U$, then $U$ is \textbf{closed} in $X$\\
+	
+	\noindent
+	\textbf{proposition}: a set $V$ is closed in $X$ iff its complement $U := X \backslash V$ is open\\
+	
+	\noindent
+	\textbf{corollary}: every closed ball $\closure{B}_r(x)$ is closed in $X$\\
+	
+	\noindent
+	\textbf{partially open ball}: in $X$ is a set $P_r(x) := B_r(x) \cup P$, where $P$ is a proper subset of $\{p : d(x, p) = r \}$\\
+	
+	\noindent
+	\textbf{theorem}: given any two subsets $U, V \subseteq X$, the following hold:
+
+		\begin{itemize}
+			\item $U \subseteq V \implies \closure{U} \subseteq \closure{V}$
+			\item $\closure{\closure{V}} = \closure{V}$
+			\item $\closure{V}$ is closed in $X$
+			\item $\closure{V}$ is the smallest set containing $V$, closed in $X$
+		\end{itemize}	
+
+	\end{framed}
+
+	\begin{framed}
+	\noindent
+	\textbf{theorem}: the sets $X$ and $\emptyset$ are closed in $X$, so are an arbitrary intersection $V = \bigcap_{i \in I} V_i$ of closed sets $V_i$ and a finite union $V' = V_1' \cup \cdots \cup V_m'$ of closed sets $V_j'$
+	
+	\linesep
+	\noindent
+	\textbf{sequence}: a sequence in $X$ is a function $s: \mathbb{N} \rightarrow X$ and it is standard practise to write $s(n)$ as $x_n$ and display the sequence  as $(x_n : n \geq 1)$\\
+	
+	\noindent
+	\textbf{converges}: a sequence $(x_n)$ converges to the point $x \in X$ whenever $\forall \varepsilon > 0, \exists N \in \mathbb{N},$ such that $n \geq N \implies d(x, x_n) < \varepsilon$ and in this situation, we say that $x$ is the \textbf{limit} of $(x_n)$\\
+	
+	\noindent
+	\textbf{theorem}: in any metric space $(X, d)$, the limit of a convergent sequence is unique
+
+	\noindent
+	\textbf{theorem}: suppose that $Y \subseteq X$ and $y \in X$, then $y$ lies in $\closure{Y}$ iff there exists a sequence $(y_n)$ in $Y$ such that $y_n \rightarrow y$ as $n \rightarrow \infty$
+
+	\noindent
+	\textbf{cauchy sequence}: in any metric space $(X, d)$, a cauchy sequence $(x_n)$ satisfies $\forall \varepsilon < 0, \exists N \in \mathbb{N}$, such that $m, n \geq N \implies d(x_n, x_m) < \varepsilon$\\
+	
+	\noindent
+	\textbf{dense}: a subset $Y$ is dense in $(X, d)$ whenever $\closure{Y} = X$
+	
+	\linesep
+	\textbf{bounded}: a subset $A$ of the metric space $(X,d)$ is bounded whenever there exists $x_0 \in X$ and $M \in \mathbb{R}$ such that $d(x, x_0) \leq M$ for every $x \in A$. a function $f: S \rightarrow X$ is bounded whenever its image $f(S) \subset X$ is a bounded, for any set\\
+	
+	\noindent
+	\textbf{diameter}: the diameter, $diam(A)$ of a bounded non-empty set $A \subseteq X$ is the real number $sup\{d(x, y) : x, y \in A\}$\\
+	
+	\noindent
+	\textbf{eucildean (n - 1)-sphere of radius r}: $\{x : \abs{x} = r\}$\\
+	
+	\noindent
+	\textbf{boundary point}: $x \in X$ of $A$ is one for which every open ball $B_\varepsilon(x)$ meets both $A$ and $\setremove{X}{A}$, the \textbf{boundary} $\delta A$ of $A$ is the set of all such boundary points\\
+	
+	\noindent
+	\textbf{theorem}: any subset $A$ of $(X, d)$ satisfies:
+		\begin{itemize}
+			\item $\setremove{A}{\delta A} = \setremove{\closure{A}}{\delta A} = \interior{A}$
+			\item $\delta A = \delta(\setremove{X}{A})$
+			\item $\delta A$ is closed in $X$
+		\end{itemize}	
+\end{framed}
+
+\newpage
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{3 Uniform Convergence}}
+	\end{center}
+	in this section, the functions under consideration are of the form $f: D \rightarrow \mathbb{R}$, where $D \subseteq \mathbb{R}$ denotes a generic \textbf{domain} in the Euclidean line (usually $D$ is a interval)\\
+	
+	\noindent
+	\textbf{pointwise convergence}: a sequence $(f_n : n \geq 1)$ of functions converges pointwise to $f$ on $D$ whenever the sequence of real numbers $(f_n(x))$ converges to $f(x)$ in $\mathbb{R}$ for every $x \in D$\\
+	
+	\noindent
+	\textbf{uniform convergence}: a sequence $(f_n : n \geq 1)$ of functions converges uniformly to $f$ on $D$ whenever $\forall \varepsilon > 0, \exists N(\varepsilon) \in \mathbb{N}$ such that $n \geq N(\varepsilon) \implies \abs{f_n(x) - f(x)} < \varepsilon$ for every $x \in D$\\
+	
+	\noindent
+	\textbf{proposition}: let $f$ and $f_n: D \rightarrow \mathbb{R}$ be functions on the domain $D$, then $f_n \rightarrow f$ uniformly on $D$ iff $sup_{x \in D}\abs{f_n(x) - f(x)}$ exists for sufficiently large $n$, and tends to $0$ and $n \rightarrow \infty$\\
+	
+	\noindent
+	\textbf{theorem}: if $f_n: [a, b] \rightarrow \mathbb{R}$ is continuous for every $n \in N$, and $f_n \rightarrow f$ uniformly on $[a, b]$, then $f$ is continuous on $[a, b]$\\
+	
+	\noindent
+	\textbf{corollary}: suppose that $f_n: [a, b] \rightarrow \mathbb{R}$ is continuous for every $n \in N$ and that the pointwise limit of the sequence $(f_n)$ is discontinuous on $[a, b]$, then the convergence cannot be uniform\\
+	
+	\noindent
+	\textbf{theorem}: if $f_n: [a, b] \rightarrow \mathbb{R}$ is integrable on $[a, b]$ for every $n \in N$ and $(f_n)$ converges uniformly on $[a, b]$ then $$\lim_{n \rightarrow \infty} \int_a^b f_n(t) \; dt = \int_a^b \lim_{n \rightarrow \infty} \int_a^b f_n(t) \; dt$$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{4 Continuous Functions}}
+	\end{center}
+	\textbf{continuous at $x_0$ in X}: given metric spaces $(X, d_X)$ and $(Y, d_Y)$, a function $f: X \rightarrow Y$ is continuous at $x_0$ in X whenever $\forall \varepsilon > 0, \exists \delta > 0$ such that $d_X(x, x_0) < \delta \implies d_Y(f(x), f(x_0)) < \varepsilon$\\
+	
+	\noindent
+	\textbf{continuous}: if $f$ is continuous at every $x_0 \in X$, then $f$ is continuous. a continuous function is often called a \textbf{map}\\
+	
+	\noindent
+	\textbf{theorem}: the function $f: X \rightarrow Y$ is continuous at $w$ in $X$ iff $(w_n)$ converges to $w$ in $X \implies f(w_n)$ converges to $f(w)$ in $Y$
+	
+	\end{framed}
+	
+	\begin{framed}
+	\noindent
+	\textbf{corollary}: the function $f: X \rightarrow Y$ is continuous iff $(w_n)$ converges to $w$ in $X \implies f(w_n)$ converges to $f(w)$ in $Y$ for every $w \in X$\\
+	
+		
+	
+	\noindent
+	\textbf{inverse image}: for any function $f: X \rightarrow Y$ and any subset $U \subseteq Y$, the inverse image $f^{-1}(U)$ is the subset $\{ x : f(x) \in U \}$. this notation does \textit{not} imply that $f$ is invertible, or a bijection - although it sometimes may be!\\
+	
+	\noindent
+	\textbf{theorem}: given metric spaces $(X, d_X)$ and $(Y, d_Y)$, a function $f: X \rightarrow Y$ is continuous iff $U$ open in $Y \implies f^{-1}(U)$ open in $X$\\
+	
+	\noindent
+	\textbf{theorem}: given metric spaces $(X, d_X)$ and $(Y, d_Y)$, a function $f: X \rightarrow Y$ is continuous iff $V$ closed in $Y \implies f^{-1}(V)$ closed in $X$\\
+	
+	\noindent
+	\textbf{theorem}: if $f: X \rightarrow Y$ and $g: Y \rightarrow Z$ are continuous functions defined on the metric spaces $(X, d_X), (Y, d_Y)$, and $(Z, d_Z)$, then the composition $g \cdot f: X \rightarrow Z$ is also continuous\\
+	
+	\noindent
+	\textbf{lipschitz equivalence}: for any two metric spaces $(X, d_X)$ and $(Y, d_Y)$, a bijection $f: X \rightarrow Y$ is a lipschitz equivalence whenever there exists positive constants $h, k \in \mathbb{R}$ such that $hd_Y(f(w), f(x)) \leq d_X(w, x) \leq kd_Y(f(w), f(x))$\\
+	
+	\noindent
+	\textbf{homeomorphism}: a bijection $f: X \rightarrow Y$ is a homeomorphism whenever $f$ and $f^{-1}$ are both continuous\\
+
+	\noindent
+	\textbf{proposition}: the identity map $1_X$ is an isometry iff $d = e$, it is a lipschitz equivalence iff $d$ and $e$ are lipschitz equivalent (in the sense of section 1 definition)\\
+	
+	\noindent
+	\textbf{topologically equivalent}: two metrics $d$ and $e$ on a set $X$ are topologically equivalent whenever the identity function $1_X$ is a homeomorphism\\
+	
+	    
+	\noindent
+	\textbf{proposition}: two metrics d and e on X are topologically equivalent iff they give rise to precisely the same open sets\\
+	
+	\noindent
+	\textbf{path connected}: a metric space $X$ is path connected if every two points $x_0, x_1 \in X$ admit a continuous function $\sigma: [0, 1] \rightarrow X$ such that $\sigma(0) = x_0$ and $\sigma(1) = x_1$, then $\sigma$ is a path from $x_0$ to $x_1$ in $X$\\
+	
+	\noindent
+	\textbf{proposition}: if $f: X \rightarrow Y$ is a homeomorphism, then $X$ is path connected iff $Y$ is path connected\\
+	
+	\noindent
+	\textbf{corollary}: as subspaces of the euclidean plane, the interval $[0, 1]$ and the unit circle $S_1$ are not homoemorphic
+\end{framed}
+
+\newpage
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{5 Compactness}}
+	\end{center}
+	\textbf{covering}: a covering of $A$ is a collection of sets $\mathcal{U} = \{U_i : i \in I\}$ for which $A \subseteq \bigcup_{i \in I} U_i$. a subcovering of $\mathcal{U}$ is a subcollection $\{U_i : i \in J\}$ which also covers $A$, for some $J \subseteq I$. if every $U_i$ is open, the $\mathcal{U}$ is an opening covering of $A$\\
+	
+	\noindent
+	\textbf{compact}: a subset $A \subseteq X$ is compact if every open covering of $A$ contains a finite subcovering\\
+	
+	\noindent
+	\textbf{proposition}: if $A$ is finite, then it is compact\\
+	
+	\noindent
+	\textbf{theorem}: if $A$ is compact, then it is bounded\\
+	
+	\noindent
+	\textbf{proposition}: any finite closed interval $[a,b]$ of the euclidean line is compact\\
+	
+	\noindent
+	\textbf{theorem}: if $f: X \rightarrow Y$ is continuous, and $A \subseteq X$ is compact, then the image $f(A) \subseteq Y$ is also compact\\
+	
+	\noindent
+	\textbf{theorem}: if $A_1, \dots ,A_r$ are compact subsets of $X$, so is $A := A_1 \cup \dots \cup A_r$
+	
+	\linesep
+	\textbf{sequentially compact}: a subspace $S \in X$ is sequentially compact if any infinite sequence $(x_n : n \geq 0)$ in $S$ has a subsequence $(x_{n_r} : r \geq 1)$ that converges to a point in $S$\\
+	
+	\noindent
+	\textbf{lemma}: let $(x_n)$ be an infinite sequence in $X$, and let $x \in X$. if, for any $\varepsilon > 0$, the ball $B_\varepsilon(x)$ contains $x_n$ for infinitely many values of $n$, then $(x_n)$ contains a subsequence that converges to $x$ in $X$\\
+	
+	\noindent
+	\textbf{lemma}: suppose that the infinite sequence $(x_n)$ contains no convergent subsequences. then for every $x \in X$ there exists an $\varepsilon(x) > 0$ such that $B_{\varepsilon(x)}(x)$ contains $x_n$ for at most finitely many $n$\\
+	
+	\noindent
+	\textbf{proposition}: if a subspace $A \subseteq X$ is compact, then it is closed\\
+	
+	\noindent
+	\textbf{theorem}: if a subspace $A \subseteq X$ is compact, then it is sequentially compact
+	
+	\linesep
+	\textbf{proposition}: any closed subspace $V \subseteq X$ of a compact metric space $(X,d)$ is itself compact\\
+	
+	\noindent
+	\textbf{theorem}: if a subspace $A \subseteq X$ is compact, then it is closed and bounded\\
+	
+	\noindent
+	\textbf{heine-borel theorem}: if a subspace $A \subseteq \mathbb{R}^n$ is closed and bounded, then it is compact\\
+	
+	\noindent
+	\textbf{corollary}: a subspace $A \subset \mathbb{R}^n$ is compact $\iff$ it is closed and bounded
+	\end{framed}
+
+	\begin{framed}
+	\noindent
+	\textbf{proposition}: given any compact metric space $(X,d)$, every continuous function $f: X \rightarrow \mathbb{R}$ attains its bounds
+	
+	\linesep
+	\textbf{cantor set}: $K \subset \mathbb{R}$ is defined as $K := K_0 \cap K_1 \cap \dots \cap K_n \cap \dots$, where $K_n = [0, 1/3^n] \cup \dots \cup [(3^n - 1) / 3^n, 1]$, so $K_n$ is the union of $2^n$ closed intervals, each of length $1/3^n$\\
+	
+	\noindent
+	\textbf{theorem}: the cantor set $K$ consists of all real numbers which have ternary expansions containing only $0s$ and $2s$\\
+	
+	\noindent
+	\textbf{corollary}: the cantor set $K$ is uncountable\\
+	
+	\noindent
+	\textbf{proposition}: the cantor set $K$ is closed\\
+	
+	\noindent
+	\textbf{corollary}: the cantor set $K$ is compact\\
+	
+	\noindent
+	\textbf{proposition}: the cantor set has boundary $\delta K = K$ in $\mathbb{R}$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{6 Completeness}}
+	\end{center}
+	\textbf{complete}: a metric space $(X, d)$ is complete if every cauchy sequence tends to a limit in $X$\\
+	
+	\noindent
+	\textbf{proposition}: euclidean n-space $\mathbb{R}^n$ is complete, for every $n \geq 1$\\
+	
+	\noindent
+	\textbf{lemma}: suppose that a cauchy sequence $(x_n : n \geq 1)$ in $X$ has a convergent subsequence $(x_{n_r} : r \geq 1)$ and that $\lim_{r \rightarrow \infty} x_{n_r} = x$,  then $(x_n)$ is also convergent and $\lim_{n \rightarrow \infty} = x$\\
+	
+	\noindent
+	\textbf{proposition}: a closed subspace $Y$ of a complete metric space $X$ is itself complete\\
+	
+	\noindent
+	\textbf{proposition}: any compact metric space $X$ is complete\\
+	
+	\noindent
+	\textbf{proposition}: any complete subspace $Y \subseteq X$ is closed in $X$\\
+	
+	\noindent
+	\textbf{contraction}: given any metric space $(X, d)$, a self-map $f: X \rightarrow X$ is a contraction whenever there exists a constant $0 < K < 1$ such that $d(f(x), f(y)) \leq Kd(x, y), \forall x, y \in X$\\
+	
+	\noindent
+	\textbf{lemma}: any contraction $f: X \rightarrow X$ is continuous\\
+	
+	\noindent
+	\textbf{fixed point}: a fixed point of a self-map $f: X \rightarrow X$ is a point $x \in X$ for which $f(x) = x$\\
+	
+	\noindent
+	\textbf{contraction mapping theorem}: let $X$ be complete, and $f: X \rightarrow X$ a contraction, then $f$ has a unique fixed point
+\end{framed}
+
+\end{document}

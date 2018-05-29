@@ -23,7 +23,7 @@
 	\huge{\textbf{MATH20122 Cheat Sheet}}\\
 \end{center}
 
-\multicols{2}
+\begin{multicols}{2}
 \begin{framed}
 	\begin{center}
 		\textbf{\textsc{1 Definitions and Examples}}
@@ -247,7 +247,7 @@
 	\textbf{uniform convergence}: a sequence $(f_n : n \geq 1)$ of functions converges uniformly to $f$ on $D$ whenever $\forall \varepsilon > 0, \exists N(\varepsilon) \in \mathbb{N}$ such that $n \geq N(\varepsilon) \implies \abs{f_n(x) - f(x)} < \varepsilon$ for every $x \in D$\\
 	
 	\noindent
-	\textbf{proposition}: let $f$ and $f_n: D \rightarrow \mathbb{R}$ be functions on the domain $D$, then $f_n \rightarrow f$ uniformly on $D$ iff $sup_{x \in D}\abs{f_n(x) - f(x)}$ exists for sufficiently large $n$, and tends to $0$ and $n \rightarrow \infty$\\
+	\textbf{proposition}: let $f$ and $f_n: D \rightarrow \mathbb{R}$ be functions on the domain $D$, then $f_n \rightarrow f$ uniformly on $D$ iff $sup_{x \in D}\abs{f_n(x) - f(x)}$ exists for sufficiently large $n$, and tends to $0$ as $n \rightarrow \infty$\\
 	
 	\noindent
 	\textbf{theorem}: if $f_n: [a, b] \rightarrow \mathbb{R}$ is continuous for every $n \in N$, and $f_n \rightarrow f$ uniformly on $[a, b]$, then $f$ is continuous on $[a, b]$\\
@@ -343,7 +343,7 @@
 	\textbf{theorem}: if $A_1, \dots ,A_r$ are compact subsets of $X$, so is $A := A_1 \cup \dots \cup A_r$
 	
 	\linesep
-	\textbf{sequentially compact}: a subspace $S \in X$ is sequentially compact if any infinite sequence $(x_n : n \geq 0)$ in $S$ has a subsequence $(x_{n_r} : r \geq 1)$ that converges to a point in $S$\\
+	\textbf{sequentially compact}: a subspace $S \subseteq X$ is sequentially compact if any infinite sequence $(x_n : n \geq 0)$ in $S$ has a subsequence $(x_{n_r} : r \geq 1)$ that converges to a point in $S$\\
 	
 	\noindent
 	\textbf{lemma}: let $(x_n)$ be an infinite sequence in $X$, and let $x \in X$. if, for any $\varepsilon > 0$, the ball $B_\varepsilon(x)$ contains $x_n$ for infinitely many values of $n$, then $(x_n)$ contains a subsequence that converges to $x$ in $X$\\
@@ -403,7 +403,7 @@
 	\textbf{proposition}: euclidean n-space $\mathbb{R}^n$ is complete, for every $n \geq 1$\\
 	
 	\noindent
-	\textbf{lemma}: suppose that a cauchy sequence $(x_n : n \geq 1)$ in $X$ has a convergent subsequence $(x_{n_r} : r \geq 1)$ and that $\lim_{r \rightarrow \infty} x_{n_r} = x$,  then $(x_n)$ is also convergent and $\lim_{n \rightarrow \infty} = x$\\
+	\textbf{lemma}: suppose that a cauchy sequence $(x_n : n \geq 1)$ in $X$ has a convergent subsequence $(x_{n_r} : r \geq 1)$ and that $\lim_{r \rightarrow \infty} x_{n_r} = x$,  then $(x_n)$ is also convergent and $\lim_{n \rightarrow \infty} x_n = x$\\
 	
 	\noindent
 	\textbf{proposition}: a closed subspace $Y$ of a complete metric space $X$ is itself complete\\
@@ -426,5 +426,6 @@
 	\noindent
 	\textbf{contraction mapping theorem}: let $X$ be complete, and $f: X \rightarrow X$ a contraction, then $f$ has a unique fixed point
 \end{framed}
+\end{multicols}
 
 \end{document}

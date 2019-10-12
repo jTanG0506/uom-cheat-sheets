@@ -1,0 +1,175 @@
+\documentclass[a4paper]{article}
+
+\usepackage[a4paper, margin=0.55in]{geometry}
+\usepackage{multicol}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{centernot}
+\usepackage{framed}
+
+\begin{document}
+
+\pagenumbering{gobble}
+	
+\begin{center}
+	\huge{\textbf{MATH10111 Questions from Lecture Notes}}\\
+	\small{Available at \textsc{jtang.dev/resources}}\\
+\end{center}
+\begin{center}
+	\textbf{D}: Definition\hspace{50pt} \textbf{P}: Proof
+\end{center}
+
+\section*{Number theory I}
+	\textbf{D}: Prime Number\\
+	\textbf{P}: Let $a, b \in \mathbb{Z}$ with $a \geq 2$, then $a \centernot\vert b$ or $a \centernot\vert (b+1)$.\\
+	\textbf{P}: Let $a$ and $b$ be natural numbers and let $p$ be a prime number. If $p\vert ab$, then $p\vert a$ or $p\vert b$.\\
+	\textbf{P}: $\sqrt{2}$ is not a rational number.\\
+	\textbf{P}: Every natural number greater than one has a prime divisor.\\
+	\textbf{P}: There are infinitely many prime numbers.
+
+\section*{Sets}
+\begin{multicols}{3}
+	\noindent
+	\textbf{D}: Subset\\
+	\textbf{D}: $A=B$\\
+	\textbf{D}: Empty Set\\
+	\textbf{D}: $A \cap B$\\
+	\textbf{D}: $A \cup B$\\
+	\textbf{D}: $A$ $\backslash$ $B$\\
+	\textbf{D}: $A^c$\\
+	\textbf{D}: $\mathcal{P}(A)$\\
+	\textbf{D}: $A \times B$
+\end{multicols}
+	\noindent
+	\textbf{P}: For any set $A$, we have $\emptyset \subseteq A$.\\
+	\textbf{P}: The empty set is unique.\\
+	\textbf{P}: If $A$ has precisely $n$ elements, then $\mathcal{P}(A)$ has $2^n$ elements.
+
+\section*{Functions}
+\begin{multicols}{3}
+	\noindent
+	\textbf{D}: $f=g$\\
+	\textbf{D}: Constant Function\\
+	\textbf{D}: Identity Function\\
+	\textbf{D}: $f\vert_X$\\
+	\textbf{D}: Injective\\
+	\textbf{D}: Surjective\\
+	\textbf{D}: Bijective\\
+	\textbf{D}: $g \circ f$\\
+	\textbf{D}: $f^{-1}$\\
+	\textbf{D}: Permutation
+\end{multicols}
+	\noindent
+	\textbf{P}: Let $f : A \rightarrow B$ and $g : B \rightarrow C$ be functions. If $f$ and $g$ are both 1-1, then $g\circ f$ is 1-1.\\
+	\textbf{P}: Let $f : A \rightarrow B$ and $g : B \rightarrow C$ be functions. If f and g are both onto, then $g\circ f$  is onto.\\
+	\textbf{P}: Let $f : A \rightarrow B$, $g : B \rightarrow C$ and $h : C \rightarrow D$ be functions, then $h\circ (g\circ f) = (h\circ g)\circ f.$\\
+	\textbf{P}: Let $f : A \rightarrow B$ be a bijection, then $f^{-1}: B \rightarrow A$ is a bijection.\\
+	\textbf{P}: Let $f : A \rightarrow B$ be a bijection, then $(f^{-1})^{-1} = f$.\\
+	\textbf{P}: Let $f : A \rightarrow B$ be a bijection, then $f^{-1} \circ f = i_A$ and $f \circ f^{-1} = i_B$.\\
+	\textbf{P}: Let $f, g, h$ be permutations of set $A$, then $g \circ f$ is a permutation of $A$.\\
+	\textbf{P}: Let $f, g, h$ be permutations of set $A$, then $h\circ (g\circ f) = (h\circ g)\circ f.$\\
+	\textbf{P}: Let $f, g, h$ be permutations of set $A$, then $f^{-1}$ is a permutation of $A$, and $f^{-1} \circ f = f \circ f^{-1} = i_A$
+	
+\section*{Cardinality}
+\begin{multicols}{3}
+	\noindent
+	\textbf{D}: $A$ has cardinality $n$\\
+	\textbf{D}: $A$ is finite or infinite\\
+	\textbf{D}: $A$ is countable\\
+	\textbf{D}: A k-subset of $A$\\
+	\textbf{D}: $\mathcal{P}_k(A)$\\
+	\textbf{D}: $\binom{n}{k}$
+\end{multicols}
+	\noindent
+	\textbf{P}: Let $m,n \in \mathbb{N}$. If there is a 1-1 function $f: \mathbb{N}_m \rightarrow \mathbb{N}_n$, then $m \leq n$.\\
+	\textbf{P}: Let $A$ be a set. Suppose that $m,n \in \mathbb{N}$ and that there are bijections$f: \mathbb{N}_m \rightarrow A$ and $g: \mathbb{N}_n \rightarrow B$, then $m = n$.\\
+	\textbf{P}: Let $A$ and $B$ be finite sets and let $f: A \rightarrow B$ be a 1-1 function, then $\vert A\vert \leq \vert B\vert$.If $f$ is a bijection, then $\vert A\vert = \vert B\vert$.\\
+	\textbf{P}: Let $A$ and $B$ be non-empty finite sets and let $f: A \rightarrow B$. If $\vert A\vert > \vert B\vert$, then $\exists x_1,x_2 \in A$, $x_1 \neq x_2$ and $f(x_1)=f(x_2)$.\\
+	\textbf{P}: Let $X$ and $Y$ be finite sets such that $X \cap Y = \emptyset$, then $\vert X \cup Y \vert = \vert X \vert + \vert Y \vert$.\\
+	\textbf{P}: If $X_1$,$\cdots$,$X_n$ are pairwise disjoint finite sets, then $X_1 \cup \cdots \cup X_n = \bigcup\limits_{i=1}^nX_i$ is a finite set and $\vert \bigcup\limits_{i=1}^nX_i \vert = \sum\limits_{i=1}^n\vert X_i \vert$.\\
+	\textbf{P}: Let $X$ and $Y$ be finite sets, then $\vert X \cup Y\vert = \vert X \vert + \vert Y\vert - \vert X \cap Y\vert$.\\
+	\textbf{P}: Let $X$ and $Y$ be finite sets, with $\vert X \vert = m$ and $\vert Y \vert = n$, then $X \times Y$ is a finite set and $\vert X \times Y \vert = mn$.\\
+	\textbf{P}: Let $X_1$,$\cdots$,$X_m$ be finite sets, where $\vert X_i \vert = n_i$ for each $i$, then $\vert X_1 \times \cdots \times X_m \vert = n_1n_2\cdots n_m$.\\
+	\textbf{P}: Let $X$ and $Y$ be non-empty finite sets, where $\vert X \vert = m$ and $\vert Y \vert = n$, then the number of functions $X \rightarrow Y$ is $nm$.\\
+	\textbf{P}: Let $A$ and $B$ be finite sets with $\vert A \vert = \vert B \vert = n$, then there are precisely $n!$ bijections $A \rightarrow B$.\\
+	\textbf{P}: Let $n, k \in \mathbb{N} \cup \{0\}$, then $\binom{n}{k} = 0$ if $k > n$.\\
+	\textbf{P}: Let $n, k \in \mathbb{N} \cup \{0\}$, $\binom{n}{0} = \binom{n}{n} = 1$ and $\binom{n}{1} = n$.\\
+	\textbf{P}: Let $n, k \in \mathbb{N} \cup \{0\}$, $\binom{n}{k} = \binom{n}{n-k}$.\\ 
+	\textbf{P}: Let $n, k \in \mathbb{N} \cup \{0\}$, if $0 < k \leq n$, then $\binom{n}{k} = \binom{n-1}{k} + \binom{n-1}{k-1}$.\\  
+	\textbf{P}: Let $n, k \in \mathbb{N} \cup \{0\}$ with $k \leq n$, then $\binom{n}{k} = \frac{n!}{k!(n-k)!}$.
+	
+\section*{Euclidean Algorithm}
+\begin{multicols}{3}
+	\noindent
+	\textbf{D}: gcd$(a,b$)\\
+\end{multicols}
+	\noindent
+	\textbf{P}: Let $A$ be a non-empty finite set of real numbers, then $A$ has a minimum and a maximum element.\\
+	\textbf{P}: Let $a, b \in \mathbb{Z}$ with $b > 0$, then there are unique integers $q$ and $r$ such that $a = bq + r$ and $0 \leq r < b$.\\
+	\textbf{P}: Let $a,b \in \mathbb{Z}$ with $a \neq 0$ and $b \neq 0$. Suppose $q,r \in \mathbb{Z} $ with $ a=qb+r$, then gcd$(a, b) =$ gcd$(b, r)$.\\
+	\textbf{P}: Let $a,b \in \mathbb{Z}$ with $a,b > 0$, then $\exists s,t \in \mathbb{Z}$ such that gcd$(a,b) = sa+tb$.\\
+	\textbf{P}: Let $p$ be a prime, then $\forall a,b \in \mathbb{N}, p\vert ab \Rightarrow p\vert a$ or $p\vert b$.
+	
+\section*{Congruence of integers}
+\begin{multicols}{3}
+	\noindent
+	\textbf{D}: $a \equiv b$ mod $n$\\
+	\textbf{D}: Linear congruence\\
+\end{multicols}
+	\noindent
+	\textbf{P}: Let $a,b \in \mathbb{Z}$ and $n\in \mathbb{N}$, then $a \equiv b$ mod $n \Leftrightarrow a $ and $b$ have the same remainder after division by $n$.\\
+	\textbf{P}: Let $a,b,c,d,\lambda \in \mathbb{Z}$ and $n,k \in \mathbb{N}$. Suppose that $a \equiv b$ mod $n$ and $c \equiv d$ mod $n$, then $a+c\equiv b+d$ mod $n$.\\
+	\textbf{P}: Let $a,b,c,d,\lambda \in \mathbb{Z}$ and $n,k \in \mathbb{N}$. Suppose that $a \equiv b$ mod $n$ and $c \equiv d$ mod $n$, then $ac\equiv bd$ mod $n$.\\
+	\textbf{P}: Let $a,b,c,d,\lambda \in \mathbb{Z}$ and $n,k \in \mathbb{N}$. Suppose that $a \equiv b$ mod $n$ and $c \equiv d$ mod $n$, then $\lambda a\equiv \lambda b$ mod $n$.\\
+	\textbf{P}: Let $a,b,c,d,\lambda \in \mathbb{Z}$ and $n,k \in \mathbb{N}$. Suppose that $a \equiv b$ mod $n$ and $c \equiv d$ mod $n$, then $a^k \equiv b^k$ mod $n$.\\
+	\textbf{P}: Let $c\in \mathbb{Z}$ and $n\in \mathbb{N}$. Suppose gcd$(c,n)=1$, then $\exists s \in \mathbb{Z}$ such that $sc\equiv 1$ mod $n$.\\
+	\textbf{P}: Let $d,n \in \mathbb{N}$ with $d\vert n$ and let $b_1,b_2 \in \mathbb{Z}$, then $db_1 \equiv db_2$ mod $n \Leftrightarrow b_1 \equiv b_2$ mod $\frac{n}{d}$.\\
+	\textbf{P}: Let $a,b \in \mathbb{Z}$ and $n\in \mathbb{N}$. $ax \equiv b$ mod $n$ has a solution $\Leftrightarrow d\vert b$, where $d$ = gcd$(a, n)$.\\
+	\textbf{P}: Let $a,b \in \mathbb{Z}$ and $n \in \mathbb{N}$. Write d = gcd(a,n). Suppose $d\vert b$. Let $x \in \mathbb{Z}$ be a solution to $ax\equiv b$ mod $n$, then $\forall k \in \mathbb{Z}$,$x+kn$ is also a solution. Instead suppose that $d = 1$. Then $ax\equiv b$ mod $n$ has a unique solution in $\{0,1,...,n - 1\}$.
+	
+\section*{Relations}
+\begin{multicols}{3}
+	\noindent
+	\textbf{D}: Relation $R$ on $A$\\
+	\textbf{D}: Reflexive relation\\
+	\textbf{D}: Symmetric relation\\
+	\textbf{D}: Transitive relation\\
+	\textbf{D}: Equivalence relation\\
+	\textbf{D}: Equivalence class\\
+	\textbf{D}: Partition\\
+	\textbf{D}: The set $\mathbb{Q}$\\
+	\textbf{D}: Addition $\oplus$\\
+	\textbf{D}: Multiplication $\odot$
+\end{multicols}
+	\noindent
+	\textbf{P}: Let $R$ be an equivalence relation on a set non-empty $A$. Let $a, b \in \mathbb{A}$. If $aRb$, then $R_a = R_b$.\\	\textbf{P}: Let $R$ be an equivalence relation on a set non-empty $A$. If $a\centernot Rb$, then $R_a \cap R_b = \emptyset$.\\
+	\textbf{P}: Let $R$ be an equivalence relation on a non-empty set $A$. Then $\{R_a :a \in A\}$ is a partition of A.\\
+	\textbf{P}: Let $A$ be a non-empty set and let $\{A_i : i \in I\}$ be a partition of $A$. Define a relation $R$ on $A$ by $aRb\Leftrightarrow \{a,b\}\subseteq A_i$ for some $i\in I$. Then $R$ is an equivalence relation, with equivalence classes $A_i$ for $i \in I$.
+
+\section*{Number theory II}
+\begin{multicols}{3}
+	\noindent
+	\textbf{D}: Fermat's little theorem
+\end{multicols}
+	\noindent
+	\textbf{P}: Let $p$ be a prime, and let $a_1,\cdots ,a_n \in \mathbb{Z}$. If $p|a_1\cdots a_n$, then $p$ divides at least one of $a_1,\cdots,a_n$.\\
+	\textbf{P}: Let $n \in \mathbb{N}$ with $n \geq 2$, then $n = p_1\cdots p_r$, where each $p_i$ is prime and any two such expressions for $n$ differ only in the order of writing.\\
+	\textbf{P}: Let $p \in \mathbb{N}$ be prime, and let $a \in \mathbb{N}$. If $p \centernot\vert a$, then $a^{p-1} \equiv 1$ mod $p$.\\
+	\textbf{P}: Let $p \in \mathbb{N}$ be prime and $a \in Z_p$ $\backslash$ $\{0\}$, then the map $f : Z_p $ $\backslash$ $\{0\} \rightarrow Z_p$ $\backslash$ $\{0\}$ defined by $f (x) = a \odot x$ is a permutation.
+
+\section*{Binary Operations}
+\begin{multicols}{3}
+	\noindent
+	\textbf{D}: $*$ on a set $S$\\
+	\textbf{D}: $*$ is commutative\\
+	\textbf{D}: $*$ on associative\\
+	\textbf{D}: Identity element w.r.t $S$\\
+	\textbf{D}: Group\\
+	\textbf{D}: Commutative group\\
+	\textbf{D}: Symmetric group\\
+	\textbf{D}: Cyclic group\\
+	\textbf{D}: Field
+\end{multicols}
+	\noindent
+	\textbf{P}: Let $*$ be a binary operation on a set $S$. Let $e,f \in \mathbb{S}$ be identity elements for S with respect to $*$, then $e = f$.
+\end{document}

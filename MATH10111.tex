@@ -1,0 +1,334 @@
+\documentclass[a4paper]{article}
+
+\usepackage[a4paper, margin=0.55in]{geometry}
+\usepackage{multicol}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{centernot}
+\usepackage{framed}
+
+\begin{document}
+
+\pagenumbering{gobble}
+	
+\begin{center}
+	\huge{\textbf{MATH10111 Cheat Sheet}}\\
+	\small{Available at \textsc{jtang.dev/resources}}\\
+\end{center}
+\begin{multicols}{2}
+
+% 1 - The Language of Mathematics
+%\begin{framed}
+%	\begin{center}
+%		\textbf{\textsc{THE LANGUAGE OF MATHEMATICS}}
+%	\end{center}
+%	Contrapositive: $(\neg q) \Rightarrow (\neg p) \equiv p \Rightarrow q$\\
+%	
+%	\noindent
+%	To negate a statment, switch $\forall$ to $\exists$ and vice versa, and negate and predicates.\\
+%\end{framed}
+
+% 2 and 10 - Number Theory
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{NUMBER THEORY I \& II}}
+	\end{center}
+	Prime number: $\forall a \in \mathbb{N}, a \vert p \Rightarrow a \in \{1, p\}$\\
+	
+	\noindent
+	\textbf{Fermat's Little Theorem}\\
+	Let $p \in \mathbb{N}$ be prime and let $a \in \mathbb{N}$.\\
+	If $p \centernot\vert a$, then $a^{p-1} \equiv 1$ mod $p$.\\
+	
+	\noindent
+	An equivalent formulation is: $a^p \equiv a$ mod $p$.
+\end{framed}
+
+% 3 - Mathematical Induction
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{MATHEMATICAL INDUCTION}}
+	\end{center}
+	\textbf{Simple Mathematical Induction}\\
+	Let $p(n)$ be a statement about the $n\in \mathbb{N}$
+	\begin{itemize}
+		\item show $p(1)$ is true (base case),
+		\item show for $k \in \mathbb{N}$, if $p(k)$ is true, then $p(k+1)$ is true (inductive step),
+		\item then $p(n)$ is true for all $n \in \mathbb{N}$
+	\end{itemize}
+	For strong induction, the inductive step is $k \in \mathbb{N}$, if $p(r)$ is true for all $r \leq k$, then $p(k+1)$ is true. 
+%	\noindent
+%	\textbf{Strong Mathematical Induction}\\
+%	Inductive step becomes:
+%	\begin{itemize}
+%		\item show for $k \in \mathbb{N}$, if $p(r)$ is true for all $r \leq k$, then $p(k+1)$ is true (inductive step),
+%	\end{itemize}
+\end{framed}
+
+% 4 - Set Theory
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{SET THEORY}}
+	\end{center}
+	Let $A$ and $B$ be sets.\\
+	$A \subseteq B$ : $x \in A \Rightarrow x \in B$\\
+	Empty Set: $\{\}$ or $\emptyset$\\
+	A = $\{x: x$ has property $P\}$\\
+	$A \cap B = \{x: x \in A $ and $x \in B\}$\\
+	$A \cup B = \{x: x \in A $ or $x \in B\}$\\
+	$A$ $\backslash$ $ B = \{x: x \in A $ and $x \notin B\}$\\
+	$A \subseteq U \Rightarrow A^c = U$ $\backslash$ $A$\\
+	Power Set: $\mathcal{P}(A)$ is a set whose elements are all of the subsets of $A$.\\
+	$A \times B = \{(a, b) : a \in A, b \in B\}$\\
+	$A^n = A \times \cdots \times A$ ($n$ times)
+\end{framed}
+
+% 6b- Cardinality
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{CARDINALITY OF SETS}}
+	\end{center}
+	
+	\noindent
+	\textbf{Counting Subsets}\\
+	Let $A$ be a set and $k \in \mathbb{N} \cup \{0\}$.
+	A \textit{k-subset} of $A$ is a subset $X \subseteq A$ with $\vert X \vert = k$.\\
+	
+	\noindent
+	Write $\mathcal{P}_k(A) = \{X \subseteq A : \vert X \vert = k \}$\\
+	
+	\noindent
+	If $\vert A \vert = n$, then
+	\begin{center}
+		$\mathcal{P}(A) = \bigcup\limits^n_{k=0}\mathcal{P}_k(A)$
+	\end{center}
+	
+	\noindent
+	We define $\binom{n}{k}$ to be the cardinality of $\mathcal{P}_k(\mathbb{N}_n)$
+\end{framed}
+
+% 6a- Cardinality
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{CARDINALITY OF SETS}}
+	\end{center}
+	Let $n \in \mathbb{N}$, then $n! = n(n-1)\cdots 2.1.$ Define $0! = 1$.\\
+	
+	\noindent
+	$\mathbb{N}_n = \{1,2,3, \cdots n\} = \{k \in \mathbb{N} : 1 \leq k \leq n\}, n \in \mathbb{N}$\\
+	Let $A$ be a set, $A$ has cardinality $n$ if there exists a bijection $f : \mathbb{N}_n \rightarrow A$, in this case, we write $\vert A \vert = n$.\\
+	
+	\noindent
+	Define $\vert \emptyset \vert = 0$. If $\vert A \vert = n$ for some $n \in \mathbb{N} \cup \{0\}$, then we say that A is finite, else infinite.\\
+	
+	\noindent
+	For $X_1, \cdots, X_n$ as pairwise disjoint finite sets:
+	\begin{center}
+		$\vert \bigcup\limits^n_{i=1} X_i \vert = \sum\limits^n_{i=1} \vert X_i \vert$\\
+	\end{center}
+\end{framed}
+
+% 5 - Functions
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{FUNCTIONS}}
+	\end{center}
+	\begin{center}
+		$f: A \rightarrow B$\\
+		$f$ has domain $A$ and codomain $B$
+	\end{center}
+
+	\noindent
+	Let $f: A \rightarrow B$, $g: C \rightarrow D$ be functions.\\
+	$f = g \Leftarrow A = C, B = D$ and $\forall x \in A, f(x) = g(x)$\\
+	
+	\noindent
+	Constant function: $\exists b_0 \in B, \forall a \in A, f(a) = b_0$\\
+	Identity function: $\forall a \in A, h(a) = a$, denoted by $i_A$ or $1_A$ for $h: A \rightarrow A$\\
+	
+	\noindent
+	Restriction of $f$ to $X$: $X \subseteq A$ and $g: X \rightarrow B$ by $g(x) = f(x), \forall x \in X$, denoted by $f \vert_X$ or $f\vert X$\\
+	
+	\noindent
+	Injective: $\forall x, y \in A, f(x) = f(y) \Rightarrow x = y$\\
+	Surjective: $\forall y \in B, \exists x \in A$ such that $y = f(x)$\\
+	Bijective: Both injective and surjective.\\
+	
+	\noindent
+	Let $f: A \rightarrow B$ and $g: B \rightarrow C$ be functions.
+	\begin{center}
+		$g \circ f(x) = g(f(x))$ for all $x \in A$
+	\end{center}
+	Note that $g \circ f: A \rightarrow C$ and the codomain of $f$ must be a subset of domain $g$.\\
+	
+	\noindent
+	Inverse: $f^{-1}: B \rightarrow A$ by $f^{-1}(y) = x$, where $x$ is the unique $x \in A$ with $f(x) = y$\\
+	
+	\noindent
+	A permutation of $A$ is a bijection from $A$ to $A$.\\
+	
+	\noindent
+	\textbf{Cycle Notation for Permutations}
+	\begin{center}
+			$(\alpha_1\alpha_2\cdots\alpha_r)$ denotes\\
+	$\alpha_1\mapsto\alpha_2$, $\alpha_2\mapsto\alpha_3$ $\cdots$ $\alpha_{r-1}\mapsto\alpha_r$, $\alpha_r\mapsto\alpha_1$\\
+	$\alpha\mapsto\alpha$ for all $a \in \mathbb{N}_n$ $\backslash$ $\{\alpha_1 \cdots \alpha_r\}$
+	\end{center}
+	
+	\noindent
+	If $c = (\alpha_1\cdots\alpha_r)$, then $c^{-1} = (\alpha_1\alpha_r\alpha_{r-1}\cdots\alpha_2)$\\
+	$(c_1 \circ c_2 \circ \cdots c_t)^{-1} = (c_1)^{-1} \circ (c_2)^{-1} \circ \cdots (c_t)^{-1}$\\
+	
+	\noindent
+	$(\alpha_1\alpha_2\cdots\alpha_r)$ is called a cycle with length $r$.
+\end{framed}
+
+
+
+\newpage
+
+
+
+% 7 - Euclidean
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{THE EUCLIDEAN ALGORITHM}}
+	\end{center}
+	\textbf{Minimum and Maximum}\\
+	Let $A$ be a non-empty finite set of real numbers.
+	\begin{center}
+		$\exists a, b \in A, \forall x \in A, a \leq x \leq b$
+	\end{center}
+	
+	\noindent
+	\textbf{The Division Theorem}\\
+	Let $a, b \in \mathbb{Z}, b > 0, then$
+	\begin{center}
+		$\exists ! q, r \in \mathbb{Z}, a = bq+r, 0 \leq r < b.$		
+	\end{center}
+	
+	\noindent
+	\textbf{The Greatest Common Divisor}\\
+	If $d = $ gcd$(a, b)$, then $d \vert a$ and $d \vert b$, and if $c \in \mathbb{Z}$ such that $c \vert a$ and $c \vert b$ then $c \leq d$.\\
+	
+	\noindent
+	\textbf{Reverse of the Euclidean Algorithm}\\
+	Let $a,b \in \mathbb{Z},$ with $a,b >0$.\\
+	Then $\exists s,t \in \mathbb{Z}$, gcd$(a,b) = sa+tb$.
+\end{framed}
+
+% 9 - Relations
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{RELATIONS}}
+	\end{center}
+		Let $A$ be a set with $A \neq \emptyset$. A relation $R$ on $A$ is a subset of $A \times A$. For $x, y\in A$, $x R y$ if $(x, y)\in R$.\\	
+
+	\noindent
+	Reflexive: $\forall x \in A, xRx$.\\
+	Symmetric: $\forall x, y \in A, xRy \Rightarrow yRx$.\\
+	Transitive: $\forall x, y, z \in A, xRy$ and $yRz \Rightarrow xRz$.\\
+	
+	\noindent
+	An equivalence relation on a non-empty set $A$ is a relation which is reflexive, symmetric and transitive.\\
+	
+	\noindent
+	\textbf{Equivalence Classes}\\
+	Let $R$ be an equivalence relation on a non-empty set $A$. Let $a \in A$, then $R_a$ is defined as:
+	\begin{center}
+		$R_a = \{x \in A : aRx\}$
+	\end{center}
+	Note that $a \in R_a$ (since $R$ is reflexive) and $R_a \subseteq A$\\
+	Also, $R_a = \{x \in A: aRx\} = \{x \in A: xRa\}$.\\
+	
+	\noindent
+	\textbf{Partitions}\\
+	Let $X$ be a non-empty set, $\{X_i:i\ in I\}$ to be a collection of non-empty subsets of $X$, where $I$ is the index set, such that:
+	\begin{itemize}
+		\item $\cup_{i\in I}X_i = X$ and
+		\item $\forall i,j \in I, X_i = X_j$ or $X_i \cap X_j = \emptyset$
+	\end{itemize}
+	Then $\{X_i : i \in I\}$ is a partition of $X$.\\
+	
+	\noindent
+	\textbf{Definition of $\mathbb{Q}$}\\
+	Let $A = \mathbb{Z} \times (\mathbb{Z}$ $\backslash$ $\{0\})$\\
+	Define $R$ on $A$ by $(a,b)R(c,d) \Leftrightarrow ad=bc$\\
+	$\mathbb{Q}=\{R_{(a,b)} : (a,b) \in A\}$\\
+	
+	\noindent
+	\textbf{Integers modulo $n$}\\
+	Let $a, b \in \mathbb{Z}_n$, define $\oplus$ and $\odot$ on $\mathbb{Z}_n$ as follows:\\
+	Addition $\oplus$: $a \oplus b = r, r \in \mathbb{Z}_n, a + b \equiv r$ mod $n$.\\
+	Mutiplication $\odot$: $a \odot b = t, t \in \mathbb{Z}_n, ab \equiv t$ mod $n$.\\
+	Note that $r$ and $t$ are unique.\\
+\end{framed}
+
+
+% 8 - Congruence of Integers
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{CONGRUENCE OF INTEGERS}}
+	\end{center}
+	Let $n \in \mathbb{N}$. For $a, b \in \mathbb{Z}$, we say that $a$ and $b$ are congruent modulo $n$ if and only if $n \vert (a-b)$. We write $a \equiv b$ mod $n$.\\
+	Note that $a \equiv 0$ mod $n \Leftrightarrow n \vert a$.\\
+	
+	\noindent
+	\textbf{Linear Congruences}\\
+	Let $a,b \in \mathbb{Z}$ and $n \in \mathbb{N}$. Suppose we want to find $x,y \in \mathbb{Z}$, such that $ax + ny = b$. This problem is the equivalent to finding $x \in \mathbb{Z}$ such that:
+	\begin{center}
+		$ax \equiv b$ mod $n$.
+	\end{center}
+\end{framed}
+
+% 11 - Binary Operations
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{BINARY OPERATIONS}}
+	\end{center}
+	A binary operation $*$ on a set $S$ is a function:
+	\begin{center}
+		$* : S \times S \rightarrow S$, $a*b = *(a,b)$.
+	\end{center}
+	Multiplication tables are read [row] $*$ [column].\\
+	
+	\noindent
+	Commutative: $\forall a,b \in S, a*b = b*a$\\
+	Associative: $\forall a,b,c \in S, a*(b*c) = (a*b)*c$\\
+	Identity element ($e$): $\forall a \in S, e*a=a*e=a$.\\
+	
+	\noindent
+	\textbf{Groups}\\
+	Let $G$ be a non-empty set and $*$ be a binary operation on $G$. Then we call $(G,*)$ a group if:
+	\begin{itemize}
+		\item $*$ is associative,
+		\item $G$ has as identity element $e$ with respect to $*$,
+		\item $\forall g \in G, \exists h \in G, g*h=h*g=e$.
+	\end{itemize}
+	Commutative group: $\forall g, h \in G, g*h=h*g$\\
+	
+	\noindent
+	\textbf{Symmetric Group}\\
+	$(S_n, \circ$) is the symmetric group, where $S_n$ is the set of permutations $f: N_n \rightarrow N_n$ and $\circ$ be the composition of permutations. The identity map $i_{N_n}: N_n \rightarrow N_n$ is given by $i_{N_n}(a)=a$ for all $a$ is the identity element, and write $e=_{N_n}$.\\
+	
+	\noindent
+	\textbf{Cyclic Group}\\
+	Let $(G,*)$ be a group with identity element $e$. Note that $\forall g \in G$ we have $g^0 = e$, we say that $G$ is cyclic if:
+	\begin{center}
+		$\exists a \in G, G = \{a^k:k\in \mathbb{Z}\}$.
+	\end{center}
+	
+	\noindent
+	\textbf{Fields}\\
+	Let $F$ be a non-empty set and let $+, *$ be binary operations on F. We say $(F,+,*)$ is a field if:
+	\begin{itemize}
+		\item $(F,+)$ is a commutative group, let $0 = e$.
+		\item $(F$ $\backslash$ $\{0\},*)$ is a commutative group, let $1 = e$.
+		\item $\forall a,b,c \in F, a*(b+c) = (a*b)+(a*c)$.
+	\end{itemize}
+	$-a$ is the inverse of $a \in F$ with respect to $+$.\\
+	$a^{-1}$ is the inverse of $a \in F$ $\backslash$ $\{0\}$ with respect to $*$.
+\end{framed}
+
+\end{multicols}
+\end{document}

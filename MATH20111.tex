@@ -1,0 +1,423 @@
+\documentclass[a4paper]{article}
+
+\usepackage[a4paper, margin=0.35in]{geometry}
+\usepackage{multicol}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{centernot}
+\usepackage{framed}
+
+\begin{document}
+
+\pagenumbering{gobble}
+	
+\begin{center}
+	\huge{\textbf{MATH20111 Cheat Sheet}}\\
+	\small{Available at \textsc{jtang.dev/resources}}\\
+\end{center}
+\begin{multicols}{2}
+
+% Sequences Definitions
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{definitions}}
+	\end{center}
+	\textbf{sequence}: a function $\mathbb{N} \rightarrow \mathbb{R}$\\
+	\textbf{value set}: $\{a_n \vert n \in \mathbb{N}\}$\\
+	\textbf{subsequence}: $(a_{n_k})_{n\in \mathbb{N}}$ with $n_1 < n_2 < n_3 < \cdots$\\
+	\textbf{converges to $r$}: $\forall \epsilon > 0, \exists N \in \mathbb{N}, \forall n \geq N, \vert a_n - r \vert < \epsilon$
+	\textbf{divergent}: not convergent\\
+	
+	\noindent
+	\textbf{upper bound of S}: $r \in \mathbb{R} \, \text{with} \, S \leq r$\\
+	\textbf{lower bound of S}: $r \in \mathbb{R} \, \text{with} \, r \leq S$\\
+	\textbf{S is bounded from above}: S has an upper bound\\
+	\textbf{S is bounded from below}: S has a lower bound\\
+	\textbf{bounded}: bounded from above and from below\\
+	
+	\noindent
+	\textbf{supremum}: least upper bound, sup(S)\\
+	\textbf{infimum}: greatest lower bound, inf(S) = -sup(-S)\\
+	
+	\noindent
+	\textbf{increasing}: $a_1 \leq a_2 \leq a_3 \leq \cdots$\\
+	\textbf{decreasing}: $a_1 \geq a_2 \geq a_3 \geq \cdots$\\
+	\textbf{strictly increasing}: $a_1 < a_2 < a_3 < \cdots$\\
+	\textbf{strictly decreasing}: $a_1 > a_2 > a_3 > \cdots$\\
+	\textbf{monotone}: increasing or decreasing\\
+	\textbf{strictly monotone}: strictly increasing or decreasing\\
+	
+	\noindent
+	\textbf{null sequence}: sequence that converges to 0
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{1.2.5 uniqueness of limits}}
+	\end{center}
+	if $(a_n)_{n\in \mathbb{N}} \rightarrow r \, \text{and} \, (a_n)_{n\in \mathbb{N}} \rightarrow s \, \text{then} \, r = s$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{1.2.6 finite modification rule}}
+	\end{center}
+	if $(a_n)_{n\in \mathbb{N}} \rightarrow r \, \text{and} \, (b_n)_{n\in \mathbb{N}} = (a_n)_{n\in \mathbb{N}} \, \text{for all but finitely many} \, n \, \text{then} \, (b_n)_{n\in \mathbb{N}} \rightarrow r$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{1.4.6 monotone convergence theorem}}
+	\end{center}
+	every monotone and bounded sequence has a limit
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{1.6.1 sandwich rule for sequences}}
+	\end{center}
+	if $(a_n)_{n\in \mathbb{N}}, (c_n)_{n\in \mathbb{N}} \rightarrow r \, \text{and} \, a_n \leq b_n \leq c_n \, \text{for all} \, n \in \mathbb{N} \, \text{then} \, (b_n)_{n\in \mathbb{N}} \rightarrow r$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{1.6.2 compatibility of limits and order}}
+	\end{center}
+	(i) if $a_n \leq b_n$ FABFM $n$ then $lim_{n \rightarrow \infty}a_n \leq lim_{n \rightarrow \infty}b_n$\\
+	(ii) if $lim_{n \rightarrow \infty}a_n < lim_{n \rightarrow \infty}b_n$ then FABFM $n$ $a_n < b_n$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{1.6.3 algebra of limits}}
+	\end{center}
+	sum rule: $\lim\limits_{n \rightarrow \infty}(a_n + b_n) = \lim\limits_{n \rightarrow \infty}(a_n) + \lim\limits_{n \rightarrow \infty}(b_n)$\\
+	multiplication rule: $\lim\limits_{n \rightarrow \infty}(a_n \cdot b_n) = \lim\limits_{n \rightarrow \infty}(a_n) \cdot \lim\limits_{n \rightarrow \infty}(b_n)$\\
+	division rule: $\lim\limits_{n \rightarrow \infty}(\frac{a_n}{b_n}) = \frac{\lim_{n \rightarrow \infty}(a_n)}{\lim_{n \rightarrow \infty}(b_n)}$\\
+	modulus rule: $\lim\limits_{n \rightarrow \infty}\vert a_n \vert = \vert \lim\limits_{n \rightarrow \infty}a_n \vert $\\
+	root rule: $\lim\limits_{n \rightarrow \infty}\sqrt[p]{a_n} = \sqrt[p]{\lim\limits_{n \rightarrow \infty}a_n}$, for $p \in \mathbb{N}$\\
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{propositions and friends}}
+	\end{center}
+	\textbf{1.2.7}: every subsequence of a convergent sequence $(a_n)_{n\in \mathbb{N}}$ converges to $\lim_{n \rightarrow \infty}a_n$\\
+	\textbf{1.4.2}: every convergent sequence is bounded\\
+	\textbf{1.4.3}: completeness axiom of $\mathbb{R}$: every nonempty subset S of $\mathbb{R}$ which has an upper bound, has a least upper bound.
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{properties of null sequences}}
+	\end{center}
+	Let $(a_n)_{n\in \mathbb{N}}$ be a null sequence.\\
+	(i) if $c \in \mathbb{R}$ then $(c \cdot a_n)_{n\in \mathbb{N}}$\\
+	(ii) if $(b_n)_{n\in \mathbb{N}}$ is null, then $(a_n + b_n)_{n\in \mathbb{N}}$ is null\\
+	(iii) if $\vert b_n \vert \leq \vert a_n \vert$ FABFM $n$, then $(b_n)_{n\in \mathbb{N}}$ is null\\
+	(iv) if $(b_n)_{n\in \mathbb{N}}$ is bounded, then $(a_n \cdot b_n)_{n\in \mathbb{N}}$ is null\\
+	(v) if $a_n \geq 0$ for all $n, p \in \mathbb{R}$, then $(a^p_n)_{n\in \mathbb{N}}$ is null\\
+	
+	\noindent
+	$(a_n)_{n\in \mathbb{N}} \rightarrow r \iff (a_n - r)_{n\in \mathbb{N}}$ is null\\
+	$(a_n)_{n\in \mathbb{N}}$ is null $\iff (\vert a_n \vert)_{n\in \mathbb{N}}$ is null
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{standard list of null sequences}}
+	\end{center}
+	(i) $\lim_{n \rightarrow \infty}\frac{1}{n^p} = 0$ for every $p \in \mathbb{R}, p > 0$\\
+	(ii) $\lim_{n \rightarrow \infty}\frac{1}{c^n} = 0$ for every $c \in \mathbb{R}, \vert c \vert > 1$\\
+	(iii) $\lim_{n \rightarrow \infty}\frac{n^p}{c^n} = 0$ for every $p, c \in \mathbb{R}, \vert c \vert > 1$\\
+	(iv) $\lim_{n \rightarrow \infty}\frac{c^n}{n!} = 0$ for all $c \in \mathbb{R}$
+\end{framed}
+
+\newpage
+% Series Definitions
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{definitions}}
+	\end{center}
+	\textbf{n-th partial sum}: $s_n = a_1 + \cdots + a_n$\\
+	\textbf{the series $\sum^\infty_{n=1}$ converges}: $(s_n)_{n \in \mathbb{N}}$ converges\\
+	\textbf{$\sum^\infty_{n=1} a_n = \lim_{n \rightarrow \infty} s_n$}\\
+	\textbf{absolutely convergent}: $\sum^\infty_{n=1} \vert a_n \vert$ is convergent
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{2.1.2 geometric series}}
+	\end{center}
+	$$\sum^\infty_{k=0} x^k = \frac{1}{1-x} \, \text{for} \, \vert x \vert < 1$$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{2.1.4 (2.1.7 alternating) harmonic series}}
+	\end{center}
+	$$\sum^\infty_{k=0} \frac{1}{k} \, \text{is divergent}$$
+	$$\text{(alternating): } \, \sum^\infty_{k=0} \frac{(-1)^{k+1}}{k} \, \text{is convergent}$$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{2.1.5 convergence of series with $+$ve terms}}
+	\end{center}
+	if $(a_n)_{n \in \mathbb{N}}$ is a sequence with $a_n \geq 0$ for all $n \in \mathbb{N}$ then
+	$$\sum^\infty_{n=0} a_n \, \text{is convergent} \iff (s_n)_{n \in \mathbb{N}} \, \text{is bounded}$$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{2.2.1 algebra of series}}
+	\end{center}
+	(i) for every $c \in \mathbb{R}$, $\sum^\infty_{n=0} (c \cdot a_n) = c \cdot \sum^\infty_{n=0} a_n$\\
+	(ii) $\sum^\infty_{n=0} (a_n + b_n) = \sum^\infty_{n=0} a_n + \sum^\infty_{n=0} b_n$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{2.2.5 comparison test}}
+	\end{center}
+	if $\sum_{n=1}^\infty a_n$ is absolutely convergent and $\vert b_n \vert \leq \vert a_n \vert$ for all $n \in \mathbb{N}$ then $\sum_{n=1}^\infty b_n$ is absolutely convergent
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{2.2.7 limit comparison test}}
+	\end{center}
+	if $a_n, b_n > 0$ for all $n \in \mathbb{N}$ and $(\frac{b_n}{a_n})_{n \in \mathbb{N}}$ is convergent with $lim_{n \rightarrow \infty}\frac{b_n}{a_n} \neq 0$ then
+	$$ \sum^\infty_{n=1} a_n \, \text{is convergent} \iff \sum^\infty_{n=1} b_n \, \text{is convergent}$$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{2.2.9 ratio test}}
+	\end{center}
+	if $(a_n)_{n \in \mathbb{N}}$ if a sequence with $a_n \neq 0$ for all $n \in \mathbb{N}$ such that $(\vert \frac{a_{n+1}}{a_n} \vert)_{n \in \mathbb{N}}$ is convergent.
+	$$\lim_{n \rightarrow \infty} \vert \frac{a_{n+1}}{a_n} \vert < 1 \Rightarrow \sum_{n=1}^\infty a_n \, \text{is absolutely convergent}$$
+	$$\lim_{n \rightarrow \infty} \vert \frac{a_{n+1}}{a_n} \vert > 1 \Rightarrow \sum_{n=1}^\infty a_n \, \text{is divergent}$$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{propositions and friends}}
+	\end{center}
+	\textbf{2.1.3}: if $\sum_{n=1}^\infty a_n$ converges, then $(a_n)_{n \in \mathbb{N}}$ is null\\
+	\textbf{2.2.3}: every absolutely convergent series is convergent\\
+	\textbf{2.2.4}: 2.2.1 also holds for absolutely convergent\\
+	\textbf{2.2.6}: if $\sum_{n=1}^\infty a_n$ is an  absolutely convergent series and $(b_n)_{n \in \mathbb{N}}$ is bounded, then $\sum_{n=1}^\infty (a_n \cdot b_n)$ is absolutely convergent
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{repertoire}}
+	\end{center}
+	$$\sum^\infty_{n=0} \frac{1}{n^k} \, \text{is convergent for} \, k > 1$$
+	$$\sum^\infty_{n=0} \frac{c^n}{n!} \, \text{is convergent for every c} \in \mathbb{R}$$
+\end{framed}
+
+\newpage
+% Continuous Definitions
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{definitions}}
+	\end{center}
+	\textbf{continuous at $x_0$}: S $\in \mathbb{R}, f:S \rightarrow \mathbb{R}, x_0 \in S$, then $\forall \epsilon > 0 \, \exists \delta > 0  \, \forall x \in S (\vert x - x_0 \vert < \delta \Rightarrow \vert f(x) - f(x_0) \vert < \epsilon)$\\
+	\textbf{f tends to $r$ from above}: S $\in \mathbb{R}, f:S \rightarrow \mathbb{R}, a \in S$ with $(a, a+h) \in S$ for some $h > 0$. Let $r \in \mathbb{R}$ then $\forall \epsilon > 0 \, \exists \delta > 0  \, \forall x \in S \, (a < x < a + \delta \Rightarrow \vert f(x) - r \vert < \epsilon)$\\
+		\textbf{f tends to $r$ from below}: S $\in \mathbb{R}, f:S \rightarrow \mathbb{R}, a \in S$ with $(a - h, a) \in S$ for some $h > 0$. Let $r \in \mathbb{R}$ then $\forall \epsilon > 0 \, \exists \delta > 0  \, \forall x \in S \, (a - \delta < x < a \Rightarrow \vert f(x) - r \vert < \epsilon)$\\
+		
+	\noindent
+	\textbf{deleted neighbourhood of $a$}: $(a-h, a) \cup (a, a+h)$\\
+		
+	\noindent
+	\textbf{$\lim_{x \rightarrow a}f(x)$}:= $\lim_{x \nearrow a} f(x) = \lim_{x \searrow a} f(x)$ if equal\\
+	
+	\noindent
+	\textbf{$\lim_{x \rightarrow \infty}f(x)$ = $r$}: $f:S \rightarrow \mathbb{R}, (h, +\infty) \in S$. Then $\forall \epsilon > 0 \, \exists d \in \mathbb{R} \, \forall x \in S \, (x > d \Rightarrow \vert f(x) - r \vert < \epsilon)$\\
+	
+	\noindent
+	\textbf{$\lim_{x \searrow a f(x)} = \infty$}: $f:S \rightarrow \mathbb{R}, (a, a+h) \in S$ for some $a, h \in \mathbb{R}$. Then $\forall A > 0 \, \exists \delta \in \mathbb{R} \, \forall x \in S \, (a < x < a + \delta \Rightarrow f(x) > A)$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{characterisation of continuity via sequences}}
+	\end{center}
+	let S $\in \mathbb{R}$, $x_0 \in S$, the following are equivalent:\\
+	(i) $f$ is continuous at $x_0$\\
+	(ii) for every sequence $(a_n)_{n \in \mathbb{N}}$ in S, if $(a_n)_{n \in \mathbb{N}} \rightarrow x_0$ then $f((a_n))_{n \in \mathbb{N}} \rightarrow f(x_0)$\\
+	(iii) for every monotone sequence $(a_n)_{n \in \mathbb{N}}$ in S, if $(a_n)_{n \in \mathbb{N}} \rightarrow x_0$ then $f((a_n))_{n \in \mathbb{N}} \rightarrow f(x_0)$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{algebra of limits for continuity at a point}}
+	\end{center}
+	let S $\in \mathbb{R}$, $x_0 \in S$, $f, g: S \rightarrow \mathbb{R}$ which are continuous at $x_0$ then\\
+	(i) $f+g$ is continuous at $x_0$\\
+	(ii) $f \cdot g$ is continuous at $x_0$\\
+	(iii) if $g(x) \neq 0, \forall x \in S$, then $\frac{f}{g}$ is continuous at $x_0$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{composite rule for continuous functions}}
+	\end{center}
+	let S, T $\subseteq \mathbb{R}$, $f: S \rightarrow \mathbb{R}, g: T \rightarrow \mathbb{R}$ with $f(S) \subseteq T$. if $f$ is continuous at $x_0$ and $g$ is continuous at $f(x_0)$ then $g \circ f: S \rightarrow \mathbb{R}$ is continuous at $x_0$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{intermediate value theorem}}
+	\end{center}
+	if $f:[a,b] \rightarrow \mathbb{R}$ is continuous, then every number between $f(a)$ and $f(b)$ is attained by $f$. $\forall r$ between $f(a)$ and $f(b)$, $\, \exists c \in [a,b]$ with $f(c) = r$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{the boundedness theorem}}
+	\end{center}
+	if $f:[a,b] \rightarrow \mathbb{R}$ is continuous, then $f$ is bounded and $f$ attains a global maximum and global minimum 
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{algebra of limits of functions}}
+	\end{center}
+	let $S \subseteq \mathbb{R}, f,g: S \rightarrow \mathbb{R}$. let $a \in \mathbb{R}$ such that $(a, a+h) \in S$ for some $h > 0$. if $\lim_{x \searrow a}f(x)$ and $\lim_{x \searrow a}g(x)$ exists, then:\\
+	(i) $\lim_{x \searrow a}(f+g)(x)$ = $\lim_{x \searrow a}f(x)$ + $\lim_{x \searrow a}g(x)$\\
+	(ii) $\lim_{x \searrow a}(f\cdot g)(x)$ = $(\lim_{x \searrow a}f(x)) \cdot (\lim_{x \searrow a}g(x))$\\
+	(iii) if , $\forall x \in S, g(x) \neq 0$ and $\lim_{x \searrow a}g(x) \neq 0$, then $\lim_{x \searrow a}(\frac{f}{g})(x)$ = $\frac{\lim_{x \searrow a}f(x)}{\lim_{x \searrow a}g(x)}$\\
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{sandwich rule for limits of functions}}
+	\end{center}
+	let S $\in \mathbb{R}, f,g,h: S \rightarrow \mathbb{R}.$ let $a \in \mathbb{R}$ such that $(a, a+b)$ for some $b > 0$. if $f(x) \leq h(x) \leq g(x)$ in $(a, a+b)$ and $lim_{x \searrow a}f(x) = \lim_{x \searrow a}g(x) = r$ then $\lim_{x \searrow a}h(x) = r$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{propositions and friends}}
+	\end{center}
+	\textbf{3.2.3}: let $S \in \mathbb{R}$, $f, g: S \rightarrow R$ be continuous then $f+g: S \rightarrow R, f \cdot g:S \rightarrow R$ and $\frac{f}{g}:S \rightarrow R$ are continuous\\
+	\textbf{3.3.3}: let $f:[a,b]\rightarrow \mathbb{R}$ be a continuous and injective function. let $f^{-1}:f([a,b]) \rightarrow [a,b]$ be the compositional inverse of $f$ then:\\
+	(i) $f$ is strictly monotone\\
+	(ii) $f^{-1}$ is strictly monotone (precisely, $f^-1$ is strictly increasing if $f$ is strictly increasing and vice versa)\\
+	(iii) $f^{-1}$ is continuous\\
+	\textbf{3.4.2}: all general statements regarding limits from above also hold for translated version from below\\
+	\textbf{3.4.4}: let $S \subseteq \mathbb{R}$ and let $f: S \rightarrow \mathbb{R}$. let $a \in \mathbb{R}$ be such that $(a, a+h)\in S$ for some $h > 0$. let $r \in \mathbb{R}$. define $\hat{f}$ by $\hat{f} = f(x)$ if $a < x$ and $\hat{f} = r$ is $x = a$. then
+	$$ \lim_{x \searrow a} f(x) = r \iff \hat{f} \, \text{is continuous at a}$$
+	\textbf{3.4.5}: let $S \subseteq \mathbb{R}$ and let $f: S \rightarrow \mathbb{R}$. let $a \in \mathbb{R}$ be such that $(a, a+h)\in S$ for some $h > 0$. let $r \in \mathbb{R}$. then $\lim_{x \rightarrow a}f(x) = r \iff$ for every (monotone) sequence $(a_n)_{n \in \mathbb{N}}$ in $(a, a+h)$ that converges to $a$, $(f(a_n))_{n \in \mathbb{N}}$ converges to $r$\\
+	\textbf{3.4.6}: let $S \subseteq \mathbb{R}$ and let $f: S \rightarrow \mathbb{R}$. let $a \in \mathbb{R}$ be such that $(a-h, a+h)\in S$ for some $h > 0$. then $f$ is continuous at $a \iff \lim_{x \rightarrow a}f(x) = f(a)$\\
+	\textbf{3.4.11}: $\lim_{x \rightarrow \infty}f(x) = \lim_{t \searrow 0}f(\frac{1}{t})$\\
+	\textbf{3.4.13}: $\lim_{x \searrow a}f(x) = \infty \iff$ there is some $h > 0$ with $f(x) > 0$ for all $x \in (a, a+h)$ and $\lim_{x \searrow a}\frac{1}{f(x)} = 0$
+\end{framed}
+
+\newpage
+% Differentiable Definitions
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{definition}}
+	\end{center}
+	\textbf{differentiable at $x_0$}: S open, $f: S \rightarrow \mathbb{R}$, $x_0 \in S$ then $\lim_{x \rightarrow x_0} \frac{f(x) - f(x_0)}{x - x_0}$ exists\\
+	\textbf{differentiable}: differentiable at each $x_0$ in S\\
+	\textbf{derivative of f at $x_0$}: $f'(x_0) = \lim_{x \rightarrow x_0} \frac{f(x) - f(x_0)}{x - x_0}$\\
+	
+	\noindent
+	\textbf{local maximum}: S $\in \mathbb{R}, \, f: S \rightarrow \mathbb{R}, \, x_0 \in S$ then $\exists h > 0 \, \forall x \in S \, (x_0 - h < x < x_0 + h \Rightarrow f(x_0) \geq f(x))$\\
+	\textbf{local minimum}: S $\in \mathbb{R}, \, f: S \rightarrow \mathbb{R}, \, x_0 \in S$ then $\exists h > 0 \, \forall x \in S \, (x_0 - h < x < x_0 + h \Rightarrow f(x_0) \leq f(x))$\\
+	\textbf{local extremum}: local minimum or local maximum
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{chain (composite) rule}}
+	\end{center}
+	let f:$S \rightarrow \mathbb{R}$ be differentiable at $x_0$, $f(S) \subseteq T$ and let $g: T \rightarrow \mathbb{R}$ be differentiable at $f(x_0)$. then also $g \circ f: S \rightarrow \mathbb{R}$ is differentiable at $x_0$ and
+	$(g \circ f)'(x_0) = g'(f(x_0))\cdot f'(x_0)$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{algebra of differentiable functions}}
+	\end{center}
+	let $f, g:S \rightarrow \mathbb{R}$ be differentiable at $x_0$, then:\\
+	(i) $(f + g)'(x_0) = f'(x_0) + g'(x_0)$\\
+	(ii) $(f \cdot g)'(x_0) = f'(x_0) \cdot g(x_0) + f(x_0) \cdot g'(x_0)$\\
+	(iii) if $g(x) \neq 0$ for all $x \in S$ then $$(\frac{f}{g})'(x_0) = \frac{g(x_0)f'(x_0) - g'(x_0)f(x_0)}{g^2(x_0)}$$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{some theorem}}
+	\end{center}
+	let $f:S \rightarrow \mathbb{R}$ be a continuous function and differentiable at $x_0 \in S$. if $f$ is injective with $f'(x_0) \neq 0$, then $f^-1$ defined on $T=f(s)$ is differentiable at $y_0 := f(x_0)$ and $$(f^{-1})'(y_0) = \frac{1}{f'(f^{-1}(y_0))}$$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{some other theorem}}
+	\end{center}
+	if $f:S \rightarrow \mathbb{R}$ is differentiable at $x_0 \in S$ and $x_0$ is a local extremum of $f$, then $f'(x_0) = 0$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{rolle's theorem}}
+	\end{center}
+	let $f:[a,b] \rightarrow \mathbb{R}$ be a continuous function which is differentiable in $(a,b)$. if$f(a) = f(b)$, then there is some $\xi \in (a,b)$ with $f'(\xi) = 0$.
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{and another theorem}}
+	\end{center}
+	let $f,g: [a,b] \rightarrow \mathbb{R}$ be continuous functions which are differentiable in $(a, b)$. then there is some $\xi \in (a, b)$ with
+	$f′(\xi) \cdot (g(b) − g(a)) = g′(\xi) \cdot (f(b) − f(a))$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{mean value theorem}}
+	\end{center}
+	let $f:[a, b] \rightarrow \mathbb{R}$ be a continuous function which is differentiable in $(a, b)$, then there is some $\xi \in (a, b)$ with $f'(\xi) = \frac{f(b) - f(a)}{b - a}$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{cauchy mean value theorem}}
+	\end{center}
+	let $f,g :[a, b] \rightarrow \mathbb{R}$ be a continuous functions which are differentiable in $(a, b)$. then there is some $\xi \in (a, b)$ with $\frac{f'(\xi)}{g'(\xi)} = \frac{f(b) - f(a)}{g(b) - g(a)}$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{l'hopital's rule}}
+	\end{center}
+	let $f,g:[a, b) \rightarrow \mathbb{R}$ be continuous functions which are differentiable in $(a, b)$. suppose\\
+	(i) $g'(x) \neq 0$ for all $x \in (a, b)$\\
+	(ii) $f(a) = g(a) = 0$\\
+	(iii) $\lim_{x \searrow a}\frac{f'(x)}{g'(x)}$ exists\\
+	then
+	$$\lim_{x \searrow a}\frac{f(x)}{g(x)} = \lim_{x \searrow a}\frac{f'(x)}{g'(x)}$$
+	
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{propositions and friends}}
+	\end{center}
+	\textbf{4.1.2}: if $f:S \rightarrow \mathbb{R}$ is differentiable at $x_0 \in S$, then $f$ is continuous at $x_0$\\
+	\textbf{4.1.3}: let $f:S \rightarrow \mathbb{R}$ be differentiable at $x_0$, then\\
+	(i) if $f'(x_0) > 0$, then these is some $h > 0$ such that for all $x_1, x_2 \in (x_0 - h, x_0 + h)$, we have $$x_1 < x_0 < x_2 \Rightarrow f(x_1) < f(x_0) < f(x_2)$$\\
+	(ii) if $f'(x_0) < 0$, then these is some $h > 0$ such that for all $x_1, x_2 \in (x_0 - h, x_0 + h)$, we have $$x_1 < x_0 < x_2 \Rightarrow f(x_1) > f(x_0) > f(x_2)$$
+	\textbf{4.2.2}: let $S, T \subseteq \mathbb{R}$ be open intervals and let $f:S \rightarrow T,g:T \rightarrow \mathbb{R}$ be functions. if $f$ and $g$ are differentiable, then also $g \circ f : S \rightarrow \mathbb{R}$ is differentiable and
+	$$(g \circ f)' = (g' \circ f) \cdot f'$$
+\end{framed}
+
+\end{multicols}
+\end{document}

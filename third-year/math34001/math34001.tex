@@ -1,0 +1,277 @@
+\documentclass[a4paper]{article}
+
+\usepackage[a4paper, margin=0.35in]{geometry}
+\usepackage{multicol}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{centernot}
+\usepackage{framed}
+
+\newcommand\abs[1]{\ensuremath{\lvert#1\rvert}}
+\newcommand\divides{\ensuremath{\big|}}
+
+\begin{document}
+
+\pagenumbering{gobble}
+	
+\begin{center}
+	\huge{\textbf{math34001 - applied complex analysis}}\\
+	\small{available at \textsc{jtang.dev/resources}}\\
+\end{center}
+
+\begin{multicols}{2}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{0 - revision of basics}}
+	\end{center}
+	
+	\noindent
+	\textbf{complex exponential}: $e^{iz} = \cos z + i\sin z$
+	
+	\noindent
+	\textbf{triangle inequality}: $\abs{\abs{z_1} - \abs{z_2}} \leq \abs{z_1 + z_2} \leq \abs{z_1} + \abs{z_2}$\\
+	
+	\noindent
+	\textbf{order of functions}\\
+	$f = O(g)$ as $z \rightarrow z_0 \iff f(z)/g(z)$ is bounded as $z \rightarrow z_0$\\
+	$f = o(g)$ as $z \rightarrow z_0 \iff f(z)/g(z) \rightarrow 0$ as $z \rightarrow z_0$\\
+	$f \sim g$ as $z \rightarrow z_0 \iff f(z)/g(z) \rightarrow 1$ as $z \rightarrow z_0$\\
+	
+	\noindent
+	\textbf{bounds}\\
+	$\abs{z^\alpha} = \abs{e^{\alpha \ln z}} = \abs{e^{\alpha(\ln \abs{z} + i arg z)}} = \abs{e^{\alpha \ln\abs{z}}} = \abs{z}^\alpha$\\
+	$\abs{x^{z}} = \abs{e^{z \ln x}} = \abs{e^{(a + ib)\ln x}} = \abs{e^{a \ln x}} = x^a = x^{Re(z)}$\\
+	
+	\noindent
+	\textbf{useful identities}\\
+	$\sin iz = i\sinh z$ and $\sinh iz = i \sin z$\\
+	$\cos iz = \cosh z$ and $\cosh iz = \cos z$\\
+	
+	\noindent
+	\textbf{useful aside}\\
+	suppose $a(z)$ and $b(z)$ have simple poles at $z = z_0$, and $c(z)$ has a simple zero at $z = z_0$, then $a(z)/b(z)$ and $a(z)c(z)$ are regular at $z = z_0$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{1 - regular functions of a complex variable}}
+	\end{center}
+	
+	\noindent
+	\textbf{complex differentiable} at $z = a$: $\lim\limits_{z \rightarrow a}\Big(\frac{f(z)-f(a)}{z-a}\Big)$ exists\\
+	
+	\noindent
+	\textbf{regular} in $D \subseteq \mathbb{C}$: $\lim\limits_{z \rightarrow a}\Big(\frac{f(z)-f(a)}{z-a}\Big)$ exists $\forall a \in D$\\
+	
+	\noindent
+	\textbf{entire}: a function that is regular over the whole of $\mathbb{C}$\\
+	
+	\noindent
+	\textbf{singularity}: an isolated point where $f(z)$ fails to have a derivative\\
+	
+	\noindent
+	\textbf{power series}\\
+	$$f(z) = \sum\limits_{n=0}^{\infty} A_n(z - z_0)^n \quad \text{for} \ \abs{z - z_0} < R$$
+	
+	\noindent
+	\textbf{laurent expansion}
+	$$f(z) = \sum\limits_{n=0}^{\infty}\frac{a_n}{(z-z_0)^n} \quad \text{for} \ \abs{z - z_0} > R$$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{2 - the functions $\ln z$ and $z^\alpha$}}
+	\end{center}
+	
+	\noindent
+	$$\ln z = \ln \abs{z} + i (\arg(z) + 2m\pi) \quad (m \in \mathbb{Z}, \text{usually} \ m = 1)$$
+	$$z^\alpha = \exp(\alpha \ln z) = \abs{z}^\alpha \exp(i\alpha(\arg(z) + 2m\pi)) \quad (\alpha \in \mathbb{R})$$
+	
+	\noindent
+	\textbf{notation}\\
+	$X + i0$ is the point just above the real axis at $x = X$\\
+	$X - i0$ is the point just below the real axis at $x = X$\\
+	
+	\noindent
+	\textbf{principle branch}: $-\pi \leq \arg(z) < \pi$\\
+	\textbf{secondary branch}: $0 \leq \arg(z) < 2\pi$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{3 - contour integrals and cauchy's theorem}}
+	\end{center}
+	
+	\noindent
+	\textbf{estimation lemma}\\
+	$$\Bigg\vert \, \int\limits_{\gamma} f(z) \; \mathrm{d}z \,\Bigg\vert \leq (\text{length of $\gamma$}) \times \underset{\text{along $\gamma$}}{\text{max}} \; \Big\vert f(z)\Big\vert$$\
+	
+	\noindent
+	\textbf{bounding a fraction}\\
+	$$\underset{\gamma}{\text{max}} \; \Bigg\vert \frac{g(z)}{h(z)} \Bigg\vert \leq \frac{\text{max}_\gamma \; \abs{g(z)}}{\text{min}_\gamma \; \abs{h(z)}} \quad \text{for $h(z) \neq 0$ along $\gamma$}$$\
+	
+	\noindent
+	\textbf{cauchy's theorem}: if $\gamma$ is a simple closed curve in the complex $z$-plane and $f(z)$ is regular everywhere inside $\gamma$, then $\oint_\gamma f(z) \, \mathrm{d}z = 0$\\
+	
+	\noindent
+	\textbf{cauchy's residue theorem}: let $C$ be a simple closed curve taken anti-clockwise and let $f(z)$ be regular inside and on $C$ except for a finite number of poles $z_1, \dots, z_m$ inside $C$, then
+	$$\oint_C f(z) \; \mathrm{d}z = 2\pi i\sum\limits_{m=1}^M \mathrm{Res}\{f(z) : z = z_m\}$$\
+	
+	\noindent
+	\textbf{residue of a pole at $z_0$ of order $n$}
+	$$\frac{1}{(n - 1)!}\Bigg\{\Bigg(\frac{\textrm{d}}{\textrm{d}z}\Bigg)^{n-1}\Big\{(z-z_0)^n f(z)\Big\}\Bigg\}_{z = z_0}$$\
+	
+	\noindent
+	\textbf{residue of simple pole at $z_0$}
+	$$a_{-1} = \lim\limits_{z \rightarrow z_0} \Big\{(z - z_0) f(z)\Big\}$$\
+	
+	\noindent
+	\textbf{cauchy's integral formula}: let $C$ be a simple closed curve taken anti-clockwise and let $f(z)$ be regular inside and on $C$. then for any point $x$ inside $C$, we have
+	$$f(x) = \frac{1}{2\pi i}\oint_C \frac{f(z)}{z - x} \mathrm{d}z$$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{4 - real definite integrals by contour integration}}
+	\end{center}
+	
+	\noindent
+	\textbf{the strategy (almost all the time)}\\
+	(1) evaulate the integral using cauchy's residue theorem\\
+	(2) split the integral into parts and argue some away\\
+	
+	\noindent
+	\textbf{jordans lemma}: if $s > 0$ and $f(z) \rightarrow 0$ as $z \rightarrow \infty$ then
+	$$\int_{C_R} f(z) e^{isz} \textrm{d}z \rightarrow 0 \quad \text{as} \quad R \rightarrow \infty$$\
+	
+	\noindent
+	\textbf{common choices for contours}\\
+	(1) $D$-contour: let $R \rightarrow \infty$\\
+	(2) keyhole contour: let $\varepsilon \rightarrow 0, R \rightarrow \infty$\\
+	(3) dumbbell contour: let $\varepsilon \rightarrow 0, \delta \rightarrow 0$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{5 - analytic continuation}}
+	\end{center}
+	
+	\noindent
+	\textbf{definition (a)}: suppose\\
+	(1) $f(z)$ is regular in a domain $D \subseteq \mathbb{C}$\\
+	(2) $g(z)$ is regular in a domain $E \subseteq \mathbb{C}$\\
+	(3) $f(z) = g(z)$ is regular in $D \cap E \subseteq \mathbb{C}$\\
+	then $g(z)$ \textbf{is the analytic continuation of} $f(z)$\\
+	
+	\noindent
+	\textbf{theorem}: suppose that $f(z)$ is regular in a domain $D$ and $f(a) = 0$ for some internal point $a \in D$, then either $a$ is an isolated zero of $f(z)$ or $f(z) \equiv 0$ in $D$.\\
+	
+	\noindent
+	\textbf{definition (b)}: suppose\\
+	(1) $f(z)$ is regular in a domain $D \subseteq \mathbb{C}$\\
+	(2) $g(z)$ is regular in a domain $E \subseteq \mathbb{C}$\\
+	(3) $f(z) = g(z)$ on the line $L \in D \cap E \subseteq \mathbb{C}$\\
+	then $g(z)$ is the analytic continuation of $f(z)$ into $E$, and $f(z)$ is the analytic continuation of $g(z)$ into $D$\\
+	
+	\noindent
+	\textbf{regularity of a function defined by an integral}\\
+	the function $f(z) = \int^b_a F(z, t) \, \mathrm{d}t$ will be regular if the integral exists and $F(z, t)$ is \textit{suitably well defined}\\
+	
+	\noindent
+	\textbf{schwarz's reflection principle (weak form)}: suppose\\
+	(1) $f(z)$ is regular in a domain $D$ which is symmetrical about the real axis\\
+	(2) $f(z)$ is real on some section of the real axis lying in $D$\\
+	then $f(z) = \overline{f(\overline{z})}$ (also written as $\overline{f(z)} = f(\overline{z})$\\
+	
+	\noindent
+	\textbf{definition (c) - contact continuation}: suppose\\
+	(1) regions $D_1$ and $D_2$ are in contact along the line $\gamma$\\
+	(2) functions $f_1(z)$ and $f_2(z)$ are regular in the regions $D_1$ and $D_2$ respectively, and are continuous in the regions $D_1 \cup \gamma$ and $D_1 \cup \gamma$ respectively\\
+	(3) $f_1(z) = f_2(z)$ on $\gamma$\\
+	then $f_1$ and $f_2$ are analytic continuations of each other\\
+	
+	\noindent
+	\textbf{schwarz's reflection principle (strong form)}\\
+	(1) $f(z)$ behaves as $\abs{z} \rightarrow \infty$ in $Im(z) >0$\\
+	(2) $f(z)$ is well defined on the real axis\\
+	then we can use $f(z) = \overline{f(\overline{z})}$ to analytically continue $f(z)$ into the lower half plane $Im(z) < 0$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{6 - the gamma function $\Gamma(z)$}}
+	\end{center}
+	
+	\noindent
+	the \textbf{gamma function} $\Gamma(z)$ is defined as
+	$$\Gamma(z) = \int^\infty_0 e^{-t} t^{z-1} \; \mathrm{d}t$$
+	and is regular for $Re(z) > 0$\\
+	
+	\noindent
+	for $n \in \mathbb{Z}^+$, $\Gamma(n+1) = n!$\\
+	
+	\noindent
+	we can analytically continue $\Gamma(z)$ into the whole plane except for simple poles at $z = 0, -1, -2, \dots$ and the residue of the simple pole $z = -n$ is $\frac{(-1)^n}{n!}$\\
+	
+	\noindent
+	\textbf{recurrence relation}: $\Gamma(z + 1) = z\Gamma(z)$\\
+	\textbf{reflection formula}: $\Gamma(z)\Gamma(1-z)\sin(\pi z) = \pi$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{7 - integral transforms}}
+	\end{center}
+	
+	\noindent
+	\textbf{fourier cosine}\\
+	$$F(k) = \int_0^\infty f(x) \cos(kx) \; \mathrm{d}x$$
+	$$f(x) = \frac{2}{\pi} \int_0^\infty F(k) \cos(kx) \; \mathrm{d}k$$\
+	
+	\noindent
+	\textbf{fourier sine}\\
+	$$F(k) = \int_0^\infty f(x) \sin(kx) \; \mathrm{d}x$$
+	$$f(x) = \frac{2}{\pi} \int_0^\infty F(k) \sin(kx) \; \mathrm{d}k$$\
+	
+	\noindent
+	\textbf{complex fourier}\\
+	$$F(k) = \int_{-\infty}^\infty f(x)e^{ikx} \; \mathrm{d}x$$
+	$$f(x) = \frac{1}{2\pi} \int_{-\infty}^\infty F(k) e^{-ikx} \; \mathrm{d}k$$\
+	
+	\noindent
+	\textbf{laplace}\\
+	$$F(p) = \int_0^\infty f(t)e^{-pt} \; \mathrm{d}t$$
+	$$f(t) = \frac{1}{2\pi i} \int_{c - i\infty}^{c + i\infty} f(t) e^{pt} \mathrm{d}p \quad (c > a, Re(p) < a)$$\
+	
+	\noindent
+	in order for $F(k)$ to exist, the condition that $f(x)$ is \textbf{absolutely integrable} is sufficient, that is, $\int^\infty_{-\infty} \abs{f(x)} \:\mathrm{d}x< \infty$\\
+	
+	\noindent
+	\textbf{heaviside function} $$H(x) = \begin{cases} 1 & \text{if $x \geq 0$}\\ 0 & \text{if $x < 0$}\end{cases}$$\
+	
+	\noindent
+	\textbf{complex fourier summary}
+	\begin{align*}
+		\mathcal{F}\{f(x)\} & = F(k)	\\
+		\mathcal{F}\{f'(x)\} & = -ikF(k)\\
+		\mathcal{F}\{f''(x)\} & = -k^2F(k)\\
+		\mathcal{F}\{ixf(x)\} & = \frac{\mathrm{d}}{\mathrm{d}k} F(k)\\
+		\mathcal{F}\{-x^2f(x)\} & = \frac{\mathrm{d}^2}{\mathrm{d}k^2} F(k)
+	\end{align*}
+
+	\noindent
+	\textbf{laplace summary}
+	\begin{align*}
+		\mathcal{L}\{f(x)\} & = F(p)	\\
+		\mathcal{L}\{f'(x)\} & = -f(0) +p\hat{F}(p)\\
+		\mathcal{L}\{f''(x)\} & = -f'(0) + pf(0) + p^2\hat{F}(p)\\
+		\mathcal{L}\{-xf(x)\} & = \frac{\mathrm{d}}{\mathrm{d}p} \hat{F}(p)\\
+		\mathcal{L}\{x^2f(x)\} & = \frac{\mathrm{d}^2}{\mathrm{d}p^2} \hat{F}(p)
+	\end{align*}
+\end{framed}
+
+\end{multicols}
+
+\end{document}

@@ -1,0 +1,159 @@
+\documentclass[a4paper]{article}
+
+\usepackage[a4paper, margin=0.35in]{geometry}
+\usepackage{multicol}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{centernot}
+\usepackage{framed}
+\usepackage{bm}
+
+\begin{document}
+
+\pagenumbering{gobble}
+	
+\begin{center}
+	\huge{\textbf{MATH32001 Midterm Cheat Sheet}}\\
+	\small{Available at \textsc{jtang.dev/resources}}\\
+\end{center}
+\begin{multicols}{2}
+	
+\begin{framed}
+	\begin{center}
+		\textbf{alg structures definitions}
+	\end{center}
+	
+	\noindent
+	\textbf{group}: $(G, *), G \neq \emptyset$ such that:\\
+	(i) $\forall a, b \in G, a * b \in G$\\
+	(ii) $\forall a, b, c \in G, (a * b) * c = a * (b * c)$\\
+	(iii) $\exists e \in G, \forall a \in G, a * e = e * a = a$\\
+	(iv) $\forall a \in G, \exists a' \in G, a * a' = e = a' * a$\\
+	
+	\noindent
+	\textbf{abelian}: $(G, *)$ where $*$ is commutative binary operation\\
+	
+	\noindent
+	\textbf{subgroup criterion}: if $G$ is a group with $H \subseteq G,$ then $H \leq G$ if $H \neq \emptyset$ and $\forall a, b \in H$, we have $ab^{-1} \in H$\\
+	
+	\noindent
+	\textbf{right coset}: suppose $G$ is a group with $H \leq G$, for $a \in G$, $Ha = \{ha \; \vert \; h \in H\} \subseteq G$\\
+	
+	\noindent
+	\textbf{index of $H$ in $G$}: number of right cosets of $H$ in $G$\\
+	
+	\noindent
+	\textbf{lagranges theorem}: suppose $G$ is a finite group with $H \leq G$, then $\vert G \vert = [G : H]\vert H \vert$\\
+	
+	\noindent
+	\textbf{centraliser}: let $g \in G.$ $C(g) = \{x \in G \; \vert \; xg = gx\} \leq G$\\
+	
+	\noindent
+	\textbf{centre of $G$}: $Z(G) = \{x \in G \; xg = gx, \forall g \in G \} \leq G$\\
+	
+	\noindent
+	\textbf{homomorphism}: $\varphi: G \to H$ such that $\forall a, b \in G \varphi(ab) = \varphi(a)\varphi(b)$\\
+	
+	\noindent
+	\textbf{isomorphism}: a bijective homomorphism\\
+	
+	\noindent
+	\textbf{conjugate}: if $G$ is a group, $x \in G$. $y \in G$ is a conjugate of $x$ if $y = g^{-1}xg$ for some $g \in G$, denoted $y \sim x$\\
+	
+	\noindent
+	\textbf{conjugacy class}: $x^G = \{g^{-1}xg \; \vert \; g \in G\}$\\
+	
+	\noindent
+	\textbf{class theorem}: suppose $G$ is a finite group with $g \in G$. then $\vert g^G \vert = [G : C(g)] = \frac{\vert G \vert}{\vert C(g) \vert}$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{alg structures theorems and friends}
+	\end{center}
+	
+	\noindent
+	(i) if $H \leq G, K \leq G$ and $K \subseteq K$, then $k \leq H$\\
+	(ii) if $K \leq G$ and $K \subseteq H$, then $[G:K]=[G:H][H:K]$\\
+	(iii) $(S_n, *)$ is a group and $\vert S_n \vert = n!$\\
+	(iv) any permutation in $S_n$ can be written as product of pairwise disjoint cycles\\
+	(v) suppose $G$ is a group with $H \leq G$. let $x, y \in G$ then either $Hx = Hy$ or $Hx \cap Hy = \emptyset$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{examples of groups}	
+	\end{center}
+	
+	\noindent
+	\textbf{direct product}: suppose $(H, *)$ and $(K, \odot)$ are groups. define $(h, k)(h', k') = (h * h', k \odot k') \in H \times K$\\
+	
+	\noindent
+	\textbf{lemma}: every permutation in $S_n$ can be written as a product of transpositions\\
+	
+	\noindent
+	\textbf{odd / even permutations}: we say a permutation is even (odd) if it can be expressed as an even (odd) number of transpositions\\
+	
+	\noindent
+	\textbf{c($\sigma$)}: the number of cycles when we express $\sigma$ as product of disjoint cycles\\
+	
+	\noindent
+	\textbf{lemma}: let $\sigma, \tau \in S_n$, $\tau$ transposition, then $c(\sigma\tau) = c(\sigma) \pm 1$\\
+	
+	\noindent
+	\textbf{s($\sigma$)} = $(-1)^{n - c(\sigma)} (= \pm 1)$ for $\sigma \in S_n$\\
+	
+	\noindent
+	\textbf{lemma}: let $n \in \mathbb{N}, n \geq 2$. if $\sigma \in S_n$ can be written as a product of $r$ transpositions, then $s(\sigma) = (-1)^r$\\
+	
+	\noindent
+	\textbf{corollary}: if $\sigma$ can be written as a product of $r_1$ and $r_2$ transpositions, then $r_1$ and $r_2$ have the same parity\\
+	
+	\noindent
+	\textbf{$A_n$}: the set of all even permutations in $S_n$, i.e. $A = \{ \sigma \in S_n \; \vert \; \sigma$ is an even permutation$\} \leq S_n$\\
+	
+	\noindent
+	\textbf{remark}: $\vert A_n \vert = \frac{1}{2}n!$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{subgroups}	
+	\end{center}
+	
+	\noindent
+	\textbf{definitions}: suppose $G$ is a group, $g \in G, A, B \subseteq G$.\\
+	(i) $A^g = \{g^{-1}ag \; \vert \; a \in A\}$\\
+	(ii) $AB = \{ab \; \vert \; a \in A, b \in B\} \subseteq G$\\
+	(iii) $A^- = \{a^{-1} \; \vert \; a \in A\}$\\
+	
+	\noindent
+	\textbf{definitions}: suppose $G$ is a group and $\emptyset \neq S \subseteq G$.\\
+	(i) $C_G(S) = \{g \in G \; \vert \; xg = gx, \forall x \in S\}$\\
+	(ii) $N_G(S) = \{g \in G \; \vert \; S^g = S\}$\\
+	(iii) $\langle S \rangle = \{x_1x_2\dots x_n \; \vert \; x_i \in S \cup S^-, m \in \mathbb{N}\}$\\
+	
+	\noindent
+	\textbf{remarks}\\
+	(i) $C_G(S) \subseteq N_G(S)$\\
+	(ii) if $S \leq G$, then $S \subseteq N_G(S)$\\
+	(iii) $S \cup S^- \subseteq \langle R \rangle$ and if $R \subseteq S$, then $\langle R \rangle \leq \langle S \rangle$\\
+	(iv) if $S = \{x\}$, then $C_G(S) = C_G(x)$ and $\langle S \rangle = \langle x \rangle$\\
+	%  = \{g \in G \; \vert \; gx = xg\} %
+	%  = \{x^i \; \vert \; i \in \mathbb{Z}\} %
+	(v) $C_G(S) \leq N_G(S) \leq G$\\
+	(vi) if $R \subseteq S$, then $\langle R \rangle \leq \langle S \rangle$\\
+	(vii) if $S \langle G$, then $S \subseteq N_G(S)$\\
+	
+	\noindent
+	\textbf{lemma}: suppose $G$ is a group, $\emptyset \neq S \subseteq G$, then $C_G(S), N_G(S), \langle S \rangle$ are all subgroups of $G$\\
+	
+	\noindent
+	\textbf{lemma}: since $Z(G) = C_G(G)$, we have $Z(G) \leq G$\\
+	
+	\noindent
+	\textbf{lemma}: suppose $G$ is a group and $H \leq G, K \leq G$. then $HK \leq G \iff HK = KH$
+\end{framed}
+	
+\end{multicols}
+\end{document}

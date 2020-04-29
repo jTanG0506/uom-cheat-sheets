@@ -1,0 +1,484 @@
+\documentclass[a4paper]{article}
+
+\usepackage[a4paper, margin=0.35in]{geometry}
+\usepackage{multicol}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{centernot}
+\usepackage{framed}
+
+\newcommand\abs[1]{\ensuremath{\lvert#1\rvert}}
+\newcommand\divides{\ensuremath{\big|}}
+
+\begin{document}
+
+\pagenumbering{gobble}
+	
+\begin{center}
+	\huge{\textbf{math32001 - group theory}}\\
+	\small{available at \textsc{jtang.dev/resources}}\\
+\end{center}
+
+\begin{multicols}{2}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{(1) revision of subgroups and cosets}}
+	\end{center}
+	
+	\noindent
+	\textbf{group}: $(G, *)$ where $G \neq \emptyset$ and\\
+	$(G1)$ $\forall a, b \in G, a * b \in G$\\
+	$(G2)$ $\forall a, b, c \in G, (ab)c = a(bc)$\\
+	$(G3)$ $\exists 1_G \in G, 1_Ga = a = a1_G, \forall a \in G$\\
+	$(G4)$ $\forall a \in G, \exists a^{-1} \in G, aa^{-1} = 1_G = a^{-1}a$\\
+	
+	\noindent
+	\textbf{subgroup criterion}: suppose $G$ is a group and $H \subseteq G$\\
+	$H \leq G \iff H \neq \emptyset$ and $\forall a, b \in H$, $ab^{-1} \in H$\\
+	
+	\noindent
+	\textbf{right coset}: suppose $G$ a group, $H \leq G$ and $a \in G$\\
+	$Ha = \{ha \; \vert \; h \in H\} \subseteq G$\\
+	
+	\noindent
+	\textbf{theorem}: suppose $G$ is a group and $H \leq G$\\
+	$(1)$ if $g \in G$, then $g \in Hg$\\
+	$(2)$ let $a, b \in G$, $Ha = Hb \iff ab^{-1} \in H$\\
+	$(3)$ let $a, b \in G$, either $Ha = Hb$ or $Ha \cap Hb = \emptyset$\\
+	$(4)$ $G$ is the disjoint union of right cosets of $H$\\
+	$(5)$ if $g \in G$, then $\abs{H} = \abs{Hg}$\\
+	
+	\noindent
+	\textbf{theorem}: suppose $G$ is a finite group and $H \leq G$\\
+	$(1)$ langrange's theorem: $\abs{G} = [G : H]\abs{H}$\\
+	$(2)$ if $K \leq G$ and $K \subseteq H$, then $[G:K]=[G:H][H:K]$\\
+	
+	\noindent
+	\textbf{theorem}: $(S_n, *)$ is a group and $\abs{S_n} = n!$\\
+	
+	\noindent
+	\textbf{disjoint cycles}: $(\alpha_1, \alpha_2, \dots, \alpha_r)$, $(\beta_1, \beta_2, \dots, \beta_s)$ with\\
+	$\{\alpha_1, \alpha_2, \dots, \alpha_r\} \cap \{\beta_1, \beta_2, \dots, \beta_s\} = \emptyset$\\
+	
+	\noindent
+	\textbf{theorem}: any permutation in $S_n$ can be written as a product of pairwise disjoint cycles
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{(2) more examples of groups}}
+	\end{center}
+	
+	\noindent
+	\textbf{direct product}: suppose $(H, *)$ and $(K, \odot)$ are groups. let $h, h' \in H$ and $k, k' \in K$ and define\\
+	$(h, k)(h', k') = (h * h', k \odot k') \in H \times K$\\
+	
+	\noindent
+	\textbf{lemma}: $\abs{GL_n(q)} = (q^n - 1)(q^n - q)(q^n - q^2) \dots (q^n - q^{n-1})$\\
+	
+	\noindent
+	\textbf{transposition}: a two-cycle $(\alpha_1, \alpha_2)$ with $\alpha_1, \alpha_2 \in \Omega$\\
+	
+	\noindent
+	\textbf{lemma}: for $n \geq 2$, every permutation in $S_n$ can be written as a product of transpositions\\
+	
+	\noindent
+	\textbf{even permutation}: $\sigma \in S_n, n \geq 2$, where $\sigma$ can be written as a product of an even number of transpositions
+	\textbf{odd permutation}: $\sigma \in S_n, n \geq 2$, where $\sigma$ can be written as a product of an odd number of transpositions\\
+	
+	\noindent
+	$c(\sigma) =$ number of cycles when $\sigma$ is written as a product of pairwise disjoint cycles (including cycles of length 1)\\
+	
+	\noindent
+	\textbf{lemma}: for $n \geq 2$, let $\sigma, \tau \in S_n$, $\tau$ be a transposition, then $c(\sigma\tau) = c(\sigma) \pm 1$\\
+
+	\noindent
+	$s(\sigma) = (-1)^{n - c(\sigma)}$ which has values $\pm 1$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{(2) even more examples of groups}}
+	\end{center}
+
+	\noindent
+	\textbf{lemma}: let $n \geq 2$, if $\sigma \in S_n$ can be written as a product of $r$ transpositions, then $s(\sigma) = (-1)^r$\\
+	
+	\noindent
+	\textbf{corollary}: let $n \geq 2$, if $\sigma \in S_n$ can be written as a product of $r_1, r_2$ transpositions, then $r_1$ and $r_2$ have the same parity\\
+	
+	\noindent
+	\textbf{remark}: $(\alpha_1\alpha_2\dots\alpha_r)$ is even (odd) if $r$ is odd (even)\\
+	
+	\noindent
+	$A_n = $ set of all even permutations $(n \geq 2)$\\
+	
+	\noindent
+	\textbf{lemma}: let $n \geq 2$, then $A_n \leq S_n$\\
+	
+	\noindent
+	\textbf{remark}: $\abs{A_n} = \frac{1}{2}n!$
+\end{framed}
+
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{(3) subgroups}}
+	\end{center}
+	
+	\noindent
+	suppose $G$ is a group, $g \in G$, $A, B \subseteq G$, $\emptyset \neq S \subseteq G$, then\\
+	(1) conjugate of $A$ by $g$, $A^g = \{g^{-1}ag \; \vert \; a \in A\}$\\
+	(2) setwise product of $A$ and $B$, $AB = \{ab \; \vert \; a \in A, b \in B\}$
+	(3) $A^- = \{a^{-1} \; \vert \; a \in A\}$\\
+	(4) $C_G(S) = \{g \in G \; \vert \; xg = gx, \forall x \in S\}$\\
+	(5) $N_G(S) = \{g \in G \; \vert \; S^g = S\}$\\
+	(6) $\langle S \rangle = \{x_1x_2\dots x_n \; \vert \; x_i \in S \cup S^-, n \in \mathbb{N}\}$\\
+	
+	\noindent
+	\textbf{remarks}\\
+	(1) $C_G(S) \subseteq N_G(S)$\\
+	(2) if $\emptyset \neq S \leq G$, then $S \subseteq N_G(S)$\\
+	(3) $S \cup S^- \subseteq \langle S \rangle$, and if $R \subseteq S$, then $\langle R \rangle \leq \langle S \rangle$\\
+	(4) if $S = \{x\}$, then $C_G(S) = C_G(x)$ and $\langle S \rangle = \langle x \rangle$\\
+	
+	\noindent
+	\textbf{lemma}: suppose $G$ is a group, $\emptyset \neq S \subseteq G$, then $C_G(S), N_G(S)$ and $\langle S \rangle$ are all subgroups of $G$\\
+	
+	\noindent
+	\textbf{remark}: $C_G(S) \leq N_G(S) \leq G$\\
+
+	\noindent
+	$Z(G) = \{g \in G \; \vert \; gx = xg, \forall x \in G\}$\\
+	
+	\noindent
+	\textbf{lemma}: since $Z(G) = C_G(G)$, we have $Z(G) \leq G$\\
+	
+	\noindent
+	\textbf{lemma}: suppose $G$ is a group, $H, K \leq G$, then\\
+	$HK \leq G \iff HK = KH$	\\
+	
+	\noindent
+	\textbf{remark}: let $G$ be a group with $H, K \leq G$, then
+	$$HK = \bigcup_{k \in K}Hk = \bigcup_{h \in H}hK$$
+	so $HK$ is the union of certain right cosets of $H$\\
+	
+	\noindent
+	\textbf{lemma}: suppose $G$ is a finite group, $H, K \leq G$, then
+	$$\abs{HK} = \frac{\abs{H}\abs{K}}{\abs{H \cap K}}$$
+	
+	\noindent
+	\textbf{corollary}: suppose $G$ is a finite group, $H, K \leq G$\\
+	if $\abs{G} = \frac{\abs{H}\abs{K}}{\abs{H \cap K}}$, then $G = HK$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{(4) conjugacy and class equation}}
+	\end{center}
+	
+	\noindent
+	suppose $G$ is a group, $\emptyset \neq S \subseteq G$, $g \in G$\\\textbf{conjugate of $S$}: $S^g = \{g^{-1}xg \; \vert \; x \in S\}$\\
+	
+	\noindent
+	\textbf{remarks}: suppose $G$ is a group, $\emptyset \neq S \subseteq G$\\
+	(1) let $g \in G$, then $\abs{S} = \abs{S^g}$\\
+	(2) let $g \in G$, if $S \leq G$ then $S^g \leq G$\\
+	(3) if $x, y \in G$, $x$ and $y$ are conjugate (i.e. $x = g^{-1}yg$), then $x$ and $y$ have the same order\\
+	(4) $1^G = \{g^{-1}1g \; \vert \; g \in G\} = \{1\}$\\
+	(5) $x^G = \{x\} \iff x \in Z(G)$\\
+	
+	\noindent
+	\textbf{lemma}: let $G$ be a group, then $G$ is a disjoint union of its conjugacy classes\\
+	
+	\noindent
+	\textbf{lemma}: suppose $G$ is a group and $\emptyset \neq S \subseteq G$ and set $N = N_G(S)$. let $\{g_i \; \vert \; i \in I\}$ be a complete set of representatives for the right cosets of $N$ in $G$. then, the set of conjugates in $S$ are $\{s^{g_i} \; \vert \; i \in I\}$ and $S^{g_i} = S^{g_j} \iff g_i = g_j$. in particular, if $G$ if finite, then the number of conjugates of $S$ is equal to $[G:N] = \frac{\abs{G}}{\abs{N}}$\\
+	
+	\noindent
+	\textbf{remark}: if $G$ if a finite group and $\emptyset \neq S \subseteq G$, then the number of conjugates of $S$ divides $\abs{G}$\\
+	
+	\noindent
+	\textbf{lemma}: suppose $G$ is a group, $x \in G$ and $C = C_G(x)$. let $\{g_i \; \vert \; i \in I\}$ be a complete set of representatives for the right cosets of $C$ in $G$. then, the conjugacy classes of $x$ are $x^G = \{x^{g_i} \; \vert \; i \in I\}$ and $x^{g_i} = x^{g_j} \iff g_i = g_j$. in particular, if $G$ is finite then $\abs{x^G} = [G:C] = \frac{\abs{G}}{\abs{C}}$ and so $\abs{x^G} \divides \abs{G}$\\
+	
+	\noindent
+	\textbf{class equation}: suppose $G$ is a finite group and let $x_1, x_2, \dots, x_k \in G$ be chosen, one from each of the $k$ conjugacy classes of $G$. set $n_i = \abs{x_i}$. assume our notation is chosen such that $n_1 = n_2 = \dots = n_l = 1$ and $n_i > 1$ for $i \geq l$, then\\
+	(1) $\abs{G} = \sum_{i=1}^k n_i = \sum_{i=1}^k [G: C_G(x_i)]$\\
+	(2) $\abs{G} = \abs{Z(G)} + \sum_{i = l + 1}^k n_i$\\
+	(3) $\abs{G} = \abs{Z(G)} + \sum_{i=l+1}^k [G: C_G(x_i)]$\\
+	
+	\noindent
+	$p$\textbf{-group}: a group $G$ with $\abs{G} = p^a$ for some prime $p$ and $a \in \mathbb{N}\cup \{0\}$\\
+	
+	\noindent
+	\textbf{lemma}: if $G$ is a $p$-group, $G \neq \{1_G\} \implies Z(G) \neq \{1_G\}$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{(5) group actions}}
+	\end{center}
+	
+	\noindent
+	suppose $G$ is a group and $\Omega \neq \emptyset$. we say that $G$ \textbf{acts on} $\Omega$ (or $\Omega$ is a $G$-\textbf{set}) if for each $g \in G$ and each $\alpha \in \Omega$\\
+	(A1) $\forall \alpha \in \Omega, \forall g_1, g_2 \in G, \alpha(g_1g_2) = (\alpha g_1)g_2$\\
+	(A2) $\forall \alpha \in \Omega, \alpha 1_G = \alpha$\\
+	
+	\noindent
+	$G$\textbf{-orbit of} $\alpha$: $\alpha^G = \{\alpha g \; \vert \; g \in G\} \subseteq \Omega$\\
+	
+	\noindent
+	\textbf{lemma}: suppose $\Omega$ is a $G$-set, then $\Omega$ is the disjoint union of its $G$-orbits\\
+	
+	\noindent
+	\textbf{stabilizer of} $\alpha$: $G_\alpha = \{g \in G \; \vert \; \alpha g = \alpha\}$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{(5) group actions}}
+	\end{center}
+	
+	\noindent
+	\textbf{lemma}: suppose $\Omega$ is a $G$-set and $\alpha \in \Omega$, then $G_\alpha \leq G$\\
+	
+	\noindent
+	\textbf{lemma}: suppose $G$ is a finite group which acts on $\Omega$ and let $\Delta$ be a $G$-orbit of $\Omega$, then\\
+	(1) for any $\alpha \in \Delta$, $\abs{\Delta} = [G:G_\alpha] = \frac{\abs{G}}{\abs{G_\alpha}}$\\
+	(2) for any $\alpha, \beta \in \Delta$, $g \in G$ with $\alpha g = b$, we have $G_\alpha^g = G_\beta$\\
+	
+	\noindent
+	\textbf{theorem}: suppose $G$ is a finite group which acts on $\Omega$\\
+	(1) $\Omega$ is the disjoint union of its $G$-orbits\\
+	(2) for any $\alpha \in \Omega$, $G_\alpha \leq G$\\
+	(3) let $\Delta_1, \dots, \Delta_m$ be the $G$-orbits of $\Omega$. \\
+	if $\alpha_i \in \Delta_i$ for $i = 1, \dots, m$, then
+	$$\abs{\Omega} = \sum_{i=1}^m \abs{\Delta_i} = \sum_{i=1}^m [G: G_{\alpha_i}]$$
+	and each $\abs{\Delta_i} \divides \abs{G}$\\
+	
+	\noindent
+	\textbf{cauchy's theorem}: suppose $G$ is a finite group and $p$ is a prime. if $p \divides \abs{G}$, then $G$ contains at least one element of order $p$\\
+	
+	\noindent
+	\textbf{transitively}: suppose $\Omega$ is a $G$-set. we say that $G$ acts transitively on $\Omega$ if $\Omega$ is a $G$-orbit. in symbols, $\forall \alpha \in \Omega, \alpha^G = \{\alpha g \; \vert \; g \in G\} = \Omega$\\
+	
+	\noindent
+	$fix_\Omega(g) = \{\alpha \in \Omega \; \vert \; \alpha g = \alpha\} \quad$ ($\Omega$ a finite $G$-set, $g \in G$)\\
+	
+	\noindent
+	\textbf{burnside's theorem}: suppose $G$ is a finite group which acts on a finite set $\Omega$. if $G$ has $t$ orbits of $\Omega$, then
+	$$t = \frac{1}{\abs{G}}\sum_{g \in G}\abs{fix_\Omega(g)}$$	
+\end{framed}
+
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{(6) finitely generated abelian groups (fgag)}}
+	\end{center}
+	
+	\noindent
+	\textbf{finitely generated}: a group $G$ such that $\langle S \rangle = G$ for a finite subset $S \subseteq G$\\
+	\textit{abbreviation}: fgag for finitely generated abelian group\\
+	
+	\noindent
+	\textbf{lemma}: let $n, m \in \mathbb{N}$. $\mathbb{Z}_n \times \mathbb{Z}_m \iff hcf(n, m) = 1$\\
+	
+	\noindent
+	\textbf{classification theorem for fgag}: any fgag $G$ is isomorphic to a direct product of cyclic groups
+	$$G \cong \mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times \dots \mathbb{Z}_{n_k} \times \mathbb{Z}^s$$
+	where $s > 0$ and $n_i \; \vert \; n_{i + 1}$ for $i = 1, \dots, k - 1$\\
+	
+	\noindent
+	\textbf{rank of} $G$: the value $s$ above\\
+	\textbf{torsion coefficients of} $G$: the values $n_1, \dots, n_k$ as above\\
+	
+	\noindent
+	\textbf{corollary}: any finite abelian group $G$ is isomorphic to $\mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times \dots \mathbb{Z}_{n_k}$ where $n_i \; \vert \; n_{i + 1}$ for $i = 1, \dots, k - 1$. in addition, $\abs{G} = n_1 n_2 \dots n_k$\\
+	
+	\noindent
+	\textbf{corollary}: any fgag which has no elements of finite order (apart from 1) is isomorphic to $\mathbb{Z}^s$ for some $s \geq 0$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{(6) finitely generated abelian groups (fgag)}}
+	\end{center}
+	
+	\noindent
+	\textbf{theorem}\\
+	let $G_1 = \mathbb{Z}_{m_1} \times \mathbb{Z}_{m_2} \times \dots \mathbb{Z}_{m_k} \times \mathbb{Z}^s \quad (s > 0, m_i \; \vert \; m_{i+1})$\\
+	and $G_2 = \mathbb{Z}_{n_1} \times \mathbb{Z}_{n_2} \times \dots \mathbb{Z}_{n_l} \times \mathbb{Z}^t \quad (t > 0, n_i \; \vert \; n_{i+1})$\\
+	then $G_1 \cong G_2 \iff s = t, k = l, m_i = n_i$ for $i = 1, \dots, k$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{(7) normal subgroups and factor groups}}
+	\end{center}
+	
+	\noindent
+	\textbf{normal subgroup}: $N \leq G$ such that $\forall g \in G, N^g = N$\\
+	\textit{notation}: $N \unlhd G$ if $N$ is a normal subgroup of $G$\\
+	
+	\noindent
+	\textbf{lemma}: suppose $G$ is a group, $N \leq G$, then $N \unlhd G$ is equivalent to the following statements:\\
+	(1) $N_G(N) = G$\\
+	(2) the conjugates of $N$ are $\{N\}$\\
+	(3) $\forall g \in G, \forall n \in N, n^g = g^{-1}ng \in N$\\
+	(4) $\forall g \in G, Ng = gN$\\
+	(5) $N$ is the union of some conjugacy classes of $G$\\
+	
+	\noindent
+	\textbf{lemma}: suppose $G$ is a group, $H \leq G$. if $[G:H] = 2$, then $H \unlhd G$\\
+	
+	\noindent
+	\textit{notation}: for $g \in G, Ng = \overline{g}$\\
+	\textbf{factor group of $G$ by $N$}: $G/N = \{Ng \; \vert \; g \in G\}$ with binary operation $\overline{x} \cdot \overline{y} = \overline{xy}$\\
+	
+	\noindent
+	\textbf{remarks}\\
+	(1) the elements of $G/N$ are right cosets of $N$ in $G$\\
+	(2) $1_{G/N} = \overline{1} = N$ and for $\overline{x} \in G/N, \overline{x}^{-1} = \overline{x^{-1}}$\\
+	(3) if $G$ is a finite group, then $\abs{G/N} = [G:N] = \frac{\abs{G}}{\abs{N}}$\\
+	(4) the order of $\overline{x}$ in $G/N$ is the smallest $n \in \mathbb{N}$, $x^n \in N$\\
+	
+	\noindent
+	\textbf{lemma}: if $G / Z(G)$ is a cyclic group, then $G$ is abelian\\
+	
+	\noindent
+	\textbf{lemma}: if $G$ is a group and $\abs{G} = p^2$ for some prime $p$, then $G$ is abelian\\
+	
+	\noindent
+	\textbf{lemma}: every subgroup of $G / N$ is of the form $H / N$ where $N \leq G \leq G$. also $H / N \unlhd G /N \iff H \unlhd G$\\
+	
+	\noindent
+	\textbf{homomorphism from $G$ to $K$}: $\theta: G \rightarrow K$, such that $\forall g_1, g_2 \in G, \theta(g_1 g_2) = \theta(g_1)\theta(g_2)$\\
+	$Im(\theta) = \{\theta(g) \; \vert \; g \in G\} \subseteq K$\\
+	$ker(\theta) = \{g \in G \; \vert \; \theta(g) = 1_K\} \subseteq G$\\
+	
+	\noindent
+	\textbf{lemma}: suppose $\theta$ is a group-homomorphism, $\theta: G \rightarrow K$\\
+	(1) $\theta(1_G) = 1_K$\\
+	(2) $\forall g \in G, \theta(g^{-1}) = \theta(g)^{-1}$\\
+	(3) $Im(\theta) \leq K$\\
+	(4) $ker(\theta) \unlhd G$\\
+	
+	\noindent
+	\textbf{first isomorphism theorem}: suppose $G$ and $K$ are groups and $\theta: G \rightarrow K$ is a homomorphism. then 
+	$$G / ker(\theta) \cong Im(\theta)$$
+	
+	\noindent
+	\textbf{second isomorphism theorem}: suppose $G$ is a group, $H \leq G$, and $N \unlhd G$
+	$$H / (H \cap N) \cong NH / N$$
+
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{(7) normal subgroups and factor groups}}
+	\end{center}
+	
+	\noindent
+	\textbf{third isomorphism theorem}: suppose $G$ is a group, $N \leq M \leq G$ and $N, M \unlhd G$
+	$$(G / N) / (M / N) \cong G / M$$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{(8) simple groups and jordan-h\"older theorem}}
+	\end{center}
+	
+	\noindent
+	\textbf{simple group}: a group $G \neq \{1\}$ with $G$ and $\{1\}$ as the only normal subgroups\\
+	
+	\noindent
+	\textbf{lemma}: suppose $G$ is a group, $N \unlhd G$, $g \in G$, $n \in N$. then, $n^{-1}g^{-1}ng \in N$\\
+	
+	\noindent
+	\textbf{commutator of $n$ and $g$}: $[n, g] = n^{-1}g^{-1}ng$\\
+	
+	\noindent
+	\textbf{lemma}: let $n \in \mathbb{N}, n \geq 5$\\
+	(1) every element of $A_n$ can be written as a product of 3-cycles\\
+	(2) the 3-cycles of $A_n$ are all conjugate in $A_n$\\
+	
+	\noindent
+	\textbf{lemma}: $A_5$ is a simple group\\
+	
+	\noindent
+	\textbf{theorem}: for $n \geq 5, A_n$ is a simple group\\
+	
+	\noindent
+	\textbf{composition series of $G$}: the subgroups $G_1, \dots, G_n$ of a finite group $G$ such that\\
+	(1) $G \unrhd G_1 \unrhd G_2 \unrhd \dots \unrhd G_n = \{1\}$\\
+	(2) $G / G_1, G_1 / G_2, \dots G_{n-1} / G_n$ are all simple groups\\
+	
+	\noindent
+	\textbf{composition factors of $G$}: $G / G_1, G_1 / G_2, \dots, G_{n-1} / G_n$\\
+	
+	\noindent
+	\textbf{remark}: none of $G_i / G_{i + 1}$ are of order 1\\
+	
+	\noindent
+	\textbf{maximal normal subgroup of $G$}: $K$ such that $K \unlhd G$ and whenever $K \unlhd N \unlhd G$, then $K = N$ or $N = G$\\
+	
+	\noindent
+	\textbf{remarks}\\
+	(A) $K$ is a maximal subgroup of $G$ if $K \unlhd G \iff G/K$ is a simple group\\\
+	(B) $N_1 \unlhd G, N_2 \unlhd G \implies N_1N_2 \unlhd G$\\
+	(C) $N_1 \unlhd G, N_2 \unlhd G \implies N_1 \cap N_2 \unlhd G$\\
+	(D) $N \unlhd G, H \leq G \implies HN / N \cong H / (H \cap N)$\\
+	
+	\noindent
+	\textbf{lemma}: any non-trivial finite group $G$ has at least one composition series\\
+	
+	\noindent
+	\textbf{jordan-h\"older theorem}: suppose $G$ is a finite group, $G \neq \{1\}$ with composition series
+	\begin{align*}
+	G \unrhd H_1 \unrhd H_2 \dots \unrhd H_r = \{1\}\\
+	G \unrhd K_1 \unrhd K_2 \dots \unrhd K_s = \{1\}
+	\end{align*}
+	then $r = s$, and $\{G/H_1, H_1 / H_2, \dots, H_{r-1} / H_r\}$ and $\{G/K_1, K_1 / K_2, \dots, H_{s-1} / K_s\}$ are the same simple groups up to isomorphism and multiplicity.
+\end{framed}
+
+\end{multicols}
+
+\newpage
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{(9) sylow's theorems and applications}}
+	\end{center}
+	
+	\noindent
+	\textbf{sylow's theorems}: suppose $G$ is a finite group, $\abs{G} = p^rm$ where $p$ is a prime, $r \in \mathbb{Z}, r \geq 0$ and $p \nmid m$.\\
+	(1) there exists at least one subgroup $P$ of $G$ with $\abs{P} = p^r$\\
+	(2) the subgroups of $G$ of order $p^r$ form a conjugacy class\\
+	(3) if $X \leq G$ and $X$ is a $p$-group, then $X \leq P^g$ for some $g \in G$\\
+	(4) if $n$ is the number of subgroups of $G$ of order $p^r$, then $n \; \vert \; m$ and $n \equiv 1$ (mod $p$)\\
+	
+	\noindent
+	\textit{notation}: $Syl_p(G)$ is the set of Sylow $p$-subgroups and $n_p = \abs{Syl_p(G)}$\\
+	
+	\noindent
+	\textbf{remarks}\\
+	(1) such subgroups of order $p^r$ are called Sylow $p$-subgroups of $G$\\
+	(2) $P \in Syl_p(G) \implies P \leq G$ and $\abs{P} = p^r$\\
+	(3) for $P \in Syl_p(G)$, $n_p = [G:N_G(P)]$, with $n_p \; \vert \; m$ and $n_p \equiv 1$ (mod $p$)\\
+	
+	\noindent
+	\textbf{theorem}: suppose $G$ is a finite group with $\abs{G} = pq$ where $p$ and $q$ are distinct primes. if $p \nmid q - 1$, then $G$ has a normal Sylow $p$-subgroup\\
+	
+	\noindent
+	\textbf{corollary}: suppose $G$ is a finite group with $\abs{G} = pq$, where $p$ and $q$ are distinct primes such that $p < q$ and $p \nmid q - 1$, then $G$ is a cyclic group.\\
+	
+	\noindent
+	\textbf{lemma}\\
+	(1) there are no simple groups of order 200\\
+	(2) there are no simple groups of order 50\\
+	
+	\noindent
+	\textbf{theorem}: if $G$ is a finite group with $\abs{G} = pqr$ where $p, q$ and $r$ are distinct primes, then $G$ is not simple
+\end{framed}
+
+\end{document}

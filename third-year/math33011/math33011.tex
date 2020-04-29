@@ -1,0 +1,320 @@
+\documentclass[a4paper]{article}
+
+\usepackage[a4paper, margin=0.35in]{geometry}
+\usepackage{multicol}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{centernot}
+\usepackage{enumitem}
+\usepackage{framed}
+
+\newcommand\abs[1]{\ensuremath{\lvert#1\rvert}}
+
+\begin{document}
+
+\pagenumbering{gobble}
+	
+\begin{center}
+	\huge{\textbf{math33011 - mathematical logic}}\\
+	\small{available at \textsc{jtang.dev/resources}}\\
+\end{center}
+
+%\begin{multicols}{2}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{set theory}}
+	\end{center}
+	\textbf{poset}: a pair $(X, \leq)$ where $X$ is a set and $\leq$ is a binary operation on X, such that:
+	\begin{enumerate}[label=(\roman*), itemsep=-3pt, topsep=0pt]
+		\item $\leq$ is reflective, i.e. $\forall x \in X: x \leq x$
+		\item $\leq$ is anti-symmetric, i.e. $\forall x, y \in X: x \leq y$ and $y \leq x \implies x = y$
+		\item $\leq$ is transitive, i.e. $\forall x, y, z \in X: x \leq, y \leq z \implies x \leq z$
+	\end{enumerate}
+
+	\noindent
+	\textbf{partial order} (on $X$): $\leq$ as defined above\\
+	\textbf{comparable}: $x, y \in X$ are comparable if either $x \leq y$ or $y \leq x$\\
+	\textbf{strict partial order}: $x < y$, i.e. $x \leq y$ and $x \neq y$\\
+	\textbf{totality axiom}: $\forall x, y \in X: x \leq$ or $y \leq x$\\
+	\textbf{chain / totally ordered set}: a poset that satisfies the totality axiom\\
+	\textbf{trivial partial order}: $x \leq x \iff x = x$\\
+	\textbf{product of two posets}: $(x, y) \leq (x', y') \iff x \leq_1 x'$ and $y \leq_2 y'$\\
+	\textbf{lexicographic product of two posets}: $(x, y) \leq_{lex} (x', y') \iff x <_1 x'$ or $(x = x'$ and $y \leq_2 y').$\\
+	\textbf{ordered sum of two posets}: $X \cup Y$ with $\leq \; \coloneqq \; \leq_1 \cup \leq_2 \cup (X \times Y)$\\
+	
+	\noindent
+	\textbf{upper bound of $S$} (in $X$): $x \in X$ such that $\forall s \in S: s \leq x$, i.e. $S \leq x$\\
+	\textbf{lower bound of $S$} (in $X$): $x \in X$ such that $\forall s \in S: x \leq s$, i.e. $x \leq S$\\
+	\textbf{largest element of $S$}: $x \in S$ such that $S \leq x$ (unique if it exists)\\
+	\textbf{smallest element of $S$}: $x \in S$ such that $x \leq S$ (unique if it exists)\\
+	\textbf{supremum of $S$}: the smallest upper bound of $S$ (one at most)\\
+	\textbf{infimum of $S$}: the largest lower bound of $S$ (one at most)\\
+	\textbf{maximal element of $S$}: $x \in S$ such that there is no $s \in S$ with $x < s$\\
+	\textbf{minimal element of $S$}: $x \in S$ such that there is no $s \in S$ with $s < x$\\
+	
+	\noindent
+	\textbf{poset-homomorphism / monotone}: $f: X \rightarrow Y$ such that $\forall x, x' \in X: x \leq_1 x' \implies f(x) \leq_2 f(x')$\\
+	\textbf{poset embedding}: $f: X \rightarrow Y$ such that $\forall x, x' \in X: x \leq_1 x' \iff f(x) \leq_2 f(x')$\\
+	\textbf{isomorphism of posets}: a poset-homomorphism which is bijective and an embedding\\
+	
+	\noindent
+	\textbf{initial segment / down-set}: $Y \subseteq X$ such that $\forall x, y \in X, x \leq y \in X \implies x \in Y$, denoted $Y \Subset X$\\
+	\textbf{example down-set $X_{< a}$}: $\{ x \in X \; \vert \; x < a \}$ of $X$\\
+	
+	\noindent
+	\textbf{well ordered set}: a chain where every nonempty subset has a smallest element\\
+	\textbf{proposition}: if $X, Y$ are well ordered, then so is the ordered sum and the lexicographic product of $X$ and $Y$\\
+	\textbf{lemma}: a chain $X$ is well ordered $\iff$ it does not possess infinite sequence $x_1 > x_2 > \dots$\\
+	\textbf{observation}: if $X$ is well ordered then each $Y \Subset X, Y \neq X$ is of the form $Y = X_{<a}$ where $a =$ min$(X \backslash Y)$\\
+	\textbf{observation}: $X_{< a} = \emptyset$ if $a$ is the smallest element of $X$\\
+	\textbf{lemma of zorn}: let $X = (X, \leq)$ be a nonempty, poset, such that each $W \subseteq X$ that is well ordered by $\leq$, has an upper bound in $X$. then $X$ possesses at least one maximal element\\
+	\textbf{well ordering principle}: every set can be well ordered, i.e. for every set $M$ there is a well order with universe $M$\\
+	
+	\noindent
+	\textbf{notation}: $X \sqsubset Y$ if there is a poset embedding $f: X \rightarrow Y$ such that $f(X) \Subset Y$ for well ordered sets $X, Y$.\\
+	in other words, $X \sqsubset Y \iff$ there is some $Z \Subset Y$ such that $X$ and $Z$ are isomorphic\\
+	
+	\noindent
+	\textbf{theorem}: if $X, Y$ are well ordered sets and $X \sqsubset Y$, then the poset-embedding ($f: X \rightarrow Y$ such that $f(x) \Subset Y$) is unique\\
+	\textbf{theorem}: if $X, Y$ are well ordered sets, then
+	\begin{enumerate}[label=(\roman*), itemsep=-3pt, topsep=0pt]
+		\item $X \sqsubset Y$ and $Y \sqsubset X \implies X \cong Y$
+		\item $X \sqsubset Y$ or $Y \sqsubset X$\\
+	\end{enumerate}
+	
+	\noindent
+	\textbf{transitive set}: a set $X$ such that each of its elements is a subset of $X$, so $y \in x \in X \implies x \in X$\\
+	\textbf{ordinal (number)}: a transitive set $\alpha$ such that the element relation is a strict well order on $\alpha$, i.e. $x \leq y$ defined as $x = y$ or $x \in y$ is a well order on $\alpha$\\
+	\textbf{successor of $\alpha$}: $\alpha^* \; \coloneqq \; \alpha \cup \{ \alpha \}$\\
+	
+	\noindent
+	\textbf{proposition}: for ordinals $\alpha, \beta$: $\alpha \sqsubset \beta \iff \exists$ poset-embedding $\alpha \rightarrow \beta \iff \alpha \subseteq \beta \iff \alpha \Subset \beta \iff \alpha = \beta$ or $\alpha \in \beta$\\
+	\textbf{ordering on ordinals}: for ordinals $\alpha, \beta$, we write $\alpha \leq \beta$ instead of $\alpha \subseteq \beta$ and $\alpha < \beta$ for $\alpha \in \beta$\\
+	\textbf{corollary}: if $\alpha, \beta$ are ordinals, then $\alpha \Subset \beta$ or $\beta \Subset \alpha$, $\alpha \subseteq \beta$ or $\beta \subseteq \alpha$, and $\alpha \leq \beta$ or $\beta \leq \alpha$\\
+	\textbf{corollary}: if $I$ is an index set and $\alpha_i$ is an ordinal for all $i \in I$, then $\bigcup_{i \in I} \alpha_i$ is also an ordinal\\
+	\textbf{corollary}: every ordinal $\alpha$ is equal to the set of ordinals that are strictly less than $\alpha$, $\alpha = \{ \beta \; \vert \; \beta$ is an ordinal and $\beta < \alpha \}$\\
+	\textbf{successor ordinal}: $\alpha$ is called a successor ordinal if there is an ordinal $\beta$ such that $\alpha = \beta^*$, else called a \textbf{limit ordinal}\\
+	\textbf{theorem}: if $W$ is a well ordered set, then there is a unique ordinal $\alpha$ that is isomorphic to $W$ (exactly one isomorphism)\\
+	\textbf{corollary}: every set is in bijection with some ordinal\\
+	\textbf{ordinal minimisation principle}: let $P$ be a property of ordinals and assume there is an ordinal with property $P$, then there is a smallest ordinal with property $P$\\
+	
+	\noindent
+	\textbf{cardinality / size} of X: the smallest ordinal $\alpha$ that is in bijection with $X$. $card(X) = \vert X \vert = \alpha$\\
+	\textbf{cardinal (number)}: an ordinal $\alpha$ whose cardinality is $\alpha$. in particular, the size of any set is a cardinal number\\
+	\textbf{proposition}: for sets $X, Y, X \neq \emptyset$, $card(X) \leq card(Y) \iff \exists$ injective map $X \rightarrow Y \iff \exists$ surjective map $Y \rightarrow X$\\
+	\textbf{theorem of bernstein}: for sets $X, Y$, the following are equivalent:
+	\begin{enumerate}[label=(\roman*), itemsep=-3pt, topsep=0pt]
+		\item there are injective maps $X \rightarrow Y$ and $Y \rightarrow X$
+		\item there are surjective maps $X \rightarrow Y$ and $Y \rightarrow X$
+		\item there is a bijective map $X \rightarrow Y$
+		\item $card(X) = card(Y)$\\
+	\end{enumerate}
+	
+	\noindent
+	\textbf{size of a power set}: for every set $X$, we have $card(X) < card(\mathcal{P}(X))$\\
+	\textbf{corollary}: if $X$ is a set, then there is a cardinal $\kappa > card(X)$\\
+	\textbf{pairing function}: Pair: $\omega \times \omega \rightarrow \omega$, defined as $Pair(x, y) \; \coloneqq \; \frac{1}{2}(x + y)(x + y + 1) + x$ is bijective\\
+	\textbf{size of products}: if $X, Y \neq \emptyset$ and at least one of them is infinite, then $card(X \times Y) = max\{card(X), card(Y)\}$\\
+	\textbf{size of arbitrary unions}: let $I$ be an index set and for each $i \in I$, let $X_i$ be a set. let $\kappa$ be an infinite cardinal with $card(X_i) \leq \kappa$ for all $i$, then $card(\bigcup_{i \in I} X_i) \leq max\{ card(I), \kappa \}$\\
+	\textbf{corollary}: if $X, Y$ are sets and at least one of them is infinite, then $card(X \cup Y) = max\{card(X), card(Y)\}$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{revision of predicate logic}}
+	\end{center}
+	
+	\noindent
+	for this section, let $\mathscr{L}$ be a language.\\
+	
+	\noindent
+	\textbf{alphabet} of $\mathscr{L}$ consists of: a set logical symbols $\{\neg, \rightarrow, \forall, \doteq, ), (, ,, v_0, v_1, v_2, \dots\}$ and three mutually disjoint sets $\mathscr{R}, \mathscr{F}, \mathscr{C}$ called the set of relation symbols, function symbols and constant symbols, respectively. Maps $\lambda : \mathscr{R} \rightarrow \mathbb{N}$ and $\mu : \mathscr{F} \rightarrow \mathbb{N}$, called the arity of relation symbols and arity of function symbols, respectively\\
+	
+	\noindent
+	\textbf{letter / symbol}: every logical element and every element from $\mathscr{R} \cup \mathscr{F} \cup \mathscr{C}$\\
+	\textbf{variables}: $Vbl = \{v_n \; \vert \; n \in \mathbb{N}_0\}$\\
+	
+	\noindent
+	\textbf{finite}: the alphabet of $\mathscr{L}$ is finite if $\mathscr{R}, \mathscr{F}$ and $\mathscr{C}$ are finite. otherwise, infinite\\
+	\textbf{countable}: the alphabet of $\mathscr{L}$ is countable if $\mathscr{R}, \mathscr{F}$ and $\mathscr{C}$ is countable or finite. otherwise, uncountable.\\
+	\textbf{cardinality} of the alphabet of $\mathscr{L}$: the cardinality of $\mathscr{R} \cup \mathscr{F} \cup \mathscr{C}$\\
+	\textbf{similarity type} of $\mathscr{L}$: $(\lambda : \mathscr{R} \rightarrow \mathbb{N}, \mu : \mathscr{F} \rightarrow \mathbb{N}, \mathscr{C})$\\
+	
+	\noindent
+	given the similarity type $(\lambda : \mathscr{R} \rightarrow \mathbb{N}, \mu : \mathscr{F} \rightarrow \mathbb{N}, \mathscr{C})$, we define $tm_k(\mathscr{L})$ by induction on $k \in \mathbb{N}_0$ as follows:
+	$$tm_0(\mathscr{L}) = Vbl \cup \mathscr{C} \quad \text{and} \quad tm_{k + 1}(\mathscr{L}) = tm_k(\mathscr{L}) \cup \Bigg\{F(t_1, t_2, \dots, t_n) \; \vert \; n \in \mathbb{N}, F \in \mathscr{F}, \mu(F)=n, t_1, \dots, t_n \in tm_k(\mathscr{L})\Bigg\}$$
+	
+	\noindent
+	\textbf{terms}: $tm(\mathscr{L}) = \cup_{k \in \mathbb{N}_0}tm_k(\mathscr{L})$\\
+	\textbf{complexity of a term} $c(t)$ is the least $k \in \mathbb{N}_0$ such that $t \in tm_k(\mathscr{L})$\\
+	
+	\noindent
+	\textbf{unique readability theorem for terms}: if $t$ is an $\mathscr{L}$-term, then either $t$ is a variable or $t$ is a constant symbol or there are uniquely determined $n \in \mathbb{N}, F \in \mathscr{F}$ of arity $n$ and $t_1, \dots, t_n \in tm(\mathscr{L}$ such that $t = F(t_1, \dots, t_n)$\\
+	
+	\noindent
+	\textbf{corollary}: for $n \in \mathbb{N}$, all terms $t_1, \dots, t_n$ and each $F \in \mathscr{F}, \mu(F) = n$, we have $c(F(t_1, \dots, t_n)) =  1 + max\{c(t_1), \dots, c(t_n)\}$\\
+	
+	\noindent
+	\textbf{atomic formula}: a string of the alphabet of $\mathscr{L}$ of the form $t_1 \doteq t_2$ where $t_1, t_2$ are $\mathscr{L}$-terms or $R(t_1, \dots, t_n)$ where $R \in \mathscr{R}, \lambda(R) = n$ and $t_1, \dots, t_n$ are $\mathscr{L}$-terms. the set of atomic $\mathscr{L}$-formulas is denoted at-$Fml(\mathscr{L})$\\
+	
+	\noindent
+	we define $Fml_k$ by induction on $k \in \mathbb{N}_0$ as follows:
+	$$Fml_(\mathscr{L}) = \text{at-}Fml(\mathscr{L}) \quad \text{and} \quad Fml_{k+1}(\mathscr{L}) = Fml_k(\mathscr{L}) \cup \{(\neg \varphi), (\varphi \rightarrow \psi), (\forall x\varphi) \; \vert \; \varphi, \psi \in Fml_k(\mathscr{L}), x \in Vbl\}$$
+	
+	\noindent
+	\textbf{formulas}: $Fml(\mathscr{L}) = \cup_{k \in \mathbb{N}_0}Fml_k(\mathscr{L})$\\
+	\textbf{quantifier free}: a formula $\varphi$ is quantifier free if the letter $\forall$ does not occur in it\\
+	
+	\noindent
+	\textbf{unique readability theorem for formulas}: let $\mathscr{L} = (\lambda : \mathscr{R} \rightarrow \mathbb{N}, \mu : \mathscr{F} \rightarrow \mathbb{N}, \mathscr{C})$ be a language and let $\varphi$ be an $\mathscr{L}$-formula. then exactly one of the following holds true:
+	\begin{enumerate}[label=(\roman*), itemsep=-3pt, topsep=0pt]
+		\item $\varphi$ is atomic and there are unique determined $t_1, t_2 \in tm(\mathscr{L})$ such that $\varphi$ is $t_1 \doteq t_2$
+		\item $\varphi$ is atomic and there is a unique $n \in \mathbb{N}$, $R \in \mathscr{R}$ and uniquely determined $\mathscr{L}$-terms $t_1, \dots, t_n$ such that $\varphi$ is $R(t_1, \dots, t_n)$
+		\item $\varphi$ is equal to a string of the form $(\neg \psi)$ for a uniquely determined $\psi \in Fml(\mathscr{L})$
+		\item $\varphi$ is equal to a string of the form $(\varphi_1 \rightarrow \varphi_2)$ for uniquely determined $\varphi_1, \varphi_2 \in Fml(\mathscr{L})$
+		\item $\varphi$ is a string of the form $(\forall x \psi)$ for uniquely determined $\psi \in Fml(\mathscr{L})$ and $x \in Vbl$\\
+	\end{enumerate}
+	
+	\noindent
+	\textbf{language} $\mathscr{L}$: the triple consisting of the alphabet of $\mathscr{L}$, the set of $\mathscr{L}$ and the set of $\mathscr{L}$-formulas.\\
+	\textbf{finite / infinite / countable / uncountable}: $\mathscr{L}$ has this property if its alphabet has this property\\
+	\textbf{cardinality}: $card(\mathscr{L})$, is the cardinality of the alphabet of $\mathscr{L}$
+\end{framed}
+
+\begin{framed}
+	\begin{center}
+		\textbf{\textsc{model theory}}
+	\end{center}
+	
+	\noindent
+	let $\mathscr{L}$ be a language and $\mathscr{M}, \mathscr{N}$ be $\mathscr{L}$-structures\\
+	
+	\noindent
+	\textbf{map between $\mathscr{M}$ and $\mathscr{N}$}: a map $f: \abs{\mathscr{M}} \rightarrow \abs{\mathscr{N}}$, but we write $f: \mathscr{M} \rightarrow \mathscr{N}$ instead\\
+	\textbf{preserved by a map}: a formula $\varphi(x_1, \dots, x_n) \in \text{Fml}(\mathscr{L})$ is preserved by a map $f: \mathscr{M} \rightarrow \mathscr{N}$ if for all $a_1, \dots, a_n$
+	$$\mathscr{M} \models \varphi(a_1, \dots, a_n) \implies \mathscr{N} \models \varphi(f(a_1), \dots, f(a_n))$$
+	\textbf{$f$ respects $\varphi$}: $\varphi$ is preserved by $f$\\
+	
+	\noindent
+	\textbf{homomorphism}: a map $f: \mathscr{M} \rightarrow \mathscr{N}$ between $\mathscr{L}$-structures which respects all atomic formulas\\
+	\textbf{lemma}: let $f: \mathscr{M} \rightarrow \mathscr{N}$ be a map between $\mathscr{L}$-structures. the following are equivalent:
+	\begin{enumerate}[label=(\roman*), itemsep=-3pt, topsep=0pt]
+		\item $f$ is an $\mathscr{L}$-homomorphism
+		\item $f$ satisfies each of the following conditions:
+		\begin{enumerate}[label=(\alph*), itemsep=-2.5pt, topsep=-5pt]
+			\item for all $R \in \mathscr{R}$ of arity $n$ and all $a_1, \dots, a_n \in \abs{\mathscr{M}}$ we have $(a_1, \dots, a_n) \in R^\mathscr{M} \implies (f(a_1), \dots, f(a_n)) \in R^\mathscr{N}$
+			\item for all $F \in \mathscr{F}$ of arity $n$ and all $a_1, \dots, a_n \in \abs{\mathscr{M}}$ we have $f(F^\mathscr{M}(a_1, \dots, a_n)) \implies F^\mathscr{N}(f(a_1), \dots, f(a_n))$
+			\item for all $c \in \mathscr{C}$ we have $f(c^\mathscr{M}) = c^\mathscr{N}$
+		\end{enumerate}
+		\item $f$ respects each of the following formulas:
+		\begin{enumerate}[label=(\alph*), itemsep=-2pt, topsep=-5pt]
+			\item all formulas of the form $R(v_1, \dots, v_n)$ where $R \in \mathscr{R}$ is a relation symbol of $\mathscr{L}$ or arity $n$
+			\item all formulas of the form $v_0 \doteq F(v_1, \dots, v_n)$ where $F \in \mathscr{F}$ is a function symbol of $\mathscr{L}$ of arity $n$
+			\item all formulas of the form $v_0 \doteq c$, where $c \in \mathscr{C}$ is a constant symbol of $\mathscr{L}$\\
+		\end{enumerate}
+	\end{enumerate}
+
+	\noindent
+	\textbf{embedding}: a map $f: \mathscr{M} \rightarrow \mathscr{N}$ between $\mathscr{L}$-structures which respects all quantifier free formulas\\
+	\textbf{$\mathscr{M}$ is a substructure of $\mathscr{N}$}: if $\abs{\mathscr{M}} \subseteq \abs{\mathscr{N}}$ and the inclusion map $\abs{\mathscr{M}} \rightarrow \abs{\mathscr{N}}$ is an embedding, then $\mathscr{M}$ is called a substructure of $\mathscr{M}$. in addition, if $\abs{\mathscr{M}} \neq \abs{\mathscr{N}}$, then $\mathscr{M}$ is called a \textbf{proper substructure} of $\mathscr{N}$\\
+	\textbf{lemma}: let $f: \mathscr{M} \rightarrow \mathscr{N}$ be a map between $\mathscr{L}$-structures. the following are equivalent:
+		\begin{enumerate}[label=(\roman*), itemsep=-3pt, topsep=0pt]
+			\item $f$ is an embedding
+			\item $f$ is an injective $\mathscr{L}$-homomorphism such that for all $a_1, \dots, a_n \in \abs{M}$ we have
+			$$(a_1, \dots, a_n) \in R^\mathscr{M} \iff (f(a_1), \dots, f(a_n)) \in R^\mathscr{N}$$
+			\item for all $\varphi(x_1, \dots, x_n) \in \text{at-Fml}(\mathscr{L})$ and all $a_1, \dots, a_n \in \abs{\mathscr{M}}$ we have
+			$$\mathscr{M} \models \varphi(a_1, \dots, a_n) \iff \mathscr{N} \models \varphi(f(a_1), \dots, f(a_n))$$
+		\end{enumerate}
+		
+	\noindent
+	\textbf{corollary}: let $\mathscr{M}$ be an $\mathscr{L}$-structure and let $A \subseteq \abs{\mathscr{M}}$. if $c^\mathscr{M}$ and for each $n$-ary function symbol $F$ of $\mathscr{L}$, the function $F^\mathscr{M}$ maps $A^n$ to $A$, then $A$ is the universe of a unique substructure $\mathscr{A}$ of $\mathscr{M}$, which is called the \textbf{substructure of $\mathscr{M}$ induced on $A$}, which interprets the non-logical symbols as follows:
+		\begin{enumerate}[label=(\roman*), itemsep=-3pt, topsep=0pt]
+			\item $R^\mathscr{A} = R^\mathscr{M} \cap A^n$ for all $R \in \mathscr{R}$ of arity $n$
+			\item $F^\mathscr{A}(a_1, \dots, a_n) = F^\mathscr{M}(a_1, \dots, a_n)$ for all $F \in \mathscr{F}$ or arity $n$
+			\item $c^\mathscr{A} = c^\mathscr{M}$ for all $c \in \mathscr{C}$\\
+		\end{enumerate}
+	
+	\noindent
+	\textbf{corollary}: let $\mathscr{M}$ be an $\mathscr{L}$-structure. then any nonempty intersection of universes of substructures of $\mathscr{M}$ is again the universe of a substructure of $\mathscr{M}$. consequently, if $A \subseteq \abs{\mathscr{M}}$ is nonempty, then there is a smallest (for inclusion) universe $U$ of a substructure of $\mathscr{M}$ containing $A$, namely the intersection of all the universes of substructures of $\mathscr{M}$ containing $A$, and the substructure with universe $U$ is called the \textbf{substructure of $\mathscr{M}$ generated by $A$}\\
+	
+	\noindent
+	\textbf{elementary embedding}: a map $f: \mathscr{M} \rightarrow \mathscr{N}$ between $\mathscr{L}$-structures which respects all formulas\\
+	\textbf{$\mathscr{M}$ is a elementary substructure of $\mathscr{N}$}: if $\abs{\mathscr{M}} \subseteq \abs{\mathscr{N}}$ and the inclusion map $\abs{\mathscr{M}} \rightarrow \abs{\mathscr{N}}$ is an elementary embedding, then $\mathscr{M}$ is called an elementary substructure of $\mathscr{N}$, denoted $\mathscr{M} \prec \mathscr{N}$, and $\mathscr{N}$ is called an \textbf{elementary extension} of $\mathscr{M}$\\
+	
+	\noindent
+	\textbf{isomorphism}: a map $f: \mathscr{M} \rightarrow \mathscr{N}$ between $\mathscr{L}$-structures which is a bijective embedding.\\
+	\textbf{isomorphic}: two $\mathscr{L}$-structures $\mathscr{M}$ and $\mathscr{N}$ are isomorphism, denoted $\mathscr{M} \cong \mathscr{N}$, if there is an isomorphism $\mathscr{M} \rightarrow \mathscr{N}$\\
+	\textbf{lemma}: every $\mathscr{L}$-isomorphism is an elementary embedding\\
+	
+	\noindent
+	\textbf{elementary equivalent}: two $\mathscr{L}$-structures $\mathscr{M}$ and $\mathscr{N}$ that satisfy the same $\mathscr{L}$-sentences, denoted $\mathscr{M} \equiv \mathscr{N}$\\
+	\textbf{lemma}: if $f: \mathscr{M} \rightarrow \mathscr{N}$ is an elementary embedding then $\mathscr{M} \equiv \mathscr{N}$. if particular, isomorphic structures are elementary equivalent.\\
+	\textbf{proposition}: if $\mathscr{M}$ is finite and $\mathscr{N} \equiv \mathscr{M}$, then $\mathscr{M} \cong \mathscr{N}$\\
+	
+	\noindent
+	\textbf{tarski-vaught test}: let $\mathscr{M}$ be an $\mathscr{L}$-structure and let $A \subseteq \abs{\mathscr{M}}$. the following are equivalent:
+	\begin{enumerate}[label=(\roman*), itemsep=-3pt, topsep=0pt]
+			\item $A$ is the universe of an elementary substructure of $\mathscr{M}$
+			\item for every $\mathscr{L}$-formula $\varphi(x, \overline{y})$ and all $\overline{a} \in A^{\overline{y}}$, if $\mathscr{M} \models (\exists x \varphi)(\overline{a})$, then there is some $b \in A$ with $\varphi(b, \overline{a})$\\
+		\end{enumerate}
+		
+	\noindent
+	\textbf{lemma}: for any language $\mathscr{L}$, the cardinality of $Fml(\mathscr{L})$ is $max\{\aleph_0, \text{card}(\mathscr{L})\}$\\
+	
+	\noindent
+	\textbf{skolem-l\"owenheim downwards}: let $\mathscr{M}$ be an $\mathscr{L}$-structure and let $A \subseteq \abs{\mathscr{M}}$. then there is an elementary substructure $\mathscr{N}$ of $\mathscr{M}$ with $A \subseteq \abs{\mathscr{N}}$ such that $\text{card}(\mathscr{N}) \leq max\{\aleph_0, \text{card}(A), \text{card}(\mathscr{L})\}$\\
+	
+	\noindent
+	\textbf{$\mathscr{L}$-theory}: a set of $\mathscr{L}$-sentences\\
+	\textbf{model $\mathscr{M}$ of an $\mathscr{L}$-theory}: an $\mathscr{L}$-structure $\mathscr{M}$ with $\mathscr{M} \models \varphi$ for all $\varphi \in T$, denoted $\mathscr{M} \models T$\\
+	\textbf{consistent / satisfiable}: a theory is consistent or satisfiable if it has a model\\
+	\textbf{complete}: a theory is complete if all its models are elementary equivalent\\
+	\textbf{theory of $\mathscr{M}$}: defined as $Th(\mathscr{M}) = \{\varphi \in Sen(\mathscr{L}) \; \vert \; \mathscr{M} \models \varphi\}$ is always complete\\
+	
+	\noindent
+	\textbf{compactness theorem}: if $T$ is a set of $\mathscr{L}$-sentences such that any finite subset of $T$ has a model, then $T$ itself has a model\\
+	
+	\noindent
+	\textbf{lemma}: let $\mathscr{M}$ be an infinite $\mathscr{L}$-structure and let $\kappa$ be any cardinal. then there is an elementary extension $\mathscr{N}$ of $\mathscr{M}$ with $\text{card}(\abs{\mathscr{N}}) \geq \kappa$\\
+	
+	\noindent
+	\textbf{skolem-l\"owenheim upwards}: let $\mathscr{M}$ be an infinite $\mathscr{L}$-structure and let $\kappa$ be an cardinal $\geq \text{card}(\mathscr{M}), \text{card}(\mathscr{L})$. then there is an elementary extension $\mathscr{N} \succ \mathscr{M}$ of cardinality $\kappa$\\
+	
+	\noindent
+	\textbf{definable in $\mathscr{M}$}: a subset $S$ of $\abs{\mathscr{M}}^n$ is called definable in $\mathscr{M}$ if there is some $\mathscr{L}$-formula $\varphi(x_1, \dots, x_n, y_1, \dots, y_n)$ and a $k$-tuple $\overline{a} \in \abs{\mathscr{M}}^k$ such that 
+	$$S = \varphi(\mathscr{M}^n, \overline{a}) := \{(m_1, \dots, m_n) \in \mathscr{M}^n \; \vert \; \mathscr{M} \models \varphi(m_1, \dots, m_n, a_1, \dots, a_k)\}$$
+	we say that $S$ is \textbf{defined by} $\varphi(\overline{x}, \overline{a})$ in $\mathscr{M}$ and the elements $a_1, \dots, a_k$ are called \textbf{parameters}\\
+	
+	\noindent
+	\textbf{proposition}: let $\mathscr{M}$ be an $\mathscr{M}$-structure with universe $M = \abs{\mathscr{M}}$, then
+	\begin{enumerate}[label=(\roman*), itemsep=-3pt, topsep=0pt]
+		\item if $S, T$ are definable subsets of $M^n$, then also $S \cap T, S \cup T$ and $S \backslash T$ are definable. if $p$ is the projection $M^n \rightarrow M^k$ and $S$ is a definable subset of $M^n$, then $p(S)$ is a definable subset of $M^k$
+		\item if $f: \mathscr{M} \rightarrow \mathscr{N}$ is an isomorphism between $\mathscr{L}$-structures and $S \subseteq M^n$ is defined by $\varphi(\overline{x}, \overline{a})$, then $f(S)$ is defined by $\varphi(\overline{x}, f(\overline{a}))$, here we also consider $f$ as a map $M^n \rightarrow \abs{\mathscr{N}}^n$ obtained from $f$ by applying $f$ coordinate wise; thus $f(S) \subseteq \abs{\mathscr{N}}^n$ and $f(\overline{a}) \in \abs{\mathscr{N}}^n$\\
+	\end{enumerate}
+	
+	\noindent
+	\textbf{definable in $\mathscr{M}$}: let $\mathscr{M}$ be an $\mathscr{L}$-structure with universe $M$ and let $S \subseteq M^n$. a function $f: S \rightarrow M^k$ is called definable in $M$ if its graph is a subset of $M^n \times M^k$ that is definable in $\mathscr{M}$\\
+	
+	\noindent
+	\textbf{proposition}: let $\mathscr{M}$ be an $\mathscr{L}$-structure with universe $M$ and let $S \subseteq M^n$. let $f: S \rightarrow M^k$ be a function
+	\begin{enumerate}[label=(\roman*), itemsep=-3pt, topsep=0pt]
+		\item $f$ is definable if and only if each component of $f$ is a definable map $S \rightarrow M$
+		\item if $f$ is definable, then $S$ and the image of $f$ are definable
+		\item the composition of definable maps (when well-defined) is definable\\
+	\end{enumerate}
+	
+	\noindent
+	\textbf{proposition}: any two countable and dense total orders without endpoints are isomorphic\\
+	
+	\noindent
+	\textbf{categorial in an infinite cardinal $\kappa$}: an $\mathscr{M}$-theory $T$ that has an infinite model is called categorial in an infinite cardinal $\kappa$, or simply $\kappa$\textbf{-categorial}, if all models of $T$ of cardinality $\kappa$ are isomorphic\\
+	
+	\noindent
+	\textbf{theorem}: if $T$ has no finite models and $T$ is categorial in some infinite cardinal $\geq \text{card}(\mathscr{M})$, then $T$ is complete
+\end{framed}
+
+%\end{multicols}
+\end{document}
